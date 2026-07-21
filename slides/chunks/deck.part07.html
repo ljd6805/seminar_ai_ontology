@@ -1,0 +1,72 @@
+
+  <div class="content"><table class="tbl compact"><thead><tr><th>구분</th><th>목적</th><th>예시</th><th>주요 도구</th></tr></thead><tbody><tr><td>추론 Reasoning</td><td>이미 적은 사실에서 새 사실을 도출</td><td>subClassOf로 상위 분류 자동 도출</td><td>OWL/RDFS reasoner</td></tr><tr><td>검증 Validation</td><td>데이터가 약속한 조건을 지켰는지 확인</td><td>evidence 누락이면 실패</td><td>SHACL/ShEx</td></tr><tr><td>검색 Query</td><td>조건에 맞는 graph pattern을 찾음</td><td>최근 timeout 20건</td><td>SPARQL</td></tr></tbody></table><p class="note">이 셋을 섞으면 사고 납니다. 특히 “OWL로 필수값 검증”을 기대하면 초보자 함정에 빠집니다.</p></div>
+  
+</section>
+<section class="slide " data-index="28" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">세계관부터 다릅니다</div><div class="num">28</div></div>
+  <h1>Open-world vs Closed-world</h1>
+  <div class="content"><div class="two "><div><div class="world open"><h3>Open-world</h3><p>모르는 것은 거짓이 아니다.</p><small>OWL/RDF 추론의 기본 사고</small></div></div><div><div class="world closed"><h3>Closed-world</h3><p>필요한 값이 없으면 불합격이다.</p><small>DB/SHACL 검증의 기본 사고</small></div></div></div><p class="note">실무 시스템은 둘 다 필요합니다. 의미 모델은 open-world로, 입력 품질 게이트는 closed-world로 다루는 식입니다.</p></div>
+  
+</section>
+<section class="slide section" data-index="29" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">설계 철학</div><div class="num">29</div></div>
+  <h1>Part 3. 구성 원리</h1>
+  <div class="content"><div class="section-mark">좋은 ontology는 크게 만들지 않고, 정확히 필요한 만큼 만든다</div></div>
+  
+</section>
+<section class="slide " data-index="30" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">원리 1</div><div class="num">30</div></div>
+  <h1>정답 ontology는 없다</h1>
+  <div class="content"><blockquote><p>Ontology 설계는 창의적 과정이며, 도메인과 애플리케이션 목적에 따라 여러 모델이 가능하다.</p><cite>Noy & McGuinness 요지</cite></blockquote><div class="cards tri build"><article class="card " style="--i:0"><h3>목적이 먼저</h3><p>“무엇을 답할 것인가”가 모델을 결정</p></article><article class="card " style="--i:1"><h3>관점이 모델</h3><p>검증팀 ontology와 재무팀 ontology는 다를 수 있음</p></article><article class="card " style="--i:2"><h3>테스트가 품질</h3><p>의도한 질문을 잘 답하면 좋은 모델</p></article></div></div>
+  <p class="source">근거: Ontology Development 101</p>
+</section>
+<section class="slide " data-index="31" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">원리 2</div><div class="num">31</div></div>
+  <h1>Competency Question으로 시작한다</h1>
+  <div class="content"><div class="two "><div><div class="cq-box"><h3>좋은 CQ</h3><p>“최근 7일 동안 동일 signature로 재발한 timeout failure는 무엇이며, 기존 Jira 이슈와 연결되는가?”</p></div></div><div><div class="cards stack build"><article class="card " style="--i:0"><h3>범위</h3><p>무엇을 모델링할지 선을 긋는다.</p></article><article class="card " style="--i:1"><h3>테스트</h3><p>SPARQL/검증 케이스로 바꿀 수 있다.</p></article><article class="card " style="--i:2"><h3>합의</h3><p>이 질문에 답 못 하면 가치가 없다는 기준이 된다.</p></article></div></div></div></div>
+  <p class="source">근거: Grüninger & Fox competency questions</p>
+</section>
+<section class="slide " data-index="32" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">원리 3</div><div class="num">32</div></div>
+  <h1>범위는 과감하게 자른다</h1>
+  <div class="content"><div class="scope-target"><div class="ring r3">회사 전체 지식</div><div class="ring r2">검증 업무 지식</div><div class="ring r1">Regression failure triage</div></div><p class="note">처음부터 “반도체 전체 ontology”를 만들면 대개 망합니다. 첫 버전은 업무 질문 5~10개에 답하는 좁은 모델이 좋습니다.</p></div>
+  
+</section>
+<section class="slide " data-index="33" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">원리 4</div><div class="num">33</div></div>
+  <h1>Reuse first — 새로 만들기 전에 찾아라</h1>
+  <div class="content"><div class="flow wide build"><div class="flow-step" style="--i:0"><b>1. 기존 표준</b><small>Dublin Core, PROV, SKOS 등</small></div><div class="flow-arrow" style="--i:0.3">→</div><div class="flow-step" style="--i:1"><b>2. 도메인 ontology</b><small>OBO, FIBO, schema.org 등</small></div><div class="flow-arrow" style="--i:1.3">→</div><div class="flow-step" style="--i:2"><b>3. 내부 표준</b><small>팀 용어집·DB 스키마·Jira field</small></div><div class="flow-arrow" style="--i:2.3">→</div><div class="flow-step" style="--i:3"><b>4. 새 개념</b><small>정말 없을 때만 생성</small></div></div><p class="note">관계 property는 특히 재사용 효과가 큽니다. 서로 다른 ontology가 같은 관계를 써야 reasoner와 통합이 의미 있게 작동합니다.</p></div>
+  <p class="source">근거: OBO Foundry relation principle; NeOn methodology</p>
+</section>
+<section class="slide " data-index="34" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">원리 5</div><div class="num">34</div></div>
+  <h1>IRI와 이름은 운영 규칙이다</h1>
+  <div class="content"><div class="two "><div><div class="code-card text"><div class="code-title">예시 IRI</div><pre><code>https://ljd6805.github.io/seminar_ai_ontology/ontology/failure#TimeoutFailure
+https://ljd6805.github.io/seminar_ai_ontology/ontology/failure#observedIn</code></pre></div></div><div><div class="cards stack build"><article class="card " style="--i:0"><h3>안정성</h3><p>이름이 바뀌어도 IRI는 함부로 바꾸지 않는다.</p></article><article class="card " style="--i:1"><h3>가독성</h3><p>라벨은 사람이 읽기 좋게 여러 언어/동의어 허용</p></article><article class="card " style="--i:2"><h3>소유권</h3><p>prefix와 namespace 책임자를 정한다.</p></article></div></div></div></div>
+  
+</section>
+<section class="slide " data-index="35" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">원리 6</div><div class="num">35</div></div>
+  <h1>모듈로 나누면 오래 간다</h1>
+  <div class="content"><div class="module-map"><div>Core</div><div>Failure</div><div>Test</div><div>Issue</div><div>Evidence</div><div>Ownership</div></div><div class="cards tri build"><article class="card " style="--i:0"><h3>Core</h3><p>조직 공통: Agent, Document, Owner, Evidence</p></article><article class="card " style="--i:1"><h3>Domain</h3><p>업무별: Failure, Register, Timing, Protocol</p></article><article class="card " style="--i:2"><h3>Application</h3><p>서비스별: dashboard view, API mapping, validation shape</p></article></div></div>
+  
+</section>
+<section class="slide " data-index="36" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">원리 7</div><div class="num">36</div></div>
+  <h1>버전과 출처 없이는 지식이 아니다</h1>
+  <div class="content"><div class="two "><div><div class="prov-card"><h3>필수 메타데이터</h3><ul><li>creator / maintainer</li><li>created / modified</li><li>version IRI</li><li>source document</li><li>change rationale</li></ul></div></div><div><div class="history build"><p style="--i:0">v0.1 — 5개 CQ, 18개 class</p><p style="--i:1">v0.2 — Jira issue 연결 추가</p><p style="--i:2">v0.3 — SHACL gate 도입</p><p style="--i:3">v1.0 — 운영 승인</p></div></div></div></div>
+  <p class="source">근거: OBO Foundry principles</p>
+</section>
+<section class="slide " data-index="37" data-tag="READ" data-notes="">
+  <div class="badge read">READ</div>
+  <div class="slide-head"><div class="kicker">Gruber 설계 원칙</div><div class="num">37</div></div>
+  <h1>품질 기준 5가지</h1>
