@@ -1,0 +1,71 @@
+
+@media (max-height:800px){.slide{padding:30px 44px 28px}h1{font-size:46px;margin-bottom:14px}.card{padding:18px;min-height:112px}.card h3{font-size:22px}.card p{font-size:16px}.lead{font-size:22px}.tbl{font-size:16px}.code-card pre{font-size:15px}.source{left:44px}.badge{right:44px;top:64px}.qa p{font-size:32px}.section h1{font-size:70px}.cards.five{gap:12px}.timeline{gap:8px}.tl-item{min-height:170px;padding:14px}.tl-item b{font-size:18px}.tl-item span{font-size:13px}.flow-step{min-height:105px;padding:16px}.flow-step b{font-size:20px}.flow-step small{font-size:14px}}
+@media print{body{overflow:visible}.slide{display:flex!important;position:relative;page-break-after:always;height:100vh}.controls,.progress{display:none}}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<section class="slide cover" data-index="1" data-tag="" data-notes="표지. 온톨로지를 추상 철학이 아니라 실무 지식관리 방법론으로 다룬다고 선언한다.">
+  
+  <div class="slide-head"><div class="kicker">온톨로지 · 입문 교안</div><div class="num">01</div></div>
+  <h1>Ontology 지식관리 방법론</h1>
+  <div class="content"><div class="hero"><p>흩어진 용어를<br><b>실행 가능한 지식 구조</b>로 바꾸는 법</p><div class="journey">도입 → 정의 → 원리 → 구축 → 검증 → 실무 적용</div></div></div>
+  
+</section>
+<section class="slide " data-index="2" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">0. 전체 지도</div><div class="num">02</div></div>
+  <h1>오늘의 학습 여정</h1>
+  <div class="content"><div class="flow wide build"><div class="flow-step" style="--i:0"><b>왜 생겼나</b><small>같은 말·다른 의미 문제</small></div><div class="flow-arrow" style="--i:0.3">→</div><div class="flow-step" style="--i:1"><b>무엇인가</b><small>정의와 표준 스택</small></div><div class="flow-arrow" style="--i:1.3">→</div><div class="flow-step" style="--i:2"><b>어떻게 생각하나</b><small>구성 원리</small></div><div class="flow-arrow" style="--i:2.3">→</div><div class="flow-step" style="--i:3"><b>어떻게 만드나</b><small>CRAFT 구축 루프</small></div><div class="flow-arrow" style="--i:3.3">→</div><div class="flow-step" style="--i:4"><b>어떻게 검증하나</b><small>CQ·SHACL·SPARQL</small></div><div class="flow-arrow" style="--i:4.3">→</div><div class="flow-step" style="--i:5"><b>어디에 쓰나</b><small>반도체 예시와 실제 사례</small></div></div></div>
+  
+</section>
+<section class="slide " data-index="3" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">먼저 한 문장</div><div class="num">03</div></div>
+  <h1>오늘의 결론</h1>
+  <div class="content"><blockquote><p>Ontology는 “멋진 분류표”가 아니라, 사람이 합의한 의미를 기계가 다룰 수 있게 만든 운영 구조입니다.</p><cite>핵심 메시지</cite></blockquote><div class="cards tri build"><article class="card amber" style="--i:0"><h3>사람에게는</h3><p>용어·책임·판단 기준을 맞추는 공통 언어</p></article><article class="card mint" style="--i:1"><h3>시스템에게는</h3><p>데이터를 연결·검증·추론·검색하는 의미 레이어</p></article><article class="card violet" style="--i:2"><h3>조직에게는</h3><p>지식이 사람 머리에서 빠져나와 버전 관리되는 자산</p></article></div></div>
+  
+</section>
+<section class="slide " data-index="4" data-tag="DEMO" data-notes="가상의 반도체 검증 지식관리 예시. 실제 사내 데이터가 아니라 교육용 시나리오임을 강조한다.">
+  <div class="badge demo">DEMO</div>
+  <div class="slide-head"><div class="kicker">DEMO 소재</div><div class="num">04</div></div>
+  <h1>관통 시나리오: Failure Knowledge Hub</h1>
+  <div class="content"><div class="two "><div><div class="scene-card"><h3>문제</h3><p>Regression 실패 로그, Jira 이슈, 테스트벤치 변경점, 담당자 경험이 따로 논다.</p><p class="mini">“timeout”이 환경 문제인지 설계 버그인지 매번 사람이 다시 해석한다.</p></div></div><div><div class="scene-diagram active-demo"><div class="node source">Log</div><div class="node source">Jira</div><div class="node source">Spec</div><div class="node core">Ontology</div><div class="node out">Triage</div><div class="node out">RAG</div><div class="node out">Report</div></div></div></div></div>
+  
+</section>
+<section class="slide " data-index="5" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">1. 등장 배경</div><div class="num">05</div></div>
+  <h1>문제 1 — 같은 말, 다른 뜻</h1>
+  <div class="content"><div class="two "><div><div class="big-word">timeout</div><p class="lead">로그에는 같은 단어가 보이지만, 팀마다 보는 의미가 다릅니다.</p></div><div><div class="cards stack build"><article class="card " style="--i:0"><h3>검증 엔지니어</h3><p>테스트가 정해진 시간 안에 끝나지 않음</p></article><article class="card " style="--i:1"><h3>설계 엔지니어</h3><p>핸드셰이크 또는 FSM 진행이 멈춤</p></article><article class="card " style="--i:2"><h3>인프라 담당</h3><p>시뮬레이터·라이선스·큐 지연 가능성</p></article></div></div></div></div>
+  
+</section>
+<section class="slide " data-index="6" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">지식관리의 병목</div><div class="num">06</div></div>
+  <h1>문제 2 — 표는 있는데 의미가 없다</h1>
+  <div class="content"><div class="two "><div><div class="code-card csv"><div class="code-title">서로 다른 분류 코드</div><pre><code>case_id,category,owner,status
+F-1021,TMO,?,open
+F-1022,TIMEOUT,alice,open
+F-1023,hang,bob,closed</code></pre></div></div><div><div class="warning-list build"><p style="--i:0">같은 현상 → 다른 값</p><p style="--i:1">컬럼명은 같아도 판단 기준 불명확</p><p style="--i:2">머신러닝/RAG가 검색해도 의미는 추측</p></div></div></div></div>
+  
+</section>
+<section class="slide " data-index="7" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">AI 시대의 새 병목</div><div class="num">07</div></div>
+  <h1>문제 3 — AI도 의미 없이 똑똑해질 수 없다</h1>
+  <div class="content"><div class="meaning-gap"><div><h3>문서 chunk</h3><p>“AXI burst timeout observed…”</p></div><div class="gap">?</div><div><h3>업무 판단</h3><p>기존 이슈인가? 재현 가능한가? 누구에게 넘길까?</p></div></div><p class="note">RAG는 텍스트를 찾아주지만, “이 말이 조직에서 어떤 개념인지”는 별도의 지식 구조가 있어야 안정적입니다.</p></div>
+  
+</section>
+<section class="slide " data-index="8" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">왜 ontology인가</div><div class="num">08</div></div>
+  <h1>방법론이 나온 계기 — 지식 공유와 재사용</h1>
+  <div class="content"><blockquote><p>서로 다른 사람·조직·소프트웨어가 같은 영역을 다룰 때, 공통 이해가 없으면 커뮤니케이션과 재사용이 깨진다.</p><cite>Uschold & Grüninger 요지</cite></blockquote><div class="cards quad build"><article class="card " style="--i:0"><h3>커뮤니케이션</h3><p>사람 사이의 용어 충돌을 줄임</p></article><article class="card " style="--i:1"><h3>상호운용성</h3><p>시스템 사이 데이터 의미를 연결</p></article><article class="card " style="--i:2"><h3>재사용</h3><p>분류·규칙·질의·검증을 반복 사용</p></article><article class="card " style="--i:3"><h3>신뢰성</h3><p>명시적 기준으로 검토·테스트 가능</p></article></div></div>
+  <p class="source">근거: Uschold & Grüninger 1996; Gruber 1993</p>
+</section>
+<section class="slide " data-index="9" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">한 장 연대표</div><div class="num">09</div></div>
+  <h1>역사적 흐름</h1>
