@@ -1,0 +1,74 @@
+
+  <p class="source">근거: W3C RDF 1.1 Concepts</p>
+</section>
+<section class="slide " data-index="20" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">RDF graph</div><div class="num">20</div></div>
+  <h1>Triple이 모이면 graph가 된다</h1>
+  <div class="content"><div class="graph-demo"><svg viewBox="0 0 900 360" aria-label="RDF graph demo"><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="currentColor"/></marker></defs><g class="edges"><path d="M160 170 C290 80 360 80 470 130"/><path d="M160 190 C310 250 390 250 510 210"/><path d="M560 130 C660 90 720 100 790 150"/><path d="M560 220 C660 280 720 280 800 220"/></g><g class="nodes"><circle cx="150" cy="180" r="72"/><text x="150" y="176">failure_1021</text><circle cx="530" cy="130" r="66"/><text x="530" y="126">Timeout</text><circle cx="540" cy="220" r="66"/><text x="540" y="216">run_0721</text><circle cx="800" cy="150" r="62"/><text x="800" y="146">TestFailure</text><circle cx="810" cy="220" r="62"/><text x="810" y="216">log</text></g></svg></div><div class="cards tri build"><article class="card " style="--i:0"><h3>연결</h3><p>테이블 join보다 의미 있는 edge를 전면에 둔다.</p></article><article class="card " style="--i:1"><h3>병합</h3><p>동일 IRI를 쓰면 다른 출처의 triple도 자연스럽게 합쳐진다.</p></article><article class="card " style="--i:2"><h3>질의</h3><p>그래프 패턴으로 “관계”를 검색한다.</p></article></div></div>
+  
+</section>
+<section class="slide " data-index="21" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">RDFS</div><div class="num">21</div></div>
+  <h1>RDFS — 기본 골격</h1>
+  <div class="content"><div class="cards six build"><article class="card " style="--i:0"><h3>rdfs:Class</h3><p>무엇의 종류인가</p></article><article class="card " style="--i:1"><h3>rdf:type</h3><p>개체가 어떤 클래스인가</p></article><article class="card " style="--i:2"><h3>rdfs:subClassOf</h3><p>상하위 개념</p></article><article class="card " style="--i:3"><h3>rdfs:domain</h3><p>관계가 출발할 수 있는 클래스</p></article><article class="card " style="--i:4"><h3>rdfs:range</h3><p>관계가 도착할 수 있는 클래스</p></article><article class="card " style="--i:5"><h3>rdfs:label/comment</h3><p>사람이 읽는 이름과 설명</p></article></div><p class="note">RDFS는 “분류와 기본 의미”를 주는 가벼운 층입니다. 이 정도만 해도 용어 충돌은 꽤 줄어듭니다.</p></div>
+  <p class="source">근거: W3C RDF Schema 1.1</p>
+</section>
+<section class="slide " data-index="22" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">OWL</div><div class="num">22</div></div>
+  <h1>OWL — 더 엄격한 의미와 추론</h1>
+  <div class="content"><div class="two "><div><div class="cards stack build"><article class="card " style="--i:0"><h3>동등/분리</h3><p>EquivalentClass, disjointWith</p></article><article class="card " style="--i:1"><h3>카디널리티</h3><p>min/max/exactly</p></article><article class="card " style="--i:2"><h3>속성 특성</h3><p>transitive, inverse, functional</p></article><article class="card " style="--i:3"><h3>논리 추론</h3><p>명시하지 않은 사실을 도출</p></article></div></div><div><div class="inference-demo"><div class="fact">TimeoutFailure ⊑ TestFailure</div><div class="fact">failure_1021 : TimeoutFailure</div><div class="therefore">따라서</div><div class="derived">failure_1021 : TestFailure</div></div></div></div></div>
+  <p class="source">근거: W3C OWL 2 Overview</p>
+</section>
+<section class="slide " data-index="23" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">SKOS</div><div class="num">23</div></div>
+  <h1>SKOS — 분류체계와 시소러스에는 가볍게</h1>
+  <div class="content"><div class="two "><div><div class="skos-map"><span>Failure Category</span><b>broader</b><span>Timing Failure</span><b>narrower</b><span>Timeout</span><b>related</b><span>Deadlock</span></div></div><div><div class="cards stack build"><article class="card " style="--i:0"><h3>적합</h3><p>기존 분류표·태그·업무 카테고리를 웹 표준으로 옮길 때</p></article><article class="card " style="--i:1"><h3>주의</h3><p>SKOS 관계는 OWL 공리만큼 강한 논리 의미가 아니다</p></article></div></div></div></div>
+  <p class="source">근거: W3C SKOS Reference</p>
+</section>
+<section class="slide " data-index="24" data-tag="DEMO" data-notes="">
+  <div class="badge demo">DEMO</div>
+  <div class="slide-head"><div class="kicker">SHACL</div><div class="num">24</div></div>
+  <h1>SHACL — “데이터가 규칙을 지켰나?”</h1>
+  <div class="content"><div class="two "><div><div class="code-card ttl"><div class="code-title">Shape 예시</div><pre><code>ex:FailureShape a sh:NodeShape ;
+  sh:targetClass ex:TestFailure ;
+  sh:property [
+    sh:path ex:hasEvidence ;
+    sh:minCount 1 ;
+  ] .</code></pre></div></div><div><div class="gate"><div class="card-small bad">evidence 없음</div><div class="gate-line">SHACL Gate</div><div class="card-small ok">evidence 있음</div></div></div></div></div>
+  <p class="source">근거: W3C SHACL</p>
+</section>
+<section class="slide " data-index="25" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">SPARQL</div><div class="num">25</div></div>
+  <h1>SPARQL — graph에게 질문한다</h1>
+  <div class="content"><div class="two "><div><div class="code-card sparql"><div class="code-title">최근 timeout 실패 조회</div><pre><code>SELECT ?failure ?test ?evidence WHERE {
+  ?failure a ex:TimeoutFailure ;
+           ex:observedIn ?run ;
+           ex:failedTest ?test ;
+           ex:hasEvidence ?evidence .
+  ?run ex:startedAt ?date .
+}
+ORDER BY DESC(?date)
+LIMIT 20</code></pre></div></div><div><div class="cards stack build"><article class="card " style="--i:0"><h3>패턴 질의</h3><p>triple pattern으로 관계를 찾음</p></article><article class="card " style="--i:1"><h3>선택/집계</h3><p>SELECT, COUNT, GROUP BY</p></article><article class="card " style="--i:2"><h3>데이터셋</h3><p>default graph와 named graph</p></article><article class="card " style="--i:3"><h3>자동 테스트</h3><p>competency question을 SPARQL로 만들기</p></article></div></div></div></div>
+  <p class="source">근거: W3C SPARQL 1.1 Query</p>
+</section>
+<section class="slide " data-index="26" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">JSON-LD</div><div class="num">26</div></div>
+  <h1>JSON-LD — 웹/앱과 연결하기 쉬운 표현</h1>
+  <div class="content"><div class="two "><div><div class="code-card json"><div class="code-title">JSON-LD</div><pre><code>{
+  "@context": {"ex": "https://example.org/onto#"},
+  "@id": "ex:failure_1021",
+  "@type": "ex:TimeoutFailure",
+  "ex:hasEvidence": "AXI burst stalled"
+}</code></pre></div></div><div><div class="bridge"><span>JSON API</span><span>↔</span><span>Linked Data</span><span>↔</span><span>RDF Graph</span></div></div></div></div>
+  <p class="source">근거: W3C JSON-LD 1.1</p>
+</section>
+<section class="slide " data-index="27" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">중요한 구분</div><div class="num">27</div></div>
+  <h1>추론과 검증은 다르다</h1>
