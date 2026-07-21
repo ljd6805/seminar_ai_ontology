@@ -10,14 +10,16 @@
 
 ## 제작 상태
 
-13개 청크로 구성된 80장 초안을 열람할 수 있습니다. 이후 모듈은 **PR별 사용자 리뷰**를 거치며, 다음 단계에서 약 75장 학습 맵과 근거 매트릭스를 기준으로 중복·밀도를 조정합니다. PDF는 최종 QA 모듈에서 제공합니다.
+13개 청크로 구성된 80장 초안을 열람할 수 있습니다. 이후 모듈은 **PR별 사용자 리뷰**를 거치며, 승인된 75장 학습 맵과 근거 매트릭스를 기준으로 중복·밀도를 조정합니다. PDF는 최종 QA 모듈에서 제공합니다.
 
 ## 문서
 
 | 문서 | 내용 |
 |---|---|
 | [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 세미나 목표, 청자, 핵심 메시지, 구성 |
-| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 슬라이드별 페이지 구성 |
+| [docs/course-design.md](docs/course-design.md) | 75장 학습 설계, CRAFT 통합 근거, 학습 확인 |
+| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 75장 슬라이드별 목표·근거·시각 계획 |
+| [docs/source-matrix.md](docs/source-matrix.md) | 주장 상태, 적용 슬라이드, 출처와 사용 경계 |
 | [docs/speaker-notes.md](docs/speaker-notes.md) | 발표자 노트와 진행 팁 |
 | [docs/methodology-checklist.md](docs/methodology-checklist.md) | CRAFT 방법론 실무 체크리스트 |
 | [docs/references.md](docs/references.md) | 자료 조사 근거와 확인일 |
@@ -40,10 +42,10 @@
 정의      Gruber 정의, W3C/OWL 관점, ontology와 glossary/taxonomy/schema/KG 구분
 표준      RDF, RDFS, OWL, SKOS, SHACL, SPARQL, JSON-LD, 추론과 검증의 차이
 원리      competency question, scope, reuse, IRI/naming, modularity, versioning, governance
-방법론    CRAFT = Context → Questions → Reuse → Architecture → Formalize → Test/Operate
+방법론    CRAFT = Context & CQ → Reuse & Requirements → Architecture & Alignment → Formalize & Fill → Test & Tend
 예시      반도체 regression failure ontology, Turtle, SHACL gate, SPARQL CQ, RAG/Agent 연결
-사례      Gene Ontology, Schema.org, FIBO
-부록      표준 치트시트, CQ 템플릿, CRAFT 워크시트, OWL/SHACL 팁, 리뷰 체크리스트
+사례      Gene Ontology, Schema.org, FIBO의 목적·표현력·거버넌스 비교
+실행      적용 여부 판단, 첫 4주 계획, 자신의 첫 CQ 작성
 ```
 
 ## GitHub Pages

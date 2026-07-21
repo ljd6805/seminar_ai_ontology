@@ -10,6 +10,7 @@
 4. competency question을 기준으로 범위를 잡고, 재사용 가능한 개념/관계/제약을 설계한다.
 5. Turtle, SHACL, SPARQL 예시를 통해 작은 ontology를 테스트 가능한 산출물로 만든다.
 6. 운영 단계에서 버전, 소유자, 변경 절차, 품질 지표를 관리한다.
+7. 실제 사례의 목적·표현력·거버넌스 trade-off를 비교해 ontology 적용 여부를 판단한다.
 
 ## 청자
 
@@ -33,19 +34,22 @@
 
 ## 방법론: CRAFT
 
+CRAFT는 Ontology 101, Grüninger & Fox, METHONTOLOGY, NeOn, OBO Foundry의 검증된 요소를 다섯 단계로 재구성한 **교육용 통합 프레임**이다. 기존 표준이나 원 논문의 독립 방법론으로 주장하지 않는다.
+
 | 단계 | 의미 | 산출물 |
 |---|---|---|
-| C — Context | 업무 질문과 성공 지표 정의 | use case, scope, 제외 범위 |
-| Q — Questions | competency question 작성 | CQ 목록, acceptance 기준 |
-| R — Reuse | 기존 용어/표준/데이터 재사용 | source inventory, term inventory |
-| A — Architecture | class/property/module/IRI 설계 | concept map, taxonomy, relation model |
-| F — Formalize | TTL/OWL/SHACL/instance 작성 | ontology file, shapes, example data |
-| T — Test/Operate | SPARQL 테스트와 운영 체계 | CQ query, CI, version, governance |
+| C — Context & Competency Questions | 업무 결정·사용자·CQ·scope 정의 | context canvas, CQ, acceptance 기준 |
+| R — Reuse & Requirements | 기존 자산 평가와 요구사항 명세 | source inventory, reuse decision, requirements |
+| A — Architecture & Alignment | concept/property/module/IRI/owner 설계 | term inventory, concept map, architecture |
+| F — Formalize & Fill | 적정 표현 언어·instance·mapping·shape 작성 | ontology, mapping, fixture, SHACL shapes |
+| T — Test & Tend | CQ test와 release·변경·유지보수 운영 | SPARQL/reasoner/SHACL test, version, governance |
+
+상세 근거와 사용 경계는 [course-design.md](course-design.md)와 [source-matrix.md](source-matrix.md)를 따른다.
 
 ## 발표 시간 가이드
 
-- 90분: 본편 중심, READ/APPENDIX 스킵
-- 120분: 사례와 실습 슬라이드까지 자세히 진행
+- 90분: 75장 중 사례·자율학습 설명 장을 선택적으로 스킵
+- 120분: 전체 75장과 CQ 작성 실습 진행
 - 30분 압축: 도입 5분, 정의 7분, CRAFT 10분, 예시 8분
 
 작성일: 2026-07-21
