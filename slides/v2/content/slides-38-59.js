@@ -34,6 +34,7 @@ window.OntologyDeck.register([
   },
   {
     id: "slide-41",
+    mode: "appendix",
     plainTitle: "IRI는 이름표가 아니라 장기 식별 계약이다",
     section: "05 · 구성 원리",
     title: "IRI는 이름표가 아니라<br><span class=\"accent\">장기 식별 계약</span>이다",
@@ -61,6 +62,7 @@ window.OntologyDeck.register([
   },
   {
     id: "slide-43",
+    mode: "appendix",
     plainTitle: "core·domain·application module을 분리한다",
     section: "05 · 구성 원리",
     title: "core · domain · application<br><span class=\"violet\">module</span>을 분리한다",
@@ -70,6 +72,7 @@ window.OntologyDeck.register([
   },
   {
     id: "slide-44",
+    mode: "appendix",
     plainTitle: "provenance와 version이 있어야 변경을 신뢰할 수 있다",
     section: "05 · 구성 원리",
     title: "provenance와 version이 있어야<br><span class=\"accent\">변경을 신뢰</span>할 수 있다",
@@ -79,6 +82,7 @@ window.OntologyDeck.register([
   },
   {
     id: "slide-45",
+    mode: "appendix",
     plainTitle: "필요한 만큼만 공리화하라",
     section: "05 · 구성 원리",
     title: "필요한 만큼만<br><span class=\"amber\">공리화</span>하라",

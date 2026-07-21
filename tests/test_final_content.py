@@ -38,6 +38,10 @@ class FinalContentTest(unittest.TestCase):
         self.assertEqual(manifest["slides"], 75)
         self.assertEqual(manifest["planned_slides"], 75)
 
+    def test_presentation_mode_marks_15_deep_dive_slides_as_appendix(self):
+        content = "\n".join(path.read_text(encoding="utf-8") for path in sorted(CONTENT.glob("slides-*.js")))
+        self.assertEqual(content.count('mode: "appendix"'), 15)
+
     def test_running_example_includes_query_and_invalid_fixture(self):
         query = (ROOT / "examples" / "find-similar-failures.rq").read_text(encoding="utf-8")
         invalid = (ROOT / "examples" / "semiconductor-failure-invalid.ttl").read_text(encoding="utf-8")

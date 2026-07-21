@@ -131,7 +131,10 @@ body.presentation-mode .slide { padding-bottom: 140px; }
   .deck { grid-template-rows: 58px 1fr; }
   .brand { font-size: 10px; }
   #section-label { display: none; }
-  .slide { padding: 28px 25px 72px; overflow-y: auto; }
+  .slide { padding: 28px 25px 112px; overflow-x: hidden; overflow-y: auto; }
+  .slide.is-active { justify-content: flex-start; }
+  .slide-inner { margin: 0 auto; }
+  .slide::after { display: none; }
   .grid-2, .grid-3, .comparison, .flow { grid-template-columns: 1fr; }
   .flow-item { min-height: 100px; }
   .flow-item:not(:last-child)::after { display: none; }
@@ -152,5 +155,6 @@ body.presentation-mode .slide { padding-bottom: 140px; }
   body::before, .deck-chrome, .deck-controls, dialog, #presenter-notes, .skip-link { display: none !important; }
   .deck, .slide-stage { display: block; width: 16in; height: auto; }
   .slide, .slide.is-active { position: relative; display: flex !important; width: 16in; height: 10in; break-after: page; page-break-after: always; animation: none; }
+  .slide:last-child { break-after: auto; page-break-after: auto; }
   .step { opacity: 1 !important; transform: none !important; animation: none !important; }
 }
