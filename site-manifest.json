@@ -7,5 +7,6 @@
   "course_map": "docs/seminar-page-list.md",
   "source_matrix": "docs/source-matrix.md",
   "presentation_mode": "slides/?mode=presentation",
+  "qa_report": "docs/qa-report.md",
   "references": 26
 }

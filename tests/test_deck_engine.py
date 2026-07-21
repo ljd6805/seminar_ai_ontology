@@ -37,6 +37,14 @@ class DeckEngineTest(unittest.TestCase):
                 self.assertIn(token, script + styles)
         self.assertIn("@media print", styles)
         self.assertIn("@media (prefers-reduced-motion: reduce)", styles)
+        self.assertIn("slide.plainTitle", script)
+
+    def test_mobile_layout_keeps_content_scrollable_and_clear_of_controls(self):
+        styles = (V2 / "deck.css").read_text(encoding="utf-8")
+        self.assertIn("overflow-x: hidden", styles)
+        self.assertIn("overflow-y: auto", styles)
+        self.assertIn("justify-content: flex-start", styles)
+        self.assertIn("padding: 28px 25px 112px", styles)
 
     def test_engine_loads_a_registered_dataset(self):
         html = (V2 / "index.html").read_text(encoding="utf-8")

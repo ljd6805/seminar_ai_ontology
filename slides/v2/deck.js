@@ -53,7 +53,7 @@
         ${sourceMarkup(slide)}
       </section>`).join("");
     overviewList.innerHTML = slides.map((slide, index) => `
-      <li><button type="button" data-slide-target="${index}"><small>${String(index + 1).padStart(2, "0")} · ${escapeHtml(slide.section)}</small>${slide.title.replace(/<[^>]+>/g, "")}</button></li>`).join("");
+      <li><button type="button" data-slide-target="${index}"><small>${String(index + 1).padStart(2, "0")} · ${escapeHtml(slide.section)}</small>${escapeHtml(slide.plainTitle || slide.title.replace(/<[^>]+>/g, ""))}</button></li>`).join("");
     totalNumber.textContent = String(slides.length);
     progressTrack.setAttribute("aria-valuemax", String(slides.length));
   };

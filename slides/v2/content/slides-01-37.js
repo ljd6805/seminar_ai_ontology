@@ -194,6 +194,7 @@ window.OntologyDeck.register([
   },
   {
     id: "slide-16",
+    mode: "appendix",
     plainTitle: "먼저 ontology의 경계를 세운다",
     section: "03 · 정의와 구성요소",
     eyebrow: "WHAT ARE WE BUILDING?",
@@ -236,6 +237,7 @@ window.OntologyDeck.register([
   },
   {
     id: "slide-20",
+    mode: "appendix",
     plainTitle: "문자열이 아니라 개념 식별자를 중심에 둔다",
     section: "03 · 정의와 구성요소",
     title: "문자열이 아니라<br><span class=\"accent\">개념 식별자</span>를 중심에 둔다",
@@ -246,6 +248,7 @@ window.OntologyDeck.register([
   },
   {
     id: "slide-21",
+    mode: "appendix",
     plainTitle: "이름보다 목적과 표현력으로 지식 구조를 고른다",
     section: "03 · 정의와 구성요소",
     title: "이름보다 <span class=\"violet\">목적과 표현력</span>으로<br>지식 구조를 고른다",
@@ -260,6 +263,7 @@ window.OntologyDeck.register([
   },
   {
     id: "slide-22",
+    mode: "appendix",
     plainTitle: "ontology schema와 instance data는 함께 지식베이스를 이룬다",
     section: "03 · 정의와 구성요소",
     title: "ontology schema와 instance data는<br>함께 <span class=\"accent\">지식베이스</span>를 이룬다",
@@ -272,6 +276,7 @@ window.OntologyDeck.register([
   },
   {
     id: "slide-23",
+    mode: "appendix",
     plainTitle: "ontology와 knowledge graph는 역할이 겹치지만 동일어는 아니다",
     section: "03 · 정의와 구성요소",
     title: "ontology와 knowledge graph는<br>역할이 겹치지만 <span class=\"amber\">동일어는 아니다</span>",
@@ -281,6 +286,7 @@ window.OntologyDeck.register([
   },
   {
     id: "slide-24",
+    mode: "appendix",
     plainTitle: "TimeoutFailure 하나로 정의 전체를 확인한다",
     section: "03 · 정의와 구성요소",
     title: "<code>TimeoutFailure</code> 하나로<br><span class=\"accent\">정의 전체</span>를 확인한다",
@@ -327,6 +333,7 @@ window.OntologyDeck.register([
   },
   {
     id: "slide-28",
+    mode: "appendix",
     plainTitle: "RDFS는 class와 property의 기본 골격을 준다",
     section: "04 · 표준 스택",
     title: "RDFS는 class와 property의<br><span class=\"accent\">기본 골격</span>을 준다",
@@ -349,6 +356,7 @@ window.OntologyDeck.register([
   },
   {
     id: "slide-30",
+    mode: "appendix",
     plainTitle: "taxonomy와 thesaurus에는 SKOS가 더 알맞을 수 있다",
     section: "04 · 표준 스택",
     title: "taxonomy와 thesaurus에는<br><span class=\"accent\">SKOS</span>가 더 알맞을 수 있다",
@@ -386,6 +394,7 @@ WHERE {
   },
   {
     id: "slide-33",
+    mode: "appendix",
     plainTitle: "Turtle과 JSON-LD는 같은 graph의 다른 표현이다",
     section: "04 · 표준 스택",
     title: "Turtle과 JSON-LD는<br>같은 graph의 <span class=\"violet\">다른 표현</span>이다",
@@ -402,6 +411,7 @@ WHERE {
   },
   {
     id: "slide-34",
+    mode: "appendix",
     plainTitle: "추론은 명시하지 않은 결론을 semantics로 도출한다",
     section: "04 · 표준 스택",
     title: "추론은 명시하지 않은 결론을<br><span class=\"accent\">semantics</span>로 도출한다",
@@ -426,6 +436,7 @@ WHERE {
   },
   {
     id: "slide-36",
+    mode: "appendix",
     plainTitle: "open world에서는 “없다”와 “모른다”가 다르다",
     section: "04 · 표준 스택",
     title: "open world에서는<br><span class=\"amber\">“없다”와 “모른다”</span>가 다르다",
