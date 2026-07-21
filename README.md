@@ -27,7 +27,7 @@
 - **발표 시간**: 90~120분
 - **핵심 메시지**: *Ontology는 의미를 코드처럼 관리하는 방법이다.*
 - **관통 시나리오**: Regression failure triage 지식관리 — timeout/assertion/build/environment 실패를 ontology로 구조화하고 SHACL/SPARQL/RAG에 연결
-- **자료 형태**: 단일 HTML 슬라이드, 외부 런타임 의존성 없음, 키보드 네비게이션, 자동 스태거 애니메이션, ESC 오버뷰, `?mode=presentation` 지원
+- **자료 형태**: 정적 HTML 슬라이드, 저장소 내부 chunk 로더, 외부 런타임 의존성 없음, 키보드 네비게이션, 자동 스태거 애니메이션, ESC 오버뷰, `?mode=presentation` 지원
 
 ## 전체 흐름
 
