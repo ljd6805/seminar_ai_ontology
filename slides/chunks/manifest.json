@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "title": "Ontology 지식관리 방법론",
+  "complete": false,
+  "plannedParts": 13,
+  "parts": [
+    "deck.part01.html",
+    "deck.part02.html",
+    "deck.part03.html",
+    "deck.part04.html"
+  ],
+  "status": "scaffold",
+  "lastUpdated": "2026-07-21"
+}
