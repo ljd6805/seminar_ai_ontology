@@ -38,10 +38,14 @@ class DeckEngineTest(unittest.TestCase):
         self.assertIn("@media print", styles)
         self.assertIn("@media (prefers-reduced-motion: reduce)", styles)
 
-    def test_engine_has_a_small_preview_dataset(self):
-        content = (V2 / "content" / "preview.js").read_text(encoding="utf-8")
-        self.assertEqual(len(re.findall(r"\bid:\s*\"preview-", content)), 3)
-        self.assertIn("window.OntologyDeck.register", content)
+    def test_engine_loads_a_registered_dataset(self):
+        html = (V2 / "index.html").read_text(encoding="utf-8")
+        modules = re.findall(r'<script defer src="(content/[^"]+\.js)">', html)
+        self.assertTrue(modules)
+        for module in modules:
+            with self.subTest(module=module):
+                content = (V2 / module).read_text(encoding="utf-8")
+                self.assertIn("window.OntologyDeck.register", content)
 
     def test_design_system_documents_reference_deck_traits(self):
         design = (ROOT / "docs" / "design-system.md").read_text(encoding="utf-8")

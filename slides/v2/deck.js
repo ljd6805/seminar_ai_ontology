@@ -91,7 +91,7 @@
     progressTrack.setAttribute("aria-valuenow", String(number));
     previousButton.disabled = current === 0;
     nextButton.disabled = current === slides.length - 1;
-    announcer.textContent = `${number}번 슬라이드, ${slides[current].title.replace(/<[^>]+>/g, "")}`;
+    announcer.textContent = `${number}번 슬라이드, ${slides[current].plainTitle || slides[current].title.replace(/<[^>]+>/g, "")}`;
     noteContent.innerHTML = `<p>${slides[current].note || "이 슬라이드의 발표자 노트가 아직 등록되지 않았습니다."}</p>`;
     if (!printMode && window.location.hash !== `#/${number}`) history.replaceState(null, "", `#/${number}`);
   };
