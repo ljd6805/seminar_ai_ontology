@@ -66,7 +66,7 @@ class ScaffoldTest(unittest.TestCase):
         root_index = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn("url=slides/", root_index)
 
-    def test_slide_manifest_lists_the_complete_reviewable_draft(self):
+    def test_legacy_chunks_remain_archived_and_public_entry_uses_v2(self):
         manifest = json.loads(
             (ROOT / "slides/chunks/manifest.json").read_text(encoding="utf-8")
         )
@@ -78,8 +78,8 @@ class ScaffoldTest(unittest.TestCase):
                 self.assertTrue((ROOT / "slides/chunks" / part).is_file())
 
         loader = (ROOT / "slides/index.html").read_text(encoding="utf-8")
-        self.assertIn("chunks/manifest.json", loader)
-        self.assertNotIn("Array.from({length: 13}", loader)
+        self.assertIn("v2/", loader)
+        self.assertNotIn("chunks/manifest.json", loader)
 
     def test_readme_local_links_resolve(self):
         readme = (ROOT / "README.md").read_text(encoding="utf-8")

@@ -69,7 +69,7 @@ class CourseDesignTest(unittest.TestCase):
         manifest = json.loads((ROOT / "site-manifest.json").read_text(encoding="utf-8"))
         references = (ROOT / "docs/references.md").read_text(encoding="utf-8")
         defined = set(SOURCE_HEADING.findall(references))
-        self.assertEqual(manifest["slides"], 80)
+        self.assertEqual(manifest["slides"], 75)
         self.assertEqual(manifest["planned_slides"], 75)
         self.assertEqual(manifest["references"], len(defined))
 

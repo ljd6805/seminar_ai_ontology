@@ -10,7 +10,7 @@
 
 ## 제작 상태
 
-13개 청크로 구성된 80장 초안을 열람할 수 있습니다. 이후 모듈은 **PR별 사용자 리뷰**를 거치며, 승인된 75장 학습 맵과 근거 매트릭스를 기준으로 중복·밀도를 조정합니다. PDF는 최종 QA 모듈에서 제공합니다.
+검증된 출처와 승인된 학습 맵을 반영한 **75장 완성 교안**을 열람할 수 있습니다. 기존 80장 초안 청크는 변경 이력 보존을 위해 남겨 두었고 공개 진입점은 새 데이터 기반 교안으로 전환했습니다. PDF는 최종 QA 모듈에서 제공합니다.
 
 ## 문서
 
@@ -25,6 +25,8 @@
 | [docs/references.md](docs/references.md) | 자료 조사 근거와 확인일 |
 | [examples/semiconductor-failure-ontology.ttl](examples/semiconductor-failure-ontology.ttl) | 반도체 regression failure 예시 ontology |
 | [examples/semiconductor-failure-shapes.ttl](examples/semiconductor-failure-shapes.ttl) | SHACL 검증 예시 |
+| [examples/find-similar-failures.rq](examples/find-similar-failures.rq) | 같은 signature의 과거 failure를 찾는 SPARQL 예시 |
+| [examples/README.md](examples/README.md) | 유효/무효 fixture 학습 순서 |
 
 ## 한눈에
 
@@ -33,7 +35,7 @@
 - **학습 방식**: 자율학습 중심, 발표 시 약 90~120분
 - **핵심 메시지**: *Ontology는 의미를 코드처럼 관리하는 방법이다.*
 - **관통 시나리오**: Regression failure triage 지식관리 — timeout/assertion/build/environment 실패를 ontology로 구조화하고 SHACL/SPARQL/RAG에 연결
-- **자료 형태**: 정적 HTML과 저장소 내부 chunk 로더, 키보드 네비게이션, 자동 스태거 애니메이션, ESC 오버뷰, `?mode=presentation` 지원; PDF는 최종 QA 후 제공
+- **자료 형태**: 외부 의존 없는 정적 HTML, 키보드 네비게이션, 최초 1회 자동 스태거와 다시 재생, 오버뷰, 발표자 노트, `?mode=presentation`, `?print=1` 지원; PDF는 최종 QA 후 제공
 
 ## 전체 흐름
 

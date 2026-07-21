@@ -3,64 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ontology 지식관리 방법론</title>
-  <style>
-    :root{color-scheme:dark;--bg:#080b18;--panel:rgba(255,255,255,.06);--line:rgba(255,255,255,.16);--text:#f4f7fb;--muted:#aab5cf;--mint:#55f0c2;--violet:#a78bfa}
-    *{box-sizing:border-box}html,body{min-height:100%;margin:0}body{background:radial-gradient(circle at 18% 15%,rgba(85,240,194,.11),transparent 32%),radial-gradient(circle at 80% 80%,rgba(167,139,250,.13),transparent 34%),var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",sans-serif;display:grid;place-items:center;padding:24px}
-    .loader{width:min(760px,100%);padding:clamp(32px,6vw,56px);border:1px solid var(--line);border-radius:28px;background:var(--panel);box-shadow:0 24px 80px rgba(0,0,0,.45);backdrop-filter:blur(14px)}
-    .eyebrow{margin:0 0 14px;color:var(--mint);font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.eyebrow.error{color:#ff9f9f}
-    h1{font-size:clamp(34px,7vw,52px);line-height:1.08;margin:0 0 18px;letter-spacing:-.045em}p{color:var(--muted);font-size:18px;line-height:1.65;margin:0}.progress{display:grid;gap:10px;margin-top:28px}.progress-label{display:flex;justify-content:space-between;color:var(--text);font-size:14px;font-weight:700}.bar{height:8px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden}.bar span{display:block;height:100%;width:var(--progress,0%);background:linear-gradient(90deg,var(--mint),var(--violet));border-radius:999px;transition:width .6s ease}.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.links a{display:inline-flex;align-items:center;min-height:44px;padding:0 17px;border:1px solid var(--line);border-radius:999px;color:var(--text);font-weight:700;text-decoration:none}.links a:first-child{border-color:transparent;background:linear-gradient(90deg,var(--mint),#8be7dc);color:#07131a}.links a:focus-visible{outline:3px solid var(--violet);outline-offset:3px}
-    @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
-  </style>
+  <meta http-equiv="refresh" content="0; url=v2/">
+  <title>온톨로지 지식관리 방법론 — 75장 교안</title>
 </head>
 <body>
-  <main class="loader" aria-live="polite">
-    <p class="eyebrow">Loading manifest</p>
-    <h1>Ontology 지식관리 방법론</h1>
-    <p>검토된 슬라이드 구성을 확인하고 있습니다.</p>
-  </main>
+  <p>완성된 75장 교안으로 이동합니다. <a href="v2/">직접 열기</a></p>
   <script>
-    const shell = document.querySelector('.loader');
-    const getText = path => fetch(path).then(response => {
-      if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
-      return response.text();
-    });
-
-    fetch('chunks/manifest.json')
-      .then(response => {
-        if (!response.ok) throw new Error(`manifest: HTTP ${response.status}`);
-        return response.json();
-      })
-      .then(manifest => {
-        if (!manifest.complete) {
-          const finished = manifest.parts.length;
-          const percent = Math.round((finished / manifest.plannedParts) * 100);
-          shell.innerHTML = `
-            <p class="eyebrow">Review-gated preview</p>
-            <h1>${manifest.title}</h1>
-            <p>교안은 모듈별 Pull Request로 검토하고 있습니다. 현재 초안 청크 ${finished}개가 보존되어 있으며, 전체 덱은 리뷰 게이트를 통과한 뒤 공개됩니다.</p>
-            <div class="progress" role="progressbar" aria-label="슬라이드 청크 준비 현황" aria-valuemin="0" aria-valuemax="${manifest.plannedParts}" aria-valuenow="${finished}">
-              <div class="progress-label"><span>준비 현황</span><span>${finished} / ${manifest.plannedParts}</span></div>
-              <div class="bar"><span style="--progress:${percent}%"></span></div>
-            </div>
-            <nav class="links" aria-label="프로젝트 링크">
-              <a href="../README.md">프로젝트 안내</a>
-              <a href="../docs/seminar-synopsis.md">세미나 개요</a>
-              <a href="../docs/references.md">검증 출처</a>
-            </nav>`;
-          return null;
-        }
-        return Promise.all(manifest.parts.map(part => getText(`chunks/${part}`)));
-      })
-      .then(chunks => {
-        if (!chunks) return;
-        document.open();
-        document.write(chunks.join(''));
-        document.close();
-      })
-      .catch(error => {
-        shell.innerHTML = `<p class="eyebrow error">Load error</p><h1>미리보기를 열 수 없습니다</h1><p>${error.message}</p><nav class="links"><a href="../README.md">프로젝트 안내</a></nav>`;
-      });
+    location.replace(`v2/${location.search}${location.hash}`);
   </script>
 </body>
 </html>
