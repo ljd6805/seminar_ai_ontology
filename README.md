@@ -8,6 +8,10 @@
 - [발표 모드](slides/?mode=presentation) — 본편 중심, READ/APPENDIX 제외
 - [인쇄/전체 펼침](slides/?print=1)
 
+## 제작 상태
+
+13개 청크로 구성된 80장 초안을 열람할 수 있습니다. 이후 모듈은 **PR별 사용자 리뷰**를 거치며, 다음 단계에서 약 75장 학습 맵과 근거 매트릭스를 기준으로 중복·밀도를 조정합니다. PDF는 최종 QA 모듈에서 제공합니다.
+
 ## 문서
 
 | 문서 | 내용 |
@@ -24,10 +28,10 @@
 
 - **목표**: ontology를 “개념 설명”으로 끝내지 않고, 용어 합의 → graph 모델링 → 검증 → 운영까지 실무 절차로 익히기
 - **청자**: 반도체 설계/검증/소프트웨어 엔지니어, 데이터/AI 지식관리 입문자
-- **발표 시간**: 90~120분
+- **학습 방식**: 자율학습 중심, 발표 시 약 90~120분
 - **핵심 메시지**: *Ontology는 의미를 코드처럼 관리하는 방법이다.*
 - **관통 시나리오**: Regression failure triage 지식관리 — timeout/assertion/build/environment 실패를 ontology로 구조화하고 SHACL/SPARQL/RAG에 연결
-- **자료 형태**: 정적 HTML 슬라이드, 저장소 내부 chunk 로더, 외부 런타임 의존성 없음, 키보드 네비게이션, 자동 스태거 애니메이션, ESC 오버뷰, `?mode=presentation` 지원
+- **자료 형태**: 정적 HTML과 저장소 내부 chunk 로더, 키보드 네비게이션, 자동 스태거 애니메이션, ESC 오버뷰, `?mode=presentation` 지원; PDF는 최종 QA 후 제공
 
 ## 전체 흐름
 
@@ -45,6 +49,19 @@
 ## GitHub Pages
 
 이 저장소는 `.github/workflows/pages.yml`을 통해 정적 사이트를 GitHub Pages로 배포하도록 구성되어 있습니다. Pages 설정에서 Source가 아직 꺼져 있으면 **Settings → Pages → Source = GitHub Actions**로 한 번 확인하면 됩니다.
+
+## 로컬 검증
+
+```powershell
+py -3 -m unittest discover -s tests -v
+git diff --check
+```
+
+## 라이선스
+
+- 슬라이드·문서·교육용 설명: [CC BY 4.0](LICENSE-CONTENT.md)
+- HTML/CSS/JavaScript/Python 및 설정 코드: [MIT](LICENSE-CODE.md)
+- 적용 경계와 외부 자산 고지: [LICENSE.md](LICENSE.md), [NOTICE.md](NOTICE.md)
 
 ## 검증 기준
 

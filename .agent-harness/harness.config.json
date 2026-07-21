@@ -1,0 +1,31 @@
+{
+  "project": {
+    "name": "seminar_ai_ontology",
+    "type": "static-html-educational-deck"
+  },
+  "commands": {
+    "build": "",
+    "test": "py -3 -m unittest discover -s tests -v",
+    "lint": "",
+    "typecheck": ""
+  },
+  "paths": {
+    "source": [
+      "index.html",
+      "slides",
+      "docs",
+      ".github"
+    ],
+    "tests": [
+      "tests"
+    ],
+    "protected": [
+      ".env",
+      "secrets"
+    ]
+  },
+  "policy": {
+    "tdd_guard": "warning",
+    "test_failure": "strict"
+  }
+}
