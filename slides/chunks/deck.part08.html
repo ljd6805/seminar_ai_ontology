@@ -1,0 +1,69 @@
+
+  <div class="content"><div class="cards five build"><article class="card amber" style="--i:0"><h3>Clarity</h3><p>정의가 객관적이고 문서화되어야 함</p></article><article class="card mint" style="--i:1"><h3>Coherence</h3><p>추론 결과가 정의와 충돌하지 않아야 함</p></article><article class="card violet" style="--i:2"><h3>Extendibility</h3><p>새 개념을 확장해도 기존 모델이 무너지지 않아야 함</p></article><article class="card blue" style="--i:3"><h3>Minimal encoding bias</h3><p>특정 구현 편의에 의미 모델이 종속되지 않아야 함</p></article><article class="card coral" style="--i:4"><h3>Minimal commitment</h3><p>목적에 필요한 만큼만 세계를 가정해야 함</p></article></div></div>
+  <p class="source">근거: Gruber 1995</p>
+</section>
+<section class="slide " data-index="38" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">원리 8</div><div class="num">38</div></div>
+  <h1>역할이 없으면 모델은 썩는다</h1>
+  <div class="content"><table class="tbl compact"><thead><tr><th>역할</th><th>책임</th></tr></thead><tbody><tr><td>Domain owner</td><td>정의 승인, CQ 우선순위 결정</td></tr><tr><td>Ontology engineer</td><td>모델링, 표준 재사용, 추론/검증 설계</td></tr><tr><td>Data engineer</td><td>소스 매핑, 파이프라인, 품질 게이트</td></tr><tr><td>Application owner</td><td>검색/RAG/대시보드 사용성 확인</td></tr><tr><td>Governance board</td><td>버전, 변경 승인, 폐기 정책</td></tr></tbody></table><p class="note">온톨로지는 “파일”이 아니라 “운영되는 합의”입니다. 오너 없는 파일은 결국 유령선입니다. 타고 있으면 춥습니다.</p></div>
+  
+</section>
+<section class="slide section" data-index="39" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">하나씩 만드는 절차</div><div class="num">39</div></div>
+  <h1>Part 4. CRAFT 구축 방법론</h1>
+  <div class="content"><div class="section-mark">Context · Questions · Reuse · Architecture · Formalize · Test/Operate</div></div>
+  
+</section>
+<section class="slide " data-index="40" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">방법론 정의</div><div class="num">40</div></div>
+  <h1>CRAFT 루프 한 장 요약</h1>
+  <div class="content"><div class="craft"><div>C<br><small>Context</small></div><div>Q<br><small>Questions</small></div><div>R<br><small>Reuse</small></div><div>A<br><small>Architecture</small></div><div>F<br><small>Formalize</small></div><div>T<br><small>Test & Operate</small></div></div><p class="note">이 교안에서는 Ontology 101, competency question, NeOn의 재사용/시나리오 사고를 실무용 루프로 합쳐 설명합니다.</p></div>
+  <p class="source">근거: Ontology 101; NeOn; Grüninger & Fox</p>
+</section>
+<section class="slide " data-index="41" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">C · Context</div><div class="num">41</div></div>
+  <h1>Step 0 — Context: 업무 질문을 고른다</h1>
+  <div class="content"><div class="two "><div><div class="cards stack build"><article class="card " style="--i:0"><h3>좋은 출발점</h3><p>반복적이고, 데이터 출처가 있고, 판단 기준이 흔들리는 업무</p></article><article class="card " style="--i:1"><h3>나쁜 출발점</h3><p>“우리 회사 지식을 전부 정리하자”</p></article><article class="card " style="--i:2"><h3>산출물</h3><p>use case 1개, 청중, 성공 지표, 제외 범위</p></article></div></div><div><div class="decision-card"><h3>예시</h3><p>Regression failure triage에서 “재발 timeout”을 자동으로 묶고 근거와 담당 후보를 제시한다.</p></div></div></div></div>
+  
+</section>
+<section class="slide " data-index="42" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">Q · Questions</div><div class="num">42</div></div>
+  <h1>Step 1 — Questions: CQ를 쓴다</h1>
+  <div class="content"><div class="two "><div><div class="cq-list build"><p style="--i:0">CQ1. 같은 signature의 실패가 최근 7일 재발했나?</p><p style="--i:1">CQ2. 기존 Jira issue와 연결되는가?</p><p style="--i:2">CQ3. evidence가 충분하지 않은 failure는 무엇인가?</p><p style="--i:3">CQ4. owner 후보는 어떤 IP/block 규칙으로 정해지는가?</p></div></div><div><div class="cq-test"><b>CQ → Query → Acceptance</b><span>질문이 테스트가 되면 모델이 산으로 안 갑니다.</span></div></div></div></div>
+  
+</section>
+<section class="slide " data-index="43" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">R · Reuse</div><div class="num">43</div></div>
+  <h1>Step 2 — Reuse: 기존 자산을 긁어모은다</h1>
+  <div class="content"><div class="flow wide build"><div class="flow-step" style="--i:0"><b>문서</b><small>스펙, 룰북, 회의록</small></div><div class="flow-arrow" style="--i:0.3">→</div><div class="flow-step" style="--i:1"><b>데이터</b><small>DB, CSV, Jira export</small></div><div class="flow-arrow" style="--i:1.3">→</div><div class="flow-step" style="--i:2"><b>코드</b><small>테스트명 규칙, parser</small></div><div class="flow-arrow" style="--i:2.3">→</div><div class="flow-step" style="--i:3"><b>표준</b><small>SKOS, PROV, schema.org, 도메인 ontology</small></div><div class="flow-arrow" style="--i:3.3">→</div><div class="flow-step" style="--i:4"><b>사람</b><small>전문가 인터뷰</small></div></div><p class="note">여기서 ontology를 만들지 않습니다. 먼저 “조직이 이미 암묵적으로 쓰는 의미”를 수집합니다.</p></div>
+  
+</section>
+<section class="slide " data-index="44" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">R → A 브리지</div><div class="num">44</div></div>
+  <h1>Step 3 — Term inventory</h1>
+  <div class="content"><div class="two "><div><div class="code-card csv"><div class="code-title">용어 후보 표</div><pre><code>term,label,source,definition,candidate_concept
+TMO,timeout,Jira field,시간 초과,TimeoutFailure
+hang,hang,log parser,진행 정지,PossibleDeadlock
+owner,owner,spreadsheet,담당자,ResponsibleEngineer</code></pre></div></div><div><div class="cards stack build"><article class="card " style="--i:0"><h3>동의어 묶기</h3><p>TMO, timeout, hang을 무작정 합치지 않기</p></article><article class="card " style="--i:1"><h3>출처 남기기</h3><p>누가 어디서 쓰는 말인지 기록</p></article><article class="card " style="--i:2"><h3>정의 초안</h3><p>사람 말로 먼저 명확히 작성</p></article></div></div></div></div>
+  
+</section>
+<section class="slide " data-index="45" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">A · Architecture</div><div class="num">45</div></div>
+  <h1>Step 4 — Concept map</h1>
+  <div class="content"><div class="concept-map"><div class="c center">TestFailure</div><div class="c">TimeoutFailure</div><div class="c">AssertionFailure</div><div class="c">BuildFailure</div><div class="c">EnvironmentFailure</div><div class="c small">Evidence</div><div class="c small">TestCase</div><div class="c small">JiraIssue</div></div><p class="note">첫 모델은 화이트보드 수준이면 충분합니다. 중요한 건 “무엇을 class로 볼지, 무엇을 property로 볼지” 토론하는 것입니다.</p></div>
+  
+</section>
+<section class="slide " data-index="46" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">A · Classes</div><div class="num">46</div></div>
+  <h1>Step 5 — Class hierarchy</h1>
+  <div class="content"><div class="two "><div><div class="tree"><ul><li>TestFailure<ul><li>TimeoutFailure</li><li>AssertionFailure</li><li>BuildFailure</li><li>EnvironmentFailure</li></ul></li></ul></div></div><div><div class="cards stack build"><article class="card " style="--i:0"><h3>is-a만</h3><p>subClassOf는 “A는 B의 한 종류”일 때만</p></article><article class="card " style="--i:1"><h3>역할 주의</h3><p>Owner는 Person의 하위가 아니라 role일 수 있음</p></article><article class="card " style="--i:2"><h3>상위 너무 추상 금지</h3><p>Thing 밑에 우주를 다 넣지 말 것</p></article></div></div></div></div>
+  
