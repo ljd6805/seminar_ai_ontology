@@ -2,6 +2,9 @@
   "title": "Ontology 지식관리 방법론",
   "date": "2026-07-21",
   "slides": 80,
+  "planned_slides": 75,
+  "course_map": "docs/seminar-page-list.md",
+  "source_matrix": "docs/source-matrix.md",
   "presentation_mode": "slides/?mode=presentation",
-  "references": 21
+  "references": 26
 }
