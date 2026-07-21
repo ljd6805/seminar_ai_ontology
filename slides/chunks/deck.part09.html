@@ -1,0 +1,75 @@
+
+</section>
+<section class="slide " data-index="47" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">A · Properties</div><div class="num">47</div></div>
+  <h1>Step 6 — Relationships</h1>
+  <div class="content"><table class="tbl compact"><thead><tr><th>Property</th><th>Domain → Range</th><th>의미</th></tr></thead><tbody><tr><td>observedIn</td><td>TestFailure → RegressionRun</td><td>어떤 실행에서 발견되었나</td></tr><tr><td>failedTest</td><td>TestFailure → TestCase</td><td>실패한 테스트</td></tr><tr><td>hasEvidence</td><td>TestFailure → Evidence</td><td>판단 근거</td></tr><tr><td>relatedIssue</td><td>TestFailure → JiraIssue</td><td>관련 이슈</td></tr><tr><td>ownedBy</td><td>IPBlock/TestCase → Engineer</td><td>담당 후보</td></tr></tbody></table></div>
+  
+</section>
+<section class="slide " data-index="48" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">F · Formalize</div><div class="num">48</div></div>
+  <h1>Step 7 — Constraints</h1>
+  <div class="content"><div class="two "><div><div class="cards stack build"><article class="card " style="--i:0"><h3>필수값</h3><p>TestFailure는 failedTest 1개 이상</p></article><article class="card " style="--i:1"><h3>형식</h3><p>confidence는 0~1 decimal</p></article><article class="card " style="--i:2"><h3>값 범위</h3><p>severity는 blocker/major/minor 중 하나</p></article><article class="card " style="--i:3"><h3>교차검증</h3><p>relatedIssue가 있으면 issue URL 필요</p></article></div></div><div><div class="constraint-lane"><span>Ontology</span><b>의미 정의</b><span>SHACL</span><b>입력 품질</b><span>CI</span><b>자동 검증</b></div></div></div></div>
+  
+</section>
+<section class="slide " data-index="49" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">F · Populate</div><div class="num">49</div></div>
+  <h1>Step 8 — Instances & mapping</h1>
+  <div class="content"><div class="two "><div><div class="code-card ttl"><div class="code-title">개체 생성</div><pre><code>ex:failure_1021 a ex:TimeoutFailure ;
+  ex:failedTest ex:axi_burst_17 ;
+  ex:observedIn ex:run_2026_07_21 ;
+  ex:hasSignature "AXI_BURST_STALL" ;
+  ex:confidenceScore 0.74 .</code></pre></div></div><div><div class="cards stack build"><article class="card " style="--i:0"><h3>소스 매핑</h3><p>CSV/Jira/log 필드를 property로 연결</p></article><article class="card " style="--i:1"><h3>식별자 전략</h3><p>같은 개체를 재생성하지 않는 key 설계</p></article><article class="card " style="--i:2"><h3>증분 로딩</h3><p>매일 추가되는 failure를 그래프로 병합</p></article></div></div></div></div>
+  
+</section>
+<section class="slide " data-index="50" data-tag="DEMO" data-notes="">
+  <div class="badge demo">DEMO</div>
+  <div class="slide-head"><div class="kicker">T · Test</div><div class="num">50</div></div>
+  <h1>Step 9 — CQ를 SPARQL 테스트로 바꾼다</h1>
+  <div class="content"><div class="two "><div><div class="code-card sparql"><div class="code-title">CQ 테스트</div><pre><code># CQ1: 최근 7일 재발 timeout
+SELECT ?sig (COUNT(?failure) AS ?n) WHERE {
+  ?failure a ex:TimeoutFailure ;
+           ex:hasSignature ?sig ;
+           ex:observedIn ?run .
+  ?run ex:startedAt ?date .
+  FILTER(?date &gt;= "2026-07-14"^^xsd:date)
+}
+GROUP BY ?sig
+HAVING(COUNT(?failure) &gt;= 2)</code></pre></div></div><div><div class="test-result build"><p style="--i:0">기대: AXI_BURST_STALL = 3건</p><p style="--i:1">실제: 3건</p><p style="--i:2" class="okline">PASS</p></div></div></div></div>
+  
+</section>
+<section class="slide " data-index="51" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">T · Publish</div><div class="num">51</div></div>
+  <h1>Step 10 — Publish</h1>
+  <div class="content"><div class="flow wide build"><div class="flow-step" style="--i:0"><b>Repository</b><small>TTL/OWL, SHACL, docs</small></div><div class="flow-arrow" style="--i:0.3">→</div><div class="flow-step" style="--i:1"><b>Version</b><small>v0.1.0 tag</small></div><div class="flow-arrow" style="--i:1.3">→</div><div class="flow-step" style="--i:2"><b>Docs</b><small>정의, 예시, 변경 이력</small></div><div class="flow-arrow" style="--i:2.3">→</div><div class="flow-step" style="--i:3"><b>Endpoint/API</b><small>SPARQL or service</small></div><div class="flow-arrow" style="--i:3.3">→</div><div class="flow-step" style="--i:4"><b>Consumers</b><small>RAG, dashboard, validation pipeline</small></div></div><p class="note">공개/사내 여부와 무관하게 “사람이 보고 쓸 수 있는 문서”가 없으면 ontology는 실제로 재사용되지 않습니다.</p></div>
+  
+</section>
+<section class="slide " data-index="52" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">T · Operate</div><div class="num">52</div></div>
+  <h1>Step 11 — Operate</h1>
+  <div class="content"><div class="ops-loop"><div>Change Request</div><div>Review</div><div>Validation</div><div>Release</div><div>Monitor</div></div><table class="tbl compact"><thead><tr><th>유형</th><th>예</th><th>운영 기준</th></tr></thead><tbody><tr><td>추가</td><td>새 failure category, 새 property</td><td>CQ와 예시 필수</td></tr><tr><td>변경</td><td>정의 수정, range 변경</td><td>breaking change 검토</td></tr><tr><td>폐기</td><td>오래된 term, 잘못된 relation</td><td>deprecated 표시 후 이관</td></tr><tr><td>품질</td><td>SHACL 실패율, 미매핑 term 수</td><td>월간 리뷰</td></tr></tbody></table></div>
+  
+</section>
+<section class="slide " data-index="53" data-tag="READ" data-notes="">
+  <div class="badge read">READ</div>
+  <div class="slide-head"><div class="kicker">방법론을 시스템으로</div><div class="num">53</div></div>
+  <h1>실무 toolchain 예시</h1>
+  <div class="content"><div class="two "><div><div class="toolchain"><span>Protégé</span><span>VS Code</span><span>RDFLib/Jena</span><span>pySHACL</span><span>GraphDB/Fuseki</span><span>GitHub Actions</span></div></div><div><div class="cards stack build"><article class="card " style="--i:0"><h3>모델링</h3><p>초기 설계와 시각 확인</p></article><article class="card " style="--i:1"><h3>버전관리</h3><p>TTL/SHACL을 코드처럼 리뷰</p></article><article class="card " style="--i:2"><h3>CI</h3><p>syntax, SHACL, CQ query 자동 실행</p></article><article class="card " style="--i:3"><h3>서비스</h3><p>검색/RAG/대시보드에서 사용</p></article></div></div></div></div>
+  
+</section>
+<section class="slide section" data-index="54" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">실습형 예시</div><div class="num">54</div></div>
+  <h1>Part 5. 반도체 검증 예시</h1>
+  <div class="content"><div class="section-mark">Regression failure triage ontology를 작게 만들어 보기</div></div>
+  
+</section>
+<section class="slide " data-index="55" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">요구사항</div><div class="num">55</div></div>
+  <h1>예시 CQ 세트</h1>
