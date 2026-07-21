@@ -2,24 +2,27 @@
 
 반도체 설계/검증/소프트웨어 엔지니어가 **온톨로지 기반 지식관리 방법론**을 기초부터 따라 배울 수 있도록 만든 공개 세미나 자료입니다.
 
-## 현재 상태와 바로 보기
+## 바로 보기
 
-이 저장소는 **모듈별 PR 리뷰 방식**으로 제작 중입니다. 현재 Pages 셸은 검토 전의 불완전한 청크를 실행하지 않고 준비 현황을 안내합니다.
+- [슬라이드 보기](slides/)
+- [발표 모드](slides/?mode=presentation) — 본편 중심, READ/APPENDIX 제외
+- [인쇄/전체 펼침](slides/?print=1)
 
-- [Pages 미리보기](slides/)
-- 현재 게이트: 프로젝트 스캐폴드, 범용 에이전트 하네스, 라이선스, Pages 안전 셸
-- 최종 목표: 자율학습용 약 75장 HTML 교안 + 배포용 PDF
+## 제작 상태
+
+13개 청크로 구성된 80장 초안을 열람할 수 있습니다. 이후 모듈은 **PR별 사용자 리뷰**를 거치며, 다음 단계에서 약 75장 학습 맵과 근거 매트릭스를 기준으로 중복·밀도를 조정합니다. PDF는 최종 QA 모듈에서 제공합니다.
 
 ## 문서
 
 | 문서 | 내용 |
 |---|---|
 | [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 세미나 목표, 청자, 핵심 메시지, 구성 |
+| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 슬라이드별 페이지 구성 |
 | [docs/speaker-notes.md](docs/speaker-notes.md) | 발표자 노트와 진행 팁 |
 | [docs/methodology-checklist.md](docs/methodology-checklist.md) | CRAFT 방법론 실무 체크리스트 |
 | [docs/references.md](docs/references.md) | 자료 조사 근거와 확인일 |
-
-다음 리뷰 모듈에서 슬라이드별 페이지 맵, Turtle ontology, SHACL shape, SPARQL 예제를 차례로 추가합니다.
+| [examples/semiconductor-failure-ontology.ttl](examples/semiconductor-failure-ontology.ttl) | 반도체 regression failure 예시 ontology |
+| [examples/semiconductor-failure-shapes.ttl](examples/semiconductor-failure-shapes.ttl) | SHACL 검증 예시 |
 
 ## 한눈에
 
@@ -28,7 +31,7 @@
 - **학습 방식**: 자율학습 중심, 발표 시 약 90~120분
 - **핵심 메시지**: *Ontology는 의미를 코드처럼 관리하는 방법이다.*
 - **관통 시나리오**: Regression failure triage 지식관리 — timeout/assertion/build/environment 실패를 ontology로 구조화하고 SHACL/SPARQL/RAG에 연결
-- **자료 형태**: GitHub Pages용 정적 HTML, 키보드 네비게이션, 자동 1회 재생·수동 리플레이 애니메이션, 모션 감소 설정, 인쇄용 PDF
+- **자료 형태**: 정적 HTML과 저장소 내부 chunk 로더, 키보드 네비게이션, 자동 스태거 애니메이션, ESC 오버뷰, `?mode=presentation` 지원; PDF는 최종 QA 후 제공
 
 ## 전체 흐름
 

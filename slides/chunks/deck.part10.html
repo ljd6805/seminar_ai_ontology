@@ -1,0 +1,78 @@
+
+  <div class="content"><div class="cards five build"><article class="card " style="--i:0"><h3>CQ1</h3><p>같은 signature가 최근 7일 재발했나?</p></article><article class="card " style="--i:1"><h3>CQ2</h3><p>어떤 TestCase와 IPBlock에서 주로 발생했나?</p></article><article class="card " style="--i:2"><h3>CQ3</h3><p>Jira issue와 연결되지 않은 반복 실패는 무엇인가?</p></article><article class="card " style="--i:3"><h3>CQ4</h3><p>evidence가 부족해 자동 분류하면 안 되는 항목은 무엇인가?</p></article><article class="card " style="--i:4"><h3>CQ5</h3><p>owner 후보와 next action은 무엇인가?</p></article></div></div>
+  
+</section>
+<section class="slide " data-index="56" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">A · 모델</div><div class="num">56</div></div>
+  <h1>개념 모델</h1>
+  <div class="content"><div class="domain-model"><div class="box central">TestFailure</div><div class="box">FailureCategory</div><div class="box">TestCase</div><div class="box">RegressionRun</div><div class="box">Evidence</div><div class="box">JiraIssue</div><div class="box">IPBlock</div><div class="box">Engineer</div></div><p class="note">실제 프로젝트에서는 이 모델을 team review에서 “이 관계가 맞나?”로 확인합니다. 도메인 전문가가 여기서 왕입니다. 개발자는 왕좌 옆의 기사 정도.</p></div>
+  
+</section>
+<section class="slide " data-index="57" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">Class 설계</div><div class="num">57</div></div>
+  <h1>Failure taxonomy</h1>
+  <div class="content"><div class="taxonomy"><div>TestFailure</div><div>TimeoutFailure</div><div>AssertionFailure</div><div>BuildFailure</div><div>EnvironmentFailure</div><div>UnknownFailure</div></div><div class="cards tri build"><article class="card " style="--i:0"><h3>Unknown을 정식으로 둔다</h3><p>근거 부족을 억지 분류하지 않기</p></article><article class="card " style="--i:1"><h3>분류 기준을 적는다</h3><p>timeout vs deadlock의 구분 기준</p></article><article class="card " style="--i:2"><h3>추정 금지</h3><p>confidence와 evidence 없으면 자동 조치 금지</p></article></div></div>
+  
+</section>
+<section class="slide " data-index="58" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">Property 설계</div><div class="num">58</div></div>
+  <h1>Relation model</h1>
+  <div class="content"><table class="tbl compact"><thead><tr><th>관계</th><th>방향</th><th>업무 의미</th></tr></thead><tbody><tr><td>failedTest</td><td>failure → test case</td><td>어떤 테스트가 실패했는가</td></tr><tr><td>observedIn</td><td>failure → run</td><td>어떤 regression 실행에서 관측됐는가</td></tr><tr><td>hasEvidence</td><td>failure → evidence</td><td>판단 근거는 무엇인가</td></tr><tr><td>hasSignature</td><td>failure → literal</td><td>재발 묶음 key는 무엇인가</td></tr><tr><td>relatedIssue</td><td>failure → Jira issue</td><td>기존 이슈와 연결되는가</td></tr><tr><td>ownedBy</td><td>IPBlock/TestCase → Engineer</td><td>담당 후보는 누구인가</td></tr></tbody></table></div>
+  
+</section>
+<section class="slide " data-index="59" data-tag="DEMO" data-notes="">
+  <div class="badge demo">DEMO</div>
+  <div class="slide-head"><div class="kicker">F · 실물</div><div class="num">59</div></div>
+  <h1>Turtle 예시</h1>
+  <div class="content"><div class="code-card ttl"><div class="code-title">examples/semiconductor-failure-ontology.ttl</div><pre><code>@prefix ex: &lt;https://ljd6805.github.io/seminar_ai_ontology/ontology/failure#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+ex:failure_1021 a ex:TimeoutFailure ;
+  ex:failedTest ex:axi_burst_17 ;
+  ex:observedIn ex:run_2026_07_21_nightly ;
+  ex:hasSignature "AXI_BURST_STALL" ;
+  ex:hasEvidence ex:evidence_1021_log_excerpt ;
+  ex:confidenceScore "0.74"^^xsd:decimal ;
+  ex:nextAction "Check AXI monitor handshake and compare with JIRA-431" .</code></pre></div><p class="note">전체 예시는 repo의 examples 폴더에 넣었습니다.</p></div>
+  
+</section>
+<section class="slide " data-index="60" data-tag="DEMO" data-notes="">
+  <div class="badge demo">DEMO</div>
+  <div class="slide-head"><div class="kicker">T · 검증</div><div class="num">60</div></div>
+  <h1>SHACL 게이트 애니메이션</h1>
+  <div class="content"><div class="shacl-cinema"><div class="json-card bad">{ category: Timeout,<br>evidence: [] }</div><div class="validator">SHACL<br><small>minCount evidence ≥ 1</small></div><div class="json-card good">{ category: Timeout,<br>evidence: [log#L381] }</div></div><div class="logline build"><p style="--i:0">[validate] failure_1021 evidence minCount violation</p><p style="--i:1">[repair] attach log excerpt evidence_1021</p><p style="--i:2">[validate] conforms=true</p></div></div>
+  <p class="source">근거: W3C SHACL</p>
+</section>
+<section class="slide " data-index="61" data-tag="DEMO" data-notes="">
+  <div class="badge demo">DEMO</div>
+  <div class="slide-head"><div class="kicker">T · 질의</div><div class="num">61</div></div>
+  <h1>SPARQL로 CQ 답하기</h1>
+  <div class="content"><div class="two "><div><div class="code-card sparql"><div class="code-title">재발 signature</div><pre><code>SELECT ?sig (COUNT(?failure) AS ?count) WHERE {
+  ?failure a ex:TimeoutFailure ;
+           ex:hasSignature ?sig .
+}
+GROUP BY ?sig
+HAVING(COUNT(?failure) &gt;= 2)</code></pre></div></div><div><div class="answer-card"><h3>답</h3><p><b>AXI_BURST_STALL</b> — 3건</p><p>관련 issue 후보: JIRA-431</p><p>다음 액션: owner review</p></div></div></div></div>
+  
+</section>
+<section class="slide " data-index="62" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">응용 구조</div><div class="num">62</div></div>
+  <h1>RAG/Agent와 연결하면</h1>
+  <div class="content"><div class="rag-flow"><div>문서 검색</div><div>Ontology<br>concept linking</div><div>SPARQL<br>근거 조회</div><div>LLM<br>요약</div><div>Human<br>승인</div></div><div class="cards tri build"><article class="card " style="--i:0"><h3>좋아지는 점</h3><p>검색어가 달라도 같은 개념으로 묶임</p></article><article class="card " style="--i:1"><h3>막아야 할 점</h3><p>근거 없는 자동 원인 확정</p></article><article class="card " style="--i:2"><h3>운영 포인트</h3><p>답변마다 concept, source, evidence를 남김</p></article></div></div>
+  
+</section>
+<section class="slide " data-index="63" data-tag="" data-notes="">
+  
+  <div class="slide-head"><div class="kicker">방법론의 결과를 어떻게 볼까</div><div class="num">63</div></div>
+  <h1>성공 지표</h1>
+  <div class="content"><div class="cards five build"><article class="card " style="--i:0"><h3>검색 품질</h3><p>동의어/약어 검색 누락률 감소</p></article><article class="card " style="--i:1"><h3>분류 품질</h3><p>Unknown 비율과 오분류율 추적</p></article><article class="card " style="--i:2"><h3>운영 효율</h3><p>triage 리포트 작성 시간 감소</p></article><article class="card " style="--i:3"><h3>재사용</h3><p>새 dashboard/API가 기존 concept를 재사용한 비율</p></article><article class="card " style="--i:4"><h3>품질 게이트</h3><p>SHACL 실패율과 수정 리드타임</p></article></div></div>
+  
+</section>
+<section class="slide " data-index="64" data-tag="READ" data-notes="">
+  <div class="badge read">READ</div>
+  <div class="slide-head"><div class="kicker">냉정한 판단</div><div class="num">64</div></div>
+  <h1>언제 ontology가 과한가?</h1>

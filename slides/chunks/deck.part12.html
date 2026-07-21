@@ -1,0 +1,74 @@
+
+  <div class="slide-head"><div class="kicker">APPENDIX</div><div class="num">75</div></div>
+  <h1>부록 B. CQ 템플릿</h1>
+  <div class="content"><div class="cards five build"><article class="card " style="--i:0"><h3>탐색형</h3><p>어떤 X가 조건 Y를 만족하는가?</p></article><article class="card " style="--i:1"><h3>연결형</h3><p>X는 어떤 Y와 관계가 있는가?</p></article><article class="card " style="--i:2"><h3>검증형</h3><p>X에 필수 근거 Z가 있는가?</p></article><article class="card " style="--i:3"><h3>집계형</h3><p>기간 T 동안 category별 수량은?</p></article><article class="card " style="--i:4"><h3>추천형</h3><p>X의 담당 후보/다음 액션은?</p></article></div></div>
+  
+</section>
+<section class="slide appendix" data-index="76" data-tag="APPENDIX" data-notes="">
+  <div class="badge appendix">APPENDIX</div>
+  <div class="slide-head"><div class="kicker">APPENDIX</div><div class="num">76</div></div>
+  <h1>부록 C. CRAFT 워크시트</h1>
+  <div class="content"><table class="tbl compact"><thead><tr><th>단계</th><th>채울 내용</th></tr></thead><tbody><tr><td>Context</td><td>업무/청중/성공지표/제외범위</td></tr><tr><td>Questions</td><td>CQ 5~10개, acceptance 기준</td></tr><tr><td>Reuse</td><td>기존 표준, 내부 문서, 데이터 소스</td></tr><tr><td>Architecture</td><td>class/property/IRI/module</td></tr><tr><td>Formalize</td><td>TTL/OWL, SHACL, 예시 instance</td></tr><tr><td>Test/Operate</td><td>SPARQL 테스트, CI, 릴리즈/변경 절차</td></tr></tbody></table></div>
+  
+</section>
+<section class="slide appendix" data-index="77" data-tag="APPENDIX" data-notes="">
+  <div class="badge appendix">APPENDIX</div>
+  <div class="slide-head"><div class="kicker">APPENDIX</div><div class="num">77</div></div>
+  <h1>부록 D. OWL 모델링 팁</h1>
+  <div class="content"><div class="cards five build"><article class="card " style="--i:0"><h3>subClassOf</h3><p>항상 “A는 B의 한 종류인가?”로 검사</p></article><article class="card " style="--i:1"><h3>disjointWith</h3><p>진짜 동시에 될 수 없을 때만</p></article><article class="card " style="--i:2"><h3>equivalentClass</h3><p>정의가 정말 양방향일 때만</p></article><article class="card " style="--i:3"><h3>domain/range</h3><p>너무 강하게 걸면 예상치 못한 추론이 생김</p></article><article class="card " style="--i:4"><h3>annotation</h3><p>label, comment, definition을 아끼지 말 것</p></article></div></div>
+  
+</section>
+<section class="slide appendix" data-index="78" data-tag="APPENDIX" data-notes="">
+  <div class="badge appendix">APPENDIX</div>
+  <div class="slide-head"><div class="kicker">APPENDIX</div><div class="num">78</div></div>
+  <h1>부록 E. SHACL 설계 팁</h1>
+  <div class="content"><div class="cards six build"><article class="card " style="--i:0"><h3>minCount</h3><p>필수 근거</p></article><article class="card " style="--i:1"><h3>datatype</h3><p>문자열/숫자/날짜</p></article><article class="card " style="--i:2"><h3>in</h3><p>허용 enum</p></article><article class="card " style="--i:3"><h3>pattern</h3><p>ID/URL 형식</p></article><article class="card " style="--i:4"><h3>class</h3><p>연결 대상 타입</p></article><article class="card " style="--i:5"><h3>severity</h3><p>Info/Warning/Violation</p></article></div></div>
+  
+</section>
+<section class="slide appendix" data-index="79" data-tag="APPENDIX" data-notes="">
+  <div class="badge appendix">APPENDIX</div>
+  <div class="slide-head"><div class="kicker">APPENDIX</div><div class="num">79</div></div>
+  <h1>부록 F. 리뷰 체크리스트</h1>
+  <div class="content"><table class="tbl compact"><thead><tr><th>항목</th><th>질문</th></tr></thead><tbody><tr><td>범위</td><td>CQ 밖 개념이 과도하게 늘지 않았나?</td></tr><tr><td>정의</td><td>사람이 읽어도 판단 가능한가?</td></tr><tr><td>재사용</td><td>기존 표준/내부 용어를 확인했나?</td></tr><tr><td>식별자</td><td>IRI와 naming rule이 안정적인가?</td></tr><tr><td>검증</td><td>SHACL과 CQ query가 있는가?</td></tr><tr><td>운영</td><td>오너, 버전, 변경 절차가 있는가?</td></tr></tbody></table></div>
+  
+</section>
+<section class="slide appendix references" data-index="80" data-tag="APPENDIX" data-notes="">
+  <div class="badge appendix">APPENDIX</div>
+  <div class="slide-head"><div class="kicker">APPENDIX</div><div class="num">80</div></div>
+  <h1>부록 G. 참고문헌</h1>
+  <div class="content"><div class="refs build"><p style="--i:0"><b>Gruber 1993</b> — Ontology 정의: 공유된 담화 영역의 표현 어휘 명세</p><p style="--i:1"><b>Gruber 1995</b> — 온톨로지 설계 원칙: 명확성, 일관성, 확장성, 최소 인코딩 편향, 최소 존재론적 약속</p><p style="--i:2"><b>Noy &amp; McGuinness Ontology 101</b> — 도메인/범위 결정, 재사용, 용어 열거, 클래스/속성/제약/인스턴스 구축 절차</p><p style="--i:3"><b>Protégé Ontology101</b> — Ontology 101 안내와 방법론 문맥</p><p style="--i:4"><b>W3C RDF 1.1 Concepts</b> — RDF graph는 subject-predicate-object triple의 집합</p><p style="--i:5"><b>W3C RDF Schema 1.1</b> — class/property/domain/range/subClassOf/subPropertyOf 기본 어휘</p><p style="--i:6"><b>W3C OWL 2 Overview</b> — 공동체가 공유하는 도메인 용어의 형식화된 어휘와 관계 정의</p><p style="--i:7"><b>W3C SHACL</b> — RDF 그래프를 shapes graph 조건으로 검증하는 언어</p><p style="--i:8"><b>W3C SPARQL 1.1 Query</b> — RDF 그래프/데이터셋 질의 언어</p><p style="--i:9"><b>W3C SKOS Reference</b> — 분류체계/시소러스/주제명표 같은 지식조직체계를 RDF로 표현</p><p style="--i:10"><b>W3C JSON-LD 1.1</b> — JSON 기반 Linked Data 직렬화</p><p style="--i:11"><b>Grüninger &amp; Fox competency questions</b> — competency question으로 온톨로지 요구사항과 평가를 정의</p></div><p class="note">전체 링크와 확인일은 docs/references.md에 정리했습니다.</p></div>
+  
+</section>
+</div>
+<div class="controls"><button id="prev">←</button><span class="where"></span><button id="next">→</button><button id="overview">ESC</button><span>발표 모드: <code>?mode=presentation</code></span></div>
+<div class="progress"></div>
+<script>
+const params = new URLSearchParams(location.search);
+const presentation = params.get('mode') === 'presentation';
+const printMode = params.get('print') === '1';
+const slidesAll = Array.from(document.querySelectorAll('.slide'));
+const slides = printMode ? slidesAll : slidesAll.filter(s => !(presentation && (s.classList.contains('appendix') || s.dataset.tag === 'READ')));
+let idx = Math.max(0, Math.min(slides.length-1, parseInt(location.hash.replace('#','') || '1', 10)-1));
+function prepareBuilds(){
+  document.querySelectorAll('.build').forEach(group=>Array.from(group.children).forEach((el,i)=>el.style.setProperty('--i', i)));
+}
+function show(i){
+  if(document.body.classList.contains('overview')) return;
+  idx = Math.max(0, Math.min(slides.length-1, i));
+  slidesAll.forEach(s=>{s.classList.remove('active'); s.style.display='none';});
+  const s = slides[idx]; s.style.display='flex';
+  void s.offsetWidth; s.classList.add('active');
+  document.querySelector('.where').textContent = `${idx+1} / ${slides.length}`;
+  document.querySelector('.progress').style.width = `${((idx+1)/slides.length)*100}%`;
+  history.replaceState(null,'',`#${idx+1}`);
+}
+function next(){show(idx+1)} function prev(){show(idx-1)}
+function overview(){
+  document.body.classList.toggle('overview');
+  if(document.body.classList.contains('overview')){
+    slidesAll.forEach(s=>{ if(slides.includes(s)){s.style.display='flex'; s.classList.add('active')} else {s.style.display='none'} });
+  } else show(idx);
+}
+prepareBuilds();
+if(printMode){ slidesAll.forEach(s=>s.style.display='flex'); } else { show(idx); }
+document.addEventListener('keydown', e=>{

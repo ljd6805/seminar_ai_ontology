@@ -66,13 +66,13 @@ class ScaffoldTest(unittest.TestCase):
         root_index = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn("url=slides/", root_index)
 
-    def test_slide_manifest_only_lists_available_chunks(self):
+    def test_slide_manifest_lists_the_complete_reviewable_draft(self):
         manifest = json.loads(
             (ROOT / "slides/chunks/manifest.json").read_text(encoding="utf-8")
         )
-        self.assertFalse(manifest["complete"])
+        self.assertTrue(manifest["complete"])
         self.assertEqual(manifest["plannedParts"], 13)
-        self.assertGreater(len(manifest["parts"]), 0)
+        self.assertEqual(len(manifest["parts"]), manifest["plannedParts"])
         for part in manifest["parts"]:
             with self.subTest(part=part):
                 self.assertTrue((ROOT / "slides/chunks" / part).is_file())

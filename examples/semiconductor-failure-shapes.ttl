@@ -1,0 +1,37 @@
+@prefix ex: <https://ljd6805.github.io/seminar_ai_ontology/ontology/failure#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:TestFailureShape a sh:NodeShape ;
+  sh:targetClass ex:TestFailure ;
+  sh:property [
+    sh:path ex:failedTest ;
+    sh:minCount 1 ;
+    sh:class ex:TestCase ;
+    sh:message "TestFailure는 실패한 TestCase를 최소 1개 가져야 합니다."@ko ;
+  ] ;
+  sh:property [
+    sh:path ex:observedIn ;
+    sh:minCount 1 ;
+    sh:class ex:RegressionRun ;
+    sh:message "TestFailure는 관측된 RegressionRun을 최소 1개 가져야 합니다."@ko ;
+  ] ;
+  sh:property [
+    sh:path ex:hasEvidence ;
+    sh:minCount 1 ;
+    sh:class ex:Evidence ;
+    sh:message "자동 분류된 TestFailure에는 evidence가 필요합니다."@ko ;
+  ] ;
+  sh:property [
+    sh:path ex:hasSignature ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:message "재발 분석을 위해 signature가 필요합니다."@ko ;
+  ] ;
+  sh:property [
+    sh:path ex:confidenceScore ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0 ;
+    sh:maxInclusive 1 ;
+    sh:message "confidenceScore는 0과 1 사이 decimal이어야 합니다."@ko ;
+  ] .
