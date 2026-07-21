@@ -67,6 +67,11 @@ ex:ownedBy a owl:ObjectProperty ;
   rdfs:range ex:Engineer ;
   rdfs:label "owned by"@en .
 
+ex:affects a owl:ObjectProperty ;
+  rdfs:domain ex:TestFailure ;
+  rdfs:range ex:IPBlock ;
+  rdfs:label "affects"@en .
+
 ex:hasSignature a owl:DatatypeProperty ;
   rdfs:domain ex:TestFailure ;
   rdfs:range xsd:string ;
@@ -101,11 +106,37 @@ ex:evidence_1021_log_excerpt a ex:Evidence ;
 ex:JIRA_431 a ex:JiraIssue ;
   rdfs:label "JIRA-431" .
 
+ex:DMA a ex:IPBlock ;
+  rdfs:label "DMA block" ;
+  ex:ownedBy ex:engineer_kim .
+
+ex:engineer_kim a ex:Engineer ;
+  rdfs:label "교육용 담당 엔지니어"@ko .
+
 ex:failure_1021 a ex:TimeoutFailure ;
   ex:failedTest ex:axi_burst_17 ;
   ex:observedIn ex:run_2026_07_21_nightly ;
   ex:hasSignature "AXI_BURST_STALL" ;
   ex:hasEvidence ex:evidence_1021_log_excerpt ;
   ex:relatedIssue ex:JIRA_431 ;
+  ex:affects ex:DMA ;
   ex:confidenceScore "0.74"^^xsd:decimal ;
   ex:nextAction "Check AXI monitor handshake and compare with JIRA-431" .
+
+ex:run_2026_07_14_nightly a ex:RegressionRun ;
+  rdfs:label "2026-07-14 nightly regression" ;
+  ex:startedAt "2026-07-14"^^xsd:date .
+
+ex:evidence_0978_log_excerpt a ex:Evidence ;
+  rdfs:label "Prior AXI burst stalled log excerpt" ;
+  dcterms:source "archive/sim.log#L201-L244" .
+
+ex:failure_0978 a ex:TimeoutFailure ;
+  ex:failedTest ex:axi_burst_17 ;
+  ex:observedIn ex:run_2026_07_14_nightly ;
+  ex:hasSignature "AXI_BURST_STALL" ;
+  ex:hasEvidence ex:evidence_0978_log_excerpt ;
+  ex:relatedIssue ex:JIRA_431 ;
+  ex:affects ex:DMA ;
+  ex:confidenceScore "0.82"^^xsd:decimal ;
+  ex:nextAction "Compare the current trace with the prior DMA handshake issue" .

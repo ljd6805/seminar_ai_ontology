@@ -1,0 +1,10 @@
+@prefix ex: <https://ljd6805.github.io/seminar_ai_ontology/ontology/failure#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# SHACL violation을 확인하기 위해 의도적으로 hasEvidence를 누락하고
+# confidenceScore의 허용 범위(0..1)를 넘긴 교육용 fixture다.
+ex:invalid_failure a ex:TimeoutFailure ;
+  ex:failedTest ex:axi_burst_17 ;
+  ex:observedIn ex:run_2026_07_21_nightly ;
+  ex:hasSignature "AXI_BURST_STALL" ;
+  ex:confidenceScore "1.4"^^xsd:decimal .

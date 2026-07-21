@@ -1,0 +1,14 @@
+PREFIX ex: <https://ljd6805.github.io/seminar_ai_ontology/ontology/failure#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?failure ?run ?issue ?component ?owner
+WHERE {
+  ?failure rdf:type/rdfs:subClassOf* ex:TestFailure ;
+           ex:hasSignature "AXI_BURST_STALL" ;
+           ex:observedIn ?run ;
+           ex:affects ?component .
+  OPTIONAL { ?failure ex:relatedIssue ?issue }
+  OPTIONAL { ?component ex:ownedBy ?owner }
+}
+ORDER BY ?failure
