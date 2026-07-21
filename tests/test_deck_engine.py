@@ -46,6 +46,19 @@ class DeckEngineTest(unittest.TestCase):
         self.assertIn("justify-content: flex-start", styles)
         self.assertIn("padding: 28px 25px 112px", styles)
 
+    def test_deck_uses_height_aware_layout_and_developer_font_stack(self):
+        styles = (V2 / "deck.css").read_text(encoding="utf-8")
+        for token in (
+            '--font-ui: "Pretendard Variable"',
+            '--font-code: "JetBrains Mono"',
+            "font-family: var(--font-code)",
+            "justify-content: safe center",
+            "@media (max-height: 900px)",
+            "min(4.4vw, 7vh)",
+        ):
+            with self.subTest(token=token):
+                self.assertIn(token, styles)
+
     def test_engine_loads_a_registered_dataset(self):
         html = (V2 / "index.html").read_text(encoding="utf-8")
         modules = re.findall(r'<script defer src="(content/[^"]+\.js)">', html)
@@ -57,7 +70,7 @@ class DeckEngineTest(unittest.TestCase):
 
     def test_design_system_documents_reference_deck_traits(self):
         design = (ROOT / "docs" / "design-system.md").read_text(encoding="utf-8")
-        for trait in ("16:10", "외부 의존 0", "자동 스태거", "오버뷰", "발표 모드"):
+        for trait in ("16:10", "시스템 폰트 대체 체계", "자동 스태거", "오버뷰", "발표 모드"):
             with self.subTest(trait=trait):
                 self.assertIn(trait, design)
 
