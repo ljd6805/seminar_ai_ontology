@@ -6,4 +6,7 @@ Unless a file states otherwise, prose, slides, diagrams, and educational explana
 
 ## Third-party material
 
-No third-party binary, font, image, or JavaScript package is vendored in the scaffold module. Future modules must record each incorporated asset, its source URL, author, and license here before release.
+No third-party binary, image, or JavaScript package is vendored in this repository. The slide deck loads the following web fonts at runtime and retains system-font fallbacks when the network is unavailable.
+
+- Pretendard Variable — Kil Hyung-jin (`orioncactus`), SIL Open Font License 1.1. Source: <https://github.com/orioncactus/pretendard>
+- JetBrains Mono — JetBrains, SIL Open Font License 1.1. Source: <https://github.com/JetBrains/JetBrainsMono>

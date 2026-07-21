@@ -11,10 +11,10 @@ const sourceLink = id => `<a href="../../docs/references.md#${id.toLowerCase()}"
 window.OntologyDeck.register([
   {
     id: "slide-01",
-    plainTitle: "Ontology 지식관리 방법론",
+    plainTitle: "온톨로지 기반 지식관리 방법론",
     section: "01 · 문제와 학습 계약",
     eyebrow: "FROM TERMS TO TRUSTED KNOWLEDGE",
-    title: "Ontology<br><span class=\"accent\">지식관리 방법론</span>",
+    title: "온톨로지 기반<br><span class=\"accent\">지식관리 방법론</span>",
     lead: "의미를 어떻게 코드처럼 설계하고, 테스트하고, 버전 관리할까?",
     body: `<div class="graph step" style="--step:1" aria-label="흩어진 지식이 의미 그래프로 연결되는 모습"><span class="node core">공유 의미</span><span class="node">용어</span><span class="node">데이터</span><span class="node">규칙</span><span class="node">근거</span></div>`,
     sources: ["P01 · 과정 시놉시스"],
@@ -28,46 +28,46 @@ window.OntologyDeck.register([
     lead: "읽기 → 판단 → 설계 → 구현 → 검증 → 운영으로 이어지는 자기주도 학습 경로",
     body: `<div class="grid-3">
       ${card("01", "문제를 진단", "의미 충돌과 단순 데이터 문제를 구분한다.", 1)}
-      ${card("02", "정의를 설명", "ontology·KG·taxonomy의 역할을 구분한다.", 2)}
+      ${card("02", "정의를 설명", "온톨로지·지식 그래프·분류체계의 역할을 구분한다.", 2)}
       ${card("03", "표준을 선택", "RDF·OWL·SHACL·SPARQL의 질문을 안다.", 3)}
       ${card("04", "CQ를 작성", "업무 질문을 검증 가능한 요구사항으로 바꾼다.", 4)}
-      ${card("05", "모델을 구현", "최소 class·relation·instance·shape를 만든다.", 5)}
-      ${card("06–07", "테스트하고 운영", "query·validation·version·owner를 연결한다.", 6)}
+      ${card("05", "모델을 구현", "최소 클래스·관계·개체·검증 규칙을 만든다.", 5)}
+      ${card("06–07", "테스트하고 운영", "질의·검증·버전·책임자를 연결한다.", 6)}
     </div>`,
     sources: ["P01 · 과정 시놉시스"],
     note: "순서대로 읽어도 되고 오버뷰에서 필요한 장으로 이동해도 됩니다. R 키는 현재 화면 애니메이션을 다시 재생합니다."
   },
   {
     id: "slide-03",
-    plainTitle: "결론부터: 의미에도 버전·테스트·오너가 필요하다",
+    plainTitle: "의미도 버전과 테스트, 책임자가 있어야 오래 간다",
     section: "01 · 문제와 학습 계약",
-    title: "결론부터: 의미에도<br><span class=\"accent\">버전·테스트·오너</span>가 필요하다",
-    lead: "ontology는 예쁜 분류 그림이 아니라 변경되고 검증되는 공학 산출물이다.",
-    body: lane([["DEFINE", "정의·식별자", "무엇을 뜻하는가"], ["VERSION", "변경 이력", "언제 왜 바뀌었나"], ["TEST", "CQ·shape", "필요한 답과 계약을 지키나"], ["OWN", "책임·승인", "누가 결정하고 돌보나"]], 4),
+    title: "의미도 <span class=\"accent\">버전과 테스트, 책임자</span>가<br>있어야 오래 간다",
+    lead: "온톨로지는 보기 좋은 분류도가 아니라 계속 변경하고 검증하는 공학 산출물이다.",
+    body: lane([["DEFINE", "정의·식별자", "무엇을 뜻하는가"], ["VERSION", "변경 이력", "언제 왜 바뀌었나"], ["TEST", "CQ·검증 규칙", "필요한 답과 계약을 지키나"], ["OWN", "책임·승인", "누가 결정하고 돌보나"]], 4),
     sources: ["M04 · METHONTOLOGY", "M07 · OBO Foundry"],
     note: "모델 파일만 만들고 끝내면 용어집과 다르지 않습니다. 운영 책임까지 모델의 일부로 봅니다."
   },
   {
     id: "slide-04",
-    plainTitle: "하나의 failure가 다섯 시스템에 흩어져 있다",
+    plainTitle: "하나의 실패 기록이 다섯 시스템에 흩어져 있다",
     section: "01 · 문제와 학습 계약",
-    title: "하나의 failure가<br><span class=\"violet\">다섯 시스템</span>에 흩어져 있다",
-    lead: "관통 사례: 교육용 Failure Knowledge Hub — 자동 수정이 아니라 판단 근거 연결이 목표다.",
-    body: `<div class="graph" aria-label="다섯 데이터 원천이 실패 지식 허브에 연결되는 구조"><span class="node core step" style="--step:3">Failure<br>Knowledge Hub</span><span class="node step" style="--step:1">Regression log</span><span class="node step" style="--step:1">Test catalog</span><span class="node step" style="--step:2">Issue tracker</span><span class="node step" style="--step:2">Block · Owner</span></div>`,
+    title: "하나의 실패 기록이<br><span class=\"violet\">다섯 시스템</span>에 흩어져 있다",
+    lead: "교육용 실패 지식 허브의 목표는 자동 수정이 아니라 판단 근거를 연결하는 것이다.",
+    body: `<div class="graph" aria-label="다섯 데이터 원천이 실패 지식 허브에 연결되는 구조"><span class="node core step" style="--step:3">실패 지식<br>허브</span><span class="node step" style="--step:1">회귀 로그</span><span class="node step" style="--step:1">테스트 목록</span><span class="node step" style="--step:2">이슈 추적기</span><span class="node step" style="--step:2">블록 · 책임자</span></div>`,
     sources: ["P04 · 교육용 시나리오"],
     note: "실제 회사 데이터나 성과 수치가 아닌 교육용 시나리오입니다. 목표는 정보의 위치가 아니라 의미 있는 연결을 만드는 것입니다."
   },
   {
     id: "slide-05",
-    plainTitle: "timeout은 팀마다 다른 사건을 뜻한다",
+    plainTitle: "같은 ‘타임아웃’도 팀마다 뜻이 다르다",
     section: "01 · 문제와 학습 계약",
-    title: "<code>timeout</code>은 팀마다<br><span class=\"amber\">다른 사건</span>을 뜻한다",
-    lead: "같은 label만 맞춘다고 같은 개념이 되는 것은 아니다.",
+    title: "같은 <code>timeout</code>도 팀마다<br><span class=\"amber\">뜻이 다르다</span>",
+    lead: "라벨을 통일하는 것만으로는 개념이 같아지지 않는다.",
     body: `<div class="grid-3">
       ${card("SIM", "응답 없음", "테스트가 제한 시간 안에 완료되지 않은 관찰 사건", 1)}
       ${card("BUILD", "작업 중단", "CI 작업이 실행 한도를 초과해 종료된 상태", 2)}
       ${card("ENV", "자원 대기", "라이선스·장비·큐 대기가 임계치를 넘은 상황", 3)}
-    </div><p class="lead step" style="--step:4;margin-top:26px">해결 순서: <strong>label 통합</strong>이 아니라 <strong class="accent">경계·조건·관계 합의</strong></p>`,
+    </div><p class="lead step" style="--step:4;margin-top:26px">해결 순서: <strong>표기 통합</strong>이 아니라 <strong class="accent">경계·조건·관계 합의</strong></p>`,
     sources: ["M03 · Ontology 101", "P04 · 교육용 시나리오"],
     note: "동의어와 동음이의어를 구분합니다. 문자열 정규화 전에 개념 경계를 합의해야 합니다."
   },
@@ -79,27 +79,27 @@ window.OntologyDeck.register([
     lead: "표의 열과 코드값은 저장 형식은 보여 주지만 정의·근거·책임까지 자동으로 말해 주지 않는다.",
     body: `<div class="comparison">
       ${card("VISIBLE", "CSV에 보이는 것", "failure_type=TMO · owner=DV · severity=2", 1)}
-      ${card("HIDDEN", "판단에 필요한 것", "TMO의 정의, 분류 근거, owner의 책임 범위, severity 산정 규칙", 2)}
+      ${card("HIDDEN", "판단에 필요한 것", "TMO의 정의, 분류 근거, 책임자의 담당 범위, 심각도 산정 규칙", 2)}
     </div><div class="panel step" style="--step:3;margin-top:22px"><h3>의미 레이어의 질문</h3><p>이 값은 <strong>무엇을 뜻하고</strong>, 무엇과 <strong>어떻게 연결되며</strong>, 어느 근거로 <strong>유효한가</strong>?</p></div>`,
     sources: ["M03 · Ontology 101", "P04 · 교육용 시나리오"],
     note: "데이터베이스 스키마가 나쁘다는 뜻이 아닙니다. 숨은 업무 의미를 공유하고 이식해야 할 때 보완 레이어가 필요하다는 뜻입니다."
   },
   {
     id: "slide-07",
-    plainTitle: "AI가 읽을 지식에도 합의된 의미와 근거가 필요하다",
+    plainTitle: "AI가 활용할 지식에도 합의된 의미와 근거가 필요하다",
     section: "01 · 문제와 학습 계약",
-    title: "AI가 읽을 지식에도<br><span class=\"violet\">합의된 의미와 근거</span>가 필요하다",
-    lead: "ontology가 RAG나 Agent의 정확도를 자동 보장하지 않는다. 대신 따라갈 경로와 승인 경계를 설계한다.",
-    body: lane([["CONCEPT", "개념 연결", "질문과 데이터의 공통 식별자"], ["EVIDENCE", "근거 추적", "Entity·Activity·Agent provenance"], ["CONFIDENCE", "불확실성 표시", "모델 추정과 검증 결과 구분"], ["HUMAN GATE", "최종 승인", "업무 판단 책임은 사람에게"]], 4),
+    title: "AI가 활용할 지식에도<br><span class=\"violet\">합의된 의미와 근거</span>가 필요하다",
+    lead: "온톨로지가 RAG나 에이전트의 정확도를 자동으로 보장하지는 않는다. 대신 근거 경로와 승인 경계를 명확히 한다.",
+    body: lane([["CONCEPT", "개념 연결", "질문과 데이터의 공통 식별자"], ["EVIDENCE", "근거 추적", "개체·활동·행위자의 출처 이력"], ["CONFIDENCE", "불확실성 표시", "모델 추정과 검증 결과 구분"], ["HUMAN GATE", "최종 승인", "업무 판단 책임은 사람에게"]], 4),
     sources: ["S09 · PROV-O", "P04 · 교육용 시나리오"],
     note: "인과 효과를 과장하지 않습니다. 실제 향상 여부는 별도 평가셋과 실험으로 검증해야 합니다."
   },
   {
     id: "slide-08",
-    plainTitle: "ontology는 공유와 재사용 문제에서 출발했다",
+    plainTitle: "온톨로지는 의미를 공유하고 재사용하려는 필요에서 출발했다",
     section: "02 · 방법론의 탄생",
     eyebrow: "WHY METHODOLOGY EMERGED",
-    title: "ontology는 <span class=\"accent\">공유와 재사용</span><br>문제에서 출발했다",
+    title: "온톨로지는 의미를 <span class=\"accent\">공유하고 재사용</span>하려는<br>필요에서 출발했다",
     lead: "서로 다른 사람과 시스템이 같은 개념을 같은 방식으로 해석할 수 있는 명세가 필요했다.",
     body: lane([["SYSTEM A", "job_timeout", "CI 실행 한도"], ["SHARED", "ex:TimeoutFailure", "합의된 개념과 관계"], ["SYSTEM B", "TMO", "검증 로그 코드"]], 3),
     sources: ["M01 · Gruber 1993", "M03 · Ontology 101"],
@@ -107,11 +107,11 @@ window.OntologyDeck.register([
   },
   {
     id: "slide-09",
-    plainTitle: "철학의 ontology가 AI의 공유 명세로 이동했다",
+    plainTitle: "철학의 존재론은 AI에서 ‘공유 가능한 명세’가 되었다",
     section: "02 · 방법론의 탄생",
-    title: "철학의 ontology가<br>AI의 <span class=\"violet\">공유 명세</span>로 이동했다",
+    title: "철학의 존재론은 AI에서<br><span class=\"violet\">공유 가능한 명세</span>가 되었다",
     lead: "같은 단어지만 질문의 층위가 다르다.",
-    body: lane([["PHILOSOPHY", "무엇이 존재하는가?", "존재 범주에 관한 탐구"], ["KNOWLEDGE REPRESENTATION", "어떻게 개념화할까?", "계산 가능한 지식 명세"], ["SEMANTIC WEB", "어떻게 웹에서 연결할까?", "IRI·graph·formal semantics"]], 3),
+    body: lane([["PHILOSOPHY", "무엇이 존재하는가?", "존재 범주에 관한 탐구"], ["KNOWLEDGE REPRESENTATION", "어떻게 개념화할까?", "계산 가능한 지식 명세"], ["SEMANTIC WEB", "어떻게 웹에서 연결할까?", "IRI·그래프·형식 의미"]], 3),
     sources: ["M01 · Gruber 1993"],
     note: "교안에서 ontology는 컴퓨터과학과 지식공학 맥락의 기술 산출물을 뜻합니다. 철학의 정답을 선언하는 작업이 아닙니다."
   },
@@ -120,7 +120,7 @@ window.OntologyDeck.register([
     plainTitle: "핵심 질문은 “옮겨도 뜻이 유지되는가?”였다",
     section: "02 · 방법론의 탄생",
     title: "핵심 질문은<br><span class=\"accent\">“옮겨도 뜻이 유지되는가?”</span>였다",
-    lead: "portable representation은 파일 이동보다 의미 약속의 이동에 가깝다.",
+    lead: "표현 형식을 바꾸어도 개념과 관계에 대한 약속은 유지되어야 한다.",
     body: `<div class="comparison">
       ${card("LOCAL", "시스템 내부 코드", "TMO=17이라는 값은 로컬 문맥 밖에서 뜻을 잃기 쉽다.", 1)}
       ${card("PORTABLE", "공유 식별자와 공리", "동일 IRI, 정의, 관계가 표현 시스템 사이에서 해석 기준을 보존한다.", 2)}
@@ -130,10 +130,10 @@ window.OntologyDeck.register([
   },
   {
     id: "slide-11",
-    plainTitle: "방법론은 ontology 구축을 공학 활동으로 바꾸려 나왔다",
+    plainTitle: "방법론은 온톨로지 구축을 반복 가능한 공학 과정으로 만들었다",
     section: "02 · 방법론의 탄생",
-    title: "방법론은 ontology 구축을<br><span class=\"violet\">공학 활동</span>으로 바꾸려 나왔다",
-    lead: "METHONTOLOGY는 즉흥적인 모델링에 활동·생명주기·기법·산출물을 부여했다.",
+    title: "방법론은 온톨로지 구축을<br><span class=\"violet\">반복 가능한 공학 과정</span>으로 만들었다",
+    lead: "METHONTOLOGY는 즉흥적이던 모델링을 활동·생명주기·기법·산출물이 있는 과정으로 정리했다.",
     body: `<div class="comparison">
       ${card("ART", "머릿속 모델", "전문가 한 명의 직관, 불명확한 완료 기준, 문서화 지연", 1)}
       ${card("ENGINEERING", "검토 가능한 과정", "명세→개념화→형식화→통합→구현→유지보수", 2)}
@@ -143,13 +143,13 @@ window.OntologyDeck.register([
   },
   {
     id: "slide-12",
-    plainTitle: "모델에는 유일한 정답보다 목적 적합성이 중요하다",
+    plainTitle: "모델은 유일한 정답보다 목적에 맞는지가 중요하다",
     section: "02 · 방법론의 탄생",
-    title: "모델에는 유일한 정답보다<br><span class=\"accent\">목적 적합성</span>이 중요하다",
-    lead: "같은 domain도 질문과 예상 변화에 따라 다른 모델이 타당할 수 있다.",
+    title: "모델은 유일한 정답보다<br><span class=\"accent\">목적에 맞는지</span>가 중요하다",
+    lead: "같은 업무 영역이라도 답해야 할 질문과 예상 변화에 따라 적합한 모델은 달라질 수 있다.",
     body: `<div class="grid-3">
-      ${card("SEARCH", "검색용", "동의어와 broader 관계를 빠르게 탐색한다.", 1)}
-      ${card("VALIDATE", "검증용", "필수 evidence와 값 범위를 계약으로 검사한다.", 2)}
+      ${card("SEARCH", "검색용", "동의어와 상하위 관계를 빠르게 탐색한다.", 1)}
+      ${card("VALIDATE", "검증용", "필수 근거와 값 범위를 계약으로 검사한다.", 2)}
       ${card("INFER", "추론용", "상위 유형과 논리적 관계에서 새로운 결론을 도출한다.", 3)}
     </div>`,
     sources: ["M03 · Ontology 101"],
@@ -157,48 +157,48 @@ window.OntologyDeck.register([
   },
   {
     id: "slide-13",
-    plainTitle: "ontology는 완성품보다 진화하는 prototype에 가깝다",
+    plainTitle: "온톨로지는 한 번에 완성하기보다 작은 버전으로 진화시킨다",
     section: "02 · 방법론의 탄생",
-    title: "ontology는 완성품보다<br>진화하는 <span class=\"violet\">prototype</span>에 가깝다",
+    title: "온톨로지는 한 번에 완성하기보다<br><span class=\"violet\">작은 버전으로 진화</span>시킨다",
     lead: "작은 버전을 사용해 보고, 질문과 데이터에서 나온 피드백을 다음 버전에 반영한다.",
-    body: lane([["v0.1", "작은 범위", "핵심 CQ 2–4개"], ["USE", "실제 연결", "instance·query·shape"], ["EVALUATE", "전 과정 평가", "오답·누락·운영비"], ["v0.2", "수정·문서화", "변경 이유와 영향"]], 4),
+    body: lane([["v0.1", "작은 범위", "핵심 CQ 2–4개"], ["USE", "실제 연결", "예제 데이터·질의·검증 규칙"], ["EVALUATE", "전 과정 평가", "오답·누락·운영비"], ["v0.2", "수정·문서화", "변경 이유와 영향"]], 4),
     sources: ["M03 · Ontology 101", "M04 · METHONTOLOGY"],
     note: "반복 개발은 계획 부재가 아니라 매 반복마다 평가와 문서화를 수행하는 통제된 진화입니다."
   },
   {
     id: "slide-14",
-    plainTitle: "고전 방법론은 서로 다른 빈칸을 채웠다",
+    plainTitle: "주요 방법론은 서로 다른 과제를 보완한다",
     section: "02 · 방법론의 탄생",
-    title: "고전 방법론은<br><span class=\"accent\">서로 다른 빈칸</span>을 채웠다",
+    title: "주요 방법론은<br><span class=\"accent\">서로 다른 과제</span>를 보완한다",
     lead: "하나를 승자로 고르기보다 각 전통의 강점을 구분해 사용한다.",
     body: `<div class="grid-3">
-      ${card("ONTOLOGY 101", "실용적 구축 순서", "범위·재사용·용어·class·property·instance", 1)}
-      ${card("GRÜNINGER & FOX", "Competency Question", "동기 시나리오를 요구사항과 평가로 연결", 2)}
+      ${card("ONTOLOGY 101", "실용적 구축 순서", "범위·재사용·용어·클래스·속성·개체", 1)}
+      ${card("GRÜNINGER & FOX", "역량 질문", "동기 시나리오를 요구사항과 평가로 연결", 2)}
       ${card("METHONTOLOGY", "생명주기", "활동·산출물·평가·문서화", 3)}
-      ${card("NeOn", "재사용 시나리오", "ontology·비ontology 자원·pattern·network", 4)}
+      ${card("NeOn", "재사용 시나리오", "온톨로지·비온톨로지 자원·패턴·네트워크", 4)}
       ${card("OBO FOUNDRY", "운영 원칙", "IRI·정의·관계·버전·책임·변경", 5)}
-      ${card("SYNTHESIS", "상호 보완", "질문에서 운영까지 하나의 반복 loop", 6)}
+      ${card("SYNTHESIS", "상호 보완", "질문에서 운영까지 하나의 반복 순환", 6)}
     </div>`,
     sources: ["M03", "M04", "M05", "M06", "M07"],
     note: "비교는 강점 중심의 교육적 요약입니다. 각 방법론의 전체 범위를 순위화하거나 동일한 것으로 취급하지 않습니다."
   },
   {
     id: "slide-15",
-    plainTitle: "이 과정은 다섯 전통을 하나의 실무 loop로 묶는다",
+    plainTitle: "다섯 방법론의 강점을 하나의 실무 순환으로 묶는다",
     section: "02 · 방법론의 탄생",
-    title: "이 과정은 다섯 전통을<br>하나의 <span class=\"violet\">실무 loop</span>로 묶는다",
+    title: "다섯 방법론의 강점을<br>하나의 <span class=\"violet\">실무 순환</span>으로 묶는다",
     lead: "CRAFT는 독립 학술 표준이 아니라 원전의 공통 활동을 기억하기 쉽게 번역한 교육용 통합 프레임이다.",
-    body: lane([["C", "Context & CQ", "업무 결정과 질문"], ["R", "Reuse & Requirements", "요구·기존 자원"], ["A", "Architecture & Alignment", "개념·관계·운영 구조"], ["F", "Formalize & Fill", "언어·schema·data·shape"], ["T", "Test & Tend", "검증·release·진화"]], 5),
+    body: lane([["C", "Context & CQ", "업무 결정과 질문"], ["R", "Reuse & Requirements", "요구·기존 자원"], ["A", "Architecture & Alignment", "개념·관계·운영 구조"], ["F", "Formalize & Fill", "언어·명세·데이터·검증 규칙"], ["T", "Test & Tend", "검증·배포·진화"]], 5),
     sources: ["M03", "M04", "M05", "M06", "M07", "P01"],
     note: "CRAFT라는 이름 자체를 외부 표준처럼 인용하지 않습니다. 각 단계의 근거는 다섯 전통에 추적됩니다."
   },
   {
     id: "slide-16",
     mode: "appendix",
-    plainTitle: "먼저 ontology의 경계를 세운다",
+    plainTitle: "무엇을 만들지보다 어디까지 만들지를 먼저 정한다",
     section: "03 · 정의와 구성요소",
     eyebrow: "WHAT ARE WE BUILDING?",
-    title: "먼저 ontology의<br><span class=\"accent\">경계</span>를 세운다",
+    title: "무엇을 만들지보다<br><span class=\"accent\">어디까지 만들지</span>를 먼저 정한다",
     lead: "지식 구조는 표현력과 운영 비용이 함께 커진다. 목적보다 복잡하게 만들지 않는다.",
     body: lane([["GLOSSARY", "용어·정의", "사람의 공통 언어"], ["TAXONOMY", "상하위 분류", "탐색과 조직"], ["SCHEMA", "필드·구조·제약", "데이터 계약"], ["ONTOLOGY", "개념·관계·공리", "공유 의미와 추론"]], 4),
     sources: ["M01 · Gruber 1993", "M03 · Ontology 101"],
@@ -206,9 +206,9 @@ window.OntologyDeck.register([
   },
   {
     id: "slide-17",
-    plainTitle: "ontology는 conceptualization의 explicit specification이다",
+    plainTitle: "온톨로지는 합의한 개념 체계를 명시한 것이다",
     section: "03 · 정의와 구성요소",
-    title: "ontology는 conceptualization의<br><span class=\"violet\">explicit specification</span>이다",
+    title: "온톨로지는 합의한 개념 체계를<br><span class=\"violet\">명시적으로 적은 것</span>이다",
     lead: "Gruber의 고전적 정의를 실무 언어로 번역하면 ‘업무 세계를 보는 합의된 관점을 명시적으로 적은 것’이다.",
     body: `<div class="comparison">
       ${card("CONCEPTUALIZATION", "머릿속 관점", "어떤 대상과 관계를 중요하게 보는가", 1)}
@@ -219,18 +219,18 @@ window.OntologyDeck.register([
   },
   {
     id: "slide-18",
-    plainTitle: "shared·explicit·formal은 서로 다른 약속이다",
+    plainTitle: "공유·명시·형식화는 서로 다른 약속이다",
     section: "03 · 정의와 구성요소",
-    title: "shared · explicit · formal은<br><span class=\"accent\">서로 다른 약속</span>이다",
-    body: lane([["SHARED", "공동체 합의", "누가 이 의미를 공유하는가"], ["EXPLICIT", "경계의 명시", "정의·예·반례·관계를 적었는가"], ["FORMAL", "기계 해석", "정해진 semantics로 처리 가능한가"]], 3),
+    title: "공유 · 명시 · 형식화는<br><span class=\"accent\">서로 다른 약속</span>이다",
+    body: lane([["SHARED", "공동체 합의", "누가 이 의미를 공유하는가"], ["EXPLICIT", "경계의 명시", "정의·예·반례·관계를 적었는가"], ["FORMAL", "기계 해석", "정해진 형식 의미로 처리 가능한가"]], 3),
     sources: ["M01 · Gruber 1993", "M03 · Ontology 101", "S03 · OWL 2"],
     note: "세 약속은 자동으로 함께 충족되지 않습니다. 형식 문법이 있어도 공동체 합의가 없을 수 있습니다."
   },
   {
     id: "slide-19",
-    plainTitle: "class·property·individual·axiom이 의미를 만든다",
+    plainTitle: "클래스·속성·개체·공리가 의미를 구성한다",
     section: "03 · 정의와 구성요소",
-    title: "class · property · individual · axiom이<br><span class=\"violet\">의미</span>를 만든다",
+    title: "클래스 · 속성 · 개체 · 공리가<br><span class=\"violet\">의미</span>를 구성한다",
     body: `<div class="graph" aria-label="온톨로지 핵심 구성요소"><span class="node core step" style="--step:1">TimeoutFailure<br><small>class</small></span><span class="node step" style="--step:2">hasEvidence<br><small>property</small></span><span class="node step" style="--step:3">failure-1042<br><small>individual</small></span><span class="node step" style="--step:4">min 1 evidence<br><small>constraint</small></span><span class="node step" style="--step:5">definition<br><small>annotation</small></span></div>`,
     sources: ["M03 · Ontology 101", "S03 · OWL 2", "S04 · OWL Primer"],
     note: "제약은 OWL 공리나 SHACL shape 등 목적에 따라 다른 언어로 표현될 수 있습니다."
@@ -241,7 +241,7 @@ window.OntologyDeck.register([
     plainTitle: "문자열이 아니라 개념 식별자를 중심에 둔다",
     section: "03 · 정의와 구성요소",
     title: "문자열이 아니라<br><span class=\"accent\">개념 식별자</span>를 중심에 둔다",
-    lead: "label은 사람이 바꾸고 번역할 수 있지만 IRI는 연결을 유지하는 식별 계약이다.",
+    lead: "라벨은 바꾸거나 번역할 수 있지만 IRI는 연결을 유지하는 식별 계약이다.",
     body: `<div class="graph" aria-label="여러 라벨이 하나의 개념 IRI에 정렬"><span class="node core step" style="--step:3">ex:TimeoutFailure</span><span class="node step" style="--step:1">timeout</span><span class="node step" style="--step:1">TMO</span><span class="node step" style="--step:2">응답 시간 초과</span><span class="node step" style="--step:2">legacy:17</span></div>`,
     sources: ["M07 · OBO Foundry", "S01 · RDF", "S05 · SKOS"],
     note: "모든 문자열을 하나의 개념으로 합쳐서는 안 됩니다. 실제로 같은 개념인지 정의와 사용 문맥으로 먼저 검토합니다."
@@ -249,9 +249,9 @@ window.OntologyDeck.register([
   {
     id: "slide-21",
     mode: "appendix",
-    plainTitle: "이름보다 목적과 표현력으로 지식 구조를 고른다",
+    plainTitle: "지식 구조는 이름이 아니라 목적과 표현력으로 고른다",
     section: "03 · 정의와 구성요소",
-    title: "이름보다 <span class=\"violet\">목적과 표현력</span>으로<br>지식 구조를 고른다",
+    title: "지식 구조는 이름이 아니라<br><span class=\"violet\">목적과 표현력</span>으로 고른다",
     body: `<div class="grid-2">
       ${card("LIGHTWEIGHT", "Glossary · Taxonomy", "용어 합의, 탐색, 분류가 목표라면 간결한 구조가 운영하기 쉽다.", 1)}
       ${card("STRUCTURED", "Schema", "필드와 데이터 계약이 중심이면 schema와 validation이 핵심이다.", 2)}
@@ -264,22 +264,22 @@ window.OntologyDeck.register([
   {
     id: "slide-22",
     mode: "appendix",
-    plainTitle: "ontology schema와 instance data는 함께 지식베이스를 이룬다",
+    plainTitle: "온톨로지 명세와 실제 데이터가 함께 지식베이스를 이룬다",
     section: "03 · 정의와 구성요소",
-    title: "ontology schema와 instance data는<br>함께 <span class=\"accent\">지식베이스</span>를 이룬다",
+    title: "온톨로지 명세와 실제 데이터가<br>함께 <span class=\"accent\">지식베이스</span>를 이룬다",
     body: `<div class="comparison">
       ${card("TBOX · SCHEMA", "가능한 세계의 규칙", "TestFailure는 Failure의 하위 유형이며 hasEvidence 관계를 가진다.", 1)}
-      ${card("ABOX · DATA", "현재 알고 있는 사실", "failure-1042는 TimeoutFailure이며 log-77을 evidence로 가진다.", 2)}
-    </div><p class="lead step" style="--step:3;margin-top:25px">schema만 있으면 빈 설계, data만 있으면 해석 규칙 없는 graph가 되기 쉽다.</p>`,
+      ${card("ABOX · DATA", "현재 알고 있는 사실", "failure-1042는 TimeoutFailure이며 log-77을 근거로 가진다.", 2)}
+    </div><p class="lead step" style="--step:3;margin-top:25px">명세만 있으면 빈 설계가 되고, 실제 데이터만 있으면 해석 규칙 없는 그래프가 되기 쉽다.</p>`,
     sources: ["M03 · Ontology 101", "S03 · OWL 2"],
     note: "TBox/ABox는 설명을 위한 관용적 구분입니다. 실무 파일 구조가 반드시 두 파일이어야 하는 것은 아닙니다."
   },
   {
     id: "slide-23",
     mode: "appendix",
-    plainTitle: "ontology와 knowledge graph는 역할이 겹치지만 동일어는 아니다",
+    plainTitle: "온톨로지와 지식 그래프는 역할이 겹치지만 같은 개념은 아니다",
     section: "03 · 정의와 구성요소",
-    title: "ontology와 knowledge graph는<br>역할이 겹치지만 <span class=\"amber\">동일어는 아니다</span>",
+    title: "온톨로지와 지식 그래프는<br>역할이 겹치지만 <span class=\"amber\">같은 개념은 아니다</span>",
     body: lane([["ONTOLOGY", "의미·관계·공리", "graph를 어떻게 해석할지 명세"], ["KNOWLEDGE GRAPH", "식별된 사실의 연결", "schema와 instance를 graph로 운영"], ["THIS COURSE", "layered convention", "ontology가 data graph를 설명·검증"]], 3),
     sources: ["S01 · RDF", "S03 · OWL 2", "P01 · 교육 설계"],
     note: "업계에서 용어 사용은 다양합니다. 이 교안에서는 혼란을 줄이기 위해 명세 레이어와 사실 graph를 구분합니다."
@@ -287,16 +287,16 @@ window.OntologyDeck.register([
   {
     id: "slide-24",
     mode: "appendix",
-    plainTitle: "TimeoutFailure 하나로 정의 전체를 확인한다",
+    plainTitle: "TimeoutFailure 예제로 핵심 구성요소를 한 번에 확인한다",
     section: "03 · 정의와 구성요소",
-    title: "<code>TimeoutFailure</code> 하나로<br><span class=\"accent\">정의 전체</span>를 확인한다",
+    title: "<code>TimeoutFailure</code> 예제로<br><span class=\"accent\">핵심 구성요소</span>를 한 번에 확인한다",
     body: `<div class="grid-3">
       ${card("CLASS", "상위 경계", "TimeoutFailure ⊑ TestFailure", 1)}
       ${card("RELATION", "관찰 위치", "observedIn → TestRun", 2)}
-      ${card("EVIDENCE", "판단 근거", "hasEvidence 최소 1개를 shape로 검사", 3)}
+      ${card("EVIDENCE", "판단 근거", "hasEvidence가 하나 이상인지 검증 규칙으로 검사", 3)}
       ${card("INSTANCE", "실제 사건", "failure-1042 : TimeoutFailure", 4)}
       ${card("ANNOTATION", "사람용 정의", "시간 제한 안에 테스트가 완료되지 않은 관찰", 5)}
-      ${card("CQ", "사용 질문", "같은 signature의 과거 failure는?", 6)}
+      ${card("CQ", "사용 질문", "같은 시그니처의 과거 실패는?", 6)}
     </div>`,
     sources: ["P02 · failure ontology", "P03 · SHACL shapes"],
     note: "한 예에 class, relation, data, constraint, definition, question을 모두 연결해 개별 요소가 목적 없이 떠다니지 않게 합니다."
@@ -307,26 +307,26 @@ window.OntologyDeck.register([
     section: "04 · 표준 스택",
     eyebrow: "REPRESENT · REASON · VALIDATE · QUERY",
     title: "표준은 한 덩어리가 아니라<br><span class=\"violet\">역할 분담</span>이다",
-    body: lane([["RDF", "표현", "triple과 graph"], ["RDFS / OWL / SKOS", "의미", "class·relation·axiom·용어망"], ["SHACL", "검증", "data graph 계약"], ["SPARQL", "질의", "graph pattern"], ["TURTLE / JSON-LD", "교환", "같은 graph의 직렬화"]], 5),
+    body: lane([["RDF", "표현", "트리플과 그래프"], ["RDFS / OWL / SKOS", "의미", "클래스·관계·공리·용어망"], ["SHACL", "검증", "데이터 그래프 계약"], ["SPARQL", "질의", "그래프 패턴"], ["TURTLE / JSON-LD", "교환", "같은 그래프의 직렬화"]], 5),
     sources: ["S01", "S02", "S03", "S05", "S06", "S07", "S08"],
     note: "각 표준의 질문이 다릅니다. 한 언어로 모든 문제를 해결하려 하지 않습니다."
   },
   {
     id: "slide-26",
-    plainTitle: "RDF는 의미를 triple로 쪼갠다",
+    plainTitle: "RDF는 의미를 트리플로 나눈다",
     section: "04 · 표준 스택",
-    title: "RDF는 의미를<br><span class=\"accent\">triple</span>로 쪼갠다",
-    lead: "“failure-1042가 log-77을 근거로 가진다”를 subject–predicate–object로 표현한다.",
-    body: lane([["SUBJECT", "ex:failure-1042", "설명할 자원 IRI"], ["PREDICATE", "ex:hasEvidence", "관계 IRI"], ["OBJECT", "ex:log-77", "연결할 자원 IRI 또는 literal"]], 3),
+    title: "RDF는 의미를<br><span class=\"accent\">트리플</span>로 나눈다",
+    lead: "“failure-1042가 log-77을 근거로 가진다”를 주어–술어–목적어 구조로 표현한다.",
+    body: lane([["SUBJECT", "ex:failure-1042", "설명할 자원 IRI"], ["PREDICATE", "ex:hasEvidence", "관계 IRI"], ["OBJECT", "ex:log-77", "연결할 자원 IRI 또는 값"]], 3),
     sources: ["S01 · RDF 1.1 Concepts"],
     note: "RDF graph는 triple의 집합입니다. object에는 IRI, blank node 또는 literal이 올 수 있습니다."
   },
   {
     id: "slide-27",
-    plainTitle: "triple의 공유 node가 graph를 만든다",
+    plainTitle: "공유 식별자가 트리플을 그래프로 연결한다",
     section: "04 · 표준 스택",
-    title: "triple의 공유 node가<br><span class=\"violet\">graph</span>를 만든다",
-    lead: "같은 식별자가 여러 사실의 접점이 되면서 join 가능한 지식 구조가 생긴다.",
+    title: "공유 식별자가 트리플을<br><span class=\"violet\">그래프로 연결</span>한다",
+    lead: "같은 식별자가 여러 사실의 접점이 되면서 질의로 연결할 수 있는 지식 구조가 생긴다.",
     body: `<div class="graph" aria-label="세 RDF triple이 공유 노드로 연결"><span class="node core step" style="--step:1">failure-1042</span><span class="node step" style="--step:2">TimeoutFailure</span><span class="node step" style="--step:3">run-88</span><span class="node step" style="--step:4">log-77</span><span class="node step" style="--step:5">component-DMA</span></div>`,
     sources: ["S01 · RDF 1.1 Concepts"],
     note: "연결성은 단순 시각화가 아니라 동일 IRI를 통해 graph pattern을 매칭하는 계산 기반입니다."
@@ -334,9 +334,9 @@ window.OntologyDeck.register([
   {
     id: "slide-28",
     mode: "appendix",
-    plainTitle: "RDFS는 class와 property의 기본 골격을 준다",
+    plainTitle: "RDFS는 클래스와 속성의 기본 골격을 제공한다",
     section: "04 · 표준 스택",
-    title: "RDFS는 class와 property의<br><span class=\"accent\">기본 골격</span>을 준다",
+    title: "RDFS는 클래스와 속성의<br><span class=\"accent\">기본 골격</span>을 제공한다",
     body: lane([["ASSERT", "failure-1042 a TimeoutFailure", "명시한 type"], ["SCHEMA", "TimeoutFailure subClassOf TestFailure", "상위 class 관계"], ["ENTAIL", "failure-1042 a TestFailure", "semantics로 따라오는 결론"]], 3),
     sources: ["S02 · RDF Schema 1.1"],
     note: "domain과 range는 단순 입력 검증 규칙이 아니라 RDFS에서 type 추론을 일으킬 수 있으므로 주의해야 합니다."
@@ -347,38 +347,38 @@ window.OntologyDeck.register([
     section: "04 · 표준 스택",
     title: "OWL은 더 풍부한 공리와<br><span class=\"violet\">형식 의미</span>를 더한다",
     body: `<div class="grid-3">
-      ${card("DISJOINT", "함께 될 수 없음", "PassingRun과 FailedRun을 disjoint class로 선언", 1)}
-      ${card("RESTRICTION", "관계 조건", "분류 또는 정의에 필요한 property 조건 표현", 2)}
-      ${card("EQUIVALENCE", "같은 의미", "두 class expression의 논리적 동등성 명세", 3)}
-    </div><p class="lead step" style="--step:4;margin-top:24px">reasoner는 공리의 형식 의미를 따라 일관성과 암시된 결론을 계산한다.</p>`,
+      ${card("DISJOINT", "함께 될 수 없음", "PassingRun과 FailedRun을 상호 배타적 클래스로 선언", 1)}
+      ${card("RESTRICTION", "관계 조건", "분류나 정의에 필요한 속성 조건을 표현", 2)}
+      ${card("EQUIVALENCE", "같은 의미", "두 클래스 표현의 논리적 동등성을 명세", 3)}
+    </div><p class="lead step" style="--step:4;margin-top:24px">추론기는 공리의 형식 의미를 따라 일관성과 암시된 결론을 계산한다.</p>`,
     sources: ["S03 · OWL 2 Overview", "S04 · OWL 2 Primer"],
     note: "OWL은 여러 profile과 표현력 수준을 제공합니다. 더 강한 표현력이 항상 더 좋은 것은 아닙니다."
   },
   {
     id: "slide-30",
     mode: "appendix",
-    plainTitle: "taxonomy와 thesaurus에는 SKOS가 더 알맞을 수 있다",
+    plainTitle: "분류체계와 시소러스에는 SKOS가 더 알맞을 수 있다",
     section: "04 · 표준 스택",
-    title: "taxonomy와 thesaurus에는<br><span class=\"accent\">SKOS</span>가 더 알맞을 수 있다",
+    title: "분류체계와 시소러스에는<br><span class=\"accent\">SKOS</span>가 더 알맞을 수 있다",
     body: `<div class="graph" aria-label="SKOS 용어망"><span class="node core step" style="--step:1">Timeout failure<br><small>prefLabel</small></span><span class="node step" style="--step:2">TMO<br><small>altLabel</small></span><span class="node step" style="--step:3">Test failure<br><small>broader</small></span><span class="node step" style="--step:4">Hang<br><small>related</small></span><span class="node step" style="--step:5">legacy:17<br><small>mapping</small></span></div>`,
     sources: ["S05 · SKOS Reference"],
     note: "SKOS broader를 OWL subClassOf와 무조건 동일하게 해석하지 않습니다. 용어 조직과 논리 분류는 목적이 다릅니다."
   },
   {
     id: "slide-31",
-    plainTitle: "SHACL은 “입력 graph가 계약을 지켰나?”를 검사한다",
+    plainTitle: "SHACL은 입력 그래프가 데이터 계약을 지켰는지 검사한다",
     section: "04 · 표준 스택",
-    title: "SHACL은<br><span class=\"amber\">“입력 graph가 계약을 지켰나?”</span>를 검사한다",
+    title: "SHACL은 입력 그래프가<br><span class=\"amber\">데이터 계약을 지켰는지</span> 검사한다",
     body: lane([["FOCUS NODE", "failure-1042", "검사 대상"], ["SHAPE", "FailureShape", "hasEvidence minCount 1"], ["RESULT", "Violation", "누락 경로와 메시지"], ["FIX", "evidence 추가", "다시 검사해 Conforms"]], 4),
     sources: ["S06 · SHACL", "P03 · 예제 shapes"],
     note: "SHACL validation result는 data graph가 shapes graph 조건을 충족했는지 보고합니다. 도메인 진실 전체를 판정하는 장치가 아닙니다."
   },
   {
     id: "slide-32",
-    plainTitle: "SPARQL은 graph pattern으로 질문한다",
+    plainTitle: "SPARQL은 그래프 패턴으로 질문한다",
     section: "04 · 표준 스택",
-    title: "SPARQL은<br><span class=\"accent\">graph pattern</span>으로 질문한다",
-    lead: "CQ: ‘같은 signature의 과거 timeout failure와 담당 component는?’",
+    title: "SPARQL은<br><span class=\"accent\">그래프 패턴</span>으로 질문한다",
+    lead: "CQ: ‘같은 시그니처의 과거 타임아웃 실패와 담당 구성요소는?’",
     body: `<div class="comparison">
       <pre class="panel step" style="--step:1;white-space:pre-wrap;color:var(--muted)"><code>SELECT ?failure ?component
 WHERE {
@@ -395,9 +395,9 @@ WHERE {
   {
     id: "slide-33",
     mode: "appendix",
-    plainTitle: "Turtle과 JSON-LD는 같은 graph의 다른 표현이다",
+    plainTitle: "Turtle과 JSON-LD는 같은 그래프를 다르게 적는 방식이다",
     section: "04 · 표준 스택",
-    title: "Turtle과 JSON-LD는<br>같은 graph의 <span class=\"violet\">다른 표현</span>이다",
+    title: "Turtle과 JSON-LD는 같은 그래프를<br><span class=\"violet\">다르게 적는 방식</span>이다",
     body: `<div class="comparison">
       <pre class="panel step" style="--step:1;white-space:pre-wrap;color:var(--muted)"><span class="panel-kicker">TURTLE</span><code>ex:failure-1042
   a ex:TimeoutFailure ;
@@ -412,13 +412,13 @@ WHERE {
   {
     id: "slide-34",
     mode: "appendix",
-    plainTitle: "추론은 명시하지 않은 결론을 semantics로 도출한다",
+    plainTitle: "추론은 명시하지 않은 결론을 형식 의미에서 도출한다",
     section: "04 · 표준 스택",
-    title: "추론은 명시하지 않은 결론을<br><span class=\"accent\">semantics</span>로 도출한다",
+    title: "추론은 명시하지 않은 결론을<br><span class=\"accent\">형식 의미</span>에서 도출한다",
     body: `<div class="comparison">
       ${card("ASSERTED · 실선", "직접 적은 사실", "failure-1042 a TimeoutFailure", 1)}
       ${card("INFERRED · 점선", "공리에서 도출", "TimeoutFailure가 TestFailure의 하위 class이면 failure-1042도 TestFailure", 2)}
-    </div><p class="lead step" style="--step:3;margin-top:24px">reasoner는 추측이 아니라 선택한 형식 semantics의 논리적 귀결을 계산한다.</p>`,
+    </div><p class="lead step" style="--step:3;margin-top:24px">추론기는 추측하는 도구가 아니라 선택한 형식 의미의 논리적 귀결을 계산한다.</p>`,
     sources: ["S01 · RDF 1.1", "S03 · OWL 2"],
     note: "추론 결과의 유용성은 공리의 품질과 선택한 entailment regime에 달려 있습니다."
   },
@@ -428,8 +428,8 @@ WHERE {
     section: "04 · 표준 스택",
     title: "검증은 <span class=\"amber\">합격 여부</span>를,<br>추론은 <span class=\"violet\">가능한 결론</span>을 묻는다",
     body: `<div class="comparison">
-      ${card("SHACL VALIDATION", "계약 검사", "입력: data graph + shapes / 출력: conforms와 violation / 누락을 실패로 다룰 수 있음", 1)}
-      ${card("OWL REASONING", "논리 귀결", "입력: ontology + assertions / 출력: entailment·classification·consistency / 모름은 거짓이 아님", 2)}
+      ${card("SHACL VALIDATION", "계약 검사", "입력: 데이터 그래프 + 검증 규칙 / 출력: 적합 여부와 위반 내역 / 누락을 실패로 다룰 수 있음", 1)}
+      ${card("OWL REASONING", "논리 귀결", "입력: 온톨로지 + 명시 사실 / 출력: 논리 귀결·분류·일관성 / 모름은 거짓이 아님", 2)}
     </div>`,
     sources: ["S03 · OWL 2", "S06 · SHACL"],
     note: "두 도구는 경쟁 관계가 아닙니다. 같은 시스템에서 추론으로 의미를 확장하고 SHACL로 교환 데이터 계약을 검사할 수 있습니다."
@@ -437,25 +437,25 @@ WHERE {
   {
     id: "slide-36",
     mode: "appendix",
-    plainTitle: "open world에서는 “없다”와 “모른다”가 다르다",
+    plainTitle: "열린 세계에서는 “없다”와 “모른다”가 다르다",
     section: "04 · 표준 스택",
-    title: "open world에서는<br><span class=\"amber\">“없다”와 “모른다”</span>가 다르다",
-    lead: "graph에 evidence triple이 없다는 사실만으로 현실에 evidence가 없다고 결론 내릴 수 없다.",
+    title: "열린 세계에서는<br><span class=\"amber\">“없다”와 “모른다”</span>가 다르다",
+    lead: "그래프에 근거 트리플이 없다는 이유만으로 현실에도 근거가 없다고 결론 내릴 수는 없다.",
     body: `<div class="comparison">
-      ${card("OWL / RDF", "정보가 불완전할 수 있음", "hasEvidence가 보이지 않음 → evidence가 없다고 단정하지 않음", 1)}
-      ${card("SHACL CONTRACT", "이 입력에서 필수", "hasEvidence minCount 1 → 현재 data graph는 계약 위반", 2)}
+      ${card("OWL / RDF", "정보가 불완전할 수 있음", "hasEvidence가 보이지 않음 → 근거가 없다고 단정하지 않음", 1)}
+      ${card("SHACL CONTRACT", "이 입력에서 필수", "hasEvidence 최소 1개 → 현재 데이터 그래프는 계약 위반", 2)}
     </div>`,
     sources: ["S04 · OWL Primer", "S05 · SKOS", "S06 · SHACL"],
     note: "open-world assumption과 validation의 폐쇄적 데이터 계약을 의도적으로 함께 사용합니다. 서로 다른 질문에 답합니다."
   },
   {
     id: "slide-37",
-    plainTitle: "좋은 ontology는 큰 ontology가 아니라 목적에 맞는 ontology다",
+    plainTitle: "좋은 온톨로지는 크기가 아니라 목적 적합성으로 판단한다",
     section: "05 · 구성 원리",
     eyebrow: "FIT FOR PURPOSE",
-    title: "좋은 ontology는 큰 ontology가 아니라<br><span class=\"accent\">목적에 맞는 ontology</span>다",
+    title: "좋은 온톨로지는 크기가 아니라<br><span class=\"accent\">목적 적합성</span>으로 판단한다",
     lead: "세계를 다 담으려 하지 말고, 합의한 질문과 검증을 만족하는 최소 경계를 만든다.",
-    body: `<div class="panel step" style="--step:1;text-align:center;padding:42px"><p class="quote">필요한 구분은 명확하게, 불필요한 약속은 최소로.</p></div><div class="grid-3" style="margin-top:22px">${card("PURPOSE", "CQ에 답하는가", "사용 결정과 연결", 2)}${card("COHERENCE", "모순 없이 설명되는가", "정의와 공리 검토", 3)}${card("OPERABILITY", "지속해서 돌볼 수 있는가", "owner·version·test", 4)}</div>`,
+    body: `<div class="panel step" style="--step:1;text-align:center;padding:42px"><p class="quote">필요한 구분은 명확하게, 불필요한 약속은 최소로.</p></div><div class="grid-3" style="margin-top:22px">${card("PURPOSE", "CQ에 답하는가", "사용 결정과 연결", 2)}${card("COHERENCE", "모순 없이 설명되는가", "정의와 공리 검토", 3)}${card("OPERABILITY", "지속해서 돌볼 수 있는가", "책임자·버전·테스트", 4)}</div>`,
     sources: ["M02 · Gruber 1995", "M03 · Ontology 101"],
     note: "다음 장부터 이 원칙을 CQ, 범위, 재사용, 식별자, 정의, 모듈, provenance, 공리, governance로 구체화합니다."
   }

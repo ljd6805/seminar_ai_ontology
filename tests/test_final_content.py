@@ -42,6 +42,26 @@ class FinalContentTest(unittest.TestCase):
         content = "\n".join(path.read_text(encoding="utf-8") for path in sorted(CONTENT.glob("slides-*.js")))
         self.assertEqual(content.count('mode: "appendix"'), 15)
 
+    def test_visible_copy_avoids_mixed_language_production_jargon(self):
+        content = "\n".join(path.read_text(encoding="utf-8") for path in sorted(CONTENT.glob("slides-*.js")))
+        for phrase in (
+            "실무 loop",
+            "feedback이 핵심",
+            "owner와 변경 절차",
+            "review 가능한 text",
+            "inventory한다",
+            "tend가 시작된다",
+            "Failure Knowledge Hub",
+            "CQ는 ontology",
+            "subject–predicate–object",
+            "같은 signature의 과거",
+            "owner·version·test",
+            "다음 버전의 backlog",
+            "graph에 evidence triple",
+        ):
+            with self.subTest(phrase=phrase):
+                self.assertNotIn(phrase, content)
+
     def test_running_example_includes_query_and_invalid_fixture(self):
         query = (ROOT / "examples" / "find-similar-failures.rq").read_text(encoding="utf-8")
         invalid = (ROOT / "examples" / "semiconductor-failure-invalid.ttl").read_text(encoding="utf-8")
