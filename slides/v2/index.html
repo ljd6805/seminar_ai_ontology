@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="온톨로지 지식관리 방법론을 기초부터 실무 적용까지 학습하는 75장 교안">
+  <title>온톨로지 지식관리 방법론</title>
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <a class="skip-link" href="#slide-stage">슬라이드 본문으로 건너뛰기</a>
+  <main class="deck" id="deck-app">
+    <header class="deck-chrome" aria-label="슬라이드 상태">
+      <a class="brand" href="../../">ONTOLOGY · KNOWLEDGE MANAGEMENT</a>
+      <div class="deck-meta">
+        <span id="section-label">ENGINE PREVIEW</span>
+        <span><b id="current-number">1</b> / <span id="total-number">0</span></span>
+      </div>
+      <div class="progress-track" role="progressbar" aria-label="교안 진행률" aria-valuemin="1" aria-valuemax="1" aria-valuenow="1">
+        <span id="progress-bar"></span>
+      </div>
+    </header>
+
+    <div class="slide-stage" id="slide-stage" tabindex="-1" aria-live="polite"></div>
+
+    <nav class="deck-controls" aria-label="슬라이드 제어">
+      <button type="button" id="previous-button" aria-label="이전 슬라이드">←</button>
+      <button type="button" id="overview-button" aria-label="전체 슬라이드 보기">전체</button>
+      <button type="button" id="replay-button" aria-label="현재 슬라이드 애니메이션 다시 재생">재생</button>
+      <button type="button" id="next-button" aria-label="다음 슬라이드">→</button>
+    </nav>
+  </main>
+
+  <dialog id="overview-dialog" aria-labelledby="overview-title">
+    <div class="overview-head">
+      <div>
+        <p class="eyebrow">OVERVIEW</p>
+        <h2 id="overview-title">전체 슬라이드</h2>
+      </div>
+      <button type="button" id="overview-close" aria-label="전체 보기 닫기">닫기</button>
+    </div>
+    <ol id="overview-list"></ol>
+  </dialog>
+
+  <aside id="presenter-notes" aria-label="발표자 노트" hidden>
+    <p class="eyebrow">PRESENTER NOTE</p>
+    <div id="presenter-note-content"></div>
+  </aside>
+  <p class="sr-only" id="deck-announcer" aria-live="polite"></p>
+  <noscript>이 교안은 슬라이드 이동을 위해 JavaScript가 필요합니다.</noscript>
+
+  <script>
+    window.OntologyDeck = {
+      slides: [],
+      register(items) { this.slides.push(...items); }
+    };
+  </script>
+  <script defer src="content/preview.js"></script>
+  <script defer src="deck.js"></script>
+</body>
+</html>
