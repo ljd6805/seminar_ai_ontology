@@ -156,6 +156,180 @@
       <figcaption class="sr-only">세 문장을 작성하면 질문, 범위, 거버넌스가 정해져 작은 첫 설계를 시작할 수 있다.</figcaption>
     </figure>`;
 
+  const systemHub = () => svgFigure(
+    "system-hub",
+    "회귀 로그, 테스트 목록, 이슈 추적기, 블록 맵, 책임자 정보가 중앙의 실패 지식 허브로 모여 판단 근거를 연결한다",
+    "0 0 1040 400",
+    `<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>
+     <g class="hub-orbit" data-build="1"><ellipse cx="520" cy="202" rx="332" ry="146"></ellipse></g>
+     ${node(417, 158, 206, 88, "실패 지식 허브", "판단 근거의 연결점", "is-core", 4)}
+     ${node(42, 54, 164, 68, "회귀 로그", "관찰·시그니처", "is-source", 1)}
+     ${node(42, 278, 164, 68, "테스트 목록", "목적·환경", "is-source", 1)}
+     ${node(834, 42, 164, 68, "이슈 추적기", "결정·조치", "is-evidence", 2)}
+     ${node(834, 166, 164, 68, "블록 맵", "영향 범위", "is-source", 2)}
+     ${node(834, 290, 164, 68, "책임자", "검토·승인", "is-outcome", 3)}
+     ${edge("M206 88 C320 88 344 167 417 185", "관찰", 315, 114, 4)}
+     ${edge("M206 312 C320 312 344 237 417 219", "맥락", 315, 292, 4)}
+     ${edge("M834 76 C720 76 694 167 623 185", "이력", 726, 112, 4)}
+     ${edge("M834 200 L623 200", "영향", 730, 188, 4)}
+     ${edge("M834 324 C720 324 694 237 623 219", "책임", 726, 292, 4)}
+     <g class="hub-caption" data-build="5"><text x="520" y="382" text-anchor="middle">목표는 자동 수정이 아니라 “무엇을 근거로 누가 판단했는가”를 다시 찾게 하는 것이다</text></g>`
+  );
+
+  const sourceRibbonCraft = () => svgFigure(
+    "source-ribbon",
+    "다섯 방법론의 강점이 CRAFT의 질문, 재사용, 구조, 형식화, 테스트 단계로 합류하는 근거 지도",
+    "0 0 1040 400",
+    `<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>
+     <g class="source-column" data-build="1">
+       <text x="34" y="36">SOURCE TRADITIONS</text>
+       <rect x="34" y="58" width="210" height="42"></rect><text x="50" y="84">Ontology 101 · 구축</text>
+       <rect x="34" y="112" width="210" height="42"></rect><text x="50" y="138">Grüninger & Fox · CQ</text>
+       <rect x="34" y="166" width="210" height="42"></rect><text x="50" y="192">METHONTOLOGY · 생명주기</text>
+       <rect x="34" y="220" width="210" height="42"></rect><text x="50" y="246">NeOn · 재사용</text>
+       <rect x="34" y="274" width="210" height="42"></rect><text x="50" y="300">OBO Foundry · 운영</text>
+     </g>
+     <g class="ribbon-lines" data-build="2"><path d="M244 79 C330 79 326 124 408 124"></path><path d="M244 133 C330 133 326 166 408 166"></path><path d="M244 187 L408 208"></path><path d="M244 241 C330 241 326 250 408 250"></path><path d="M244 295 C330 295 326 292 408 292"></path></g>
+     <g class="craft-band" data-build="3">
+       <text x="408" y="70">EDUCATIONAL SYNTHESIS · NOT A NEW STANDARD</text>
+       <rect x="408" y="94" width="112" height="220"></rect><text x="464" y="127" text-anchor="middle">C</text><text x="464" y="286" text-anchor="middle">질문</text>
+       <rect x="526" y="94" width="112" height="220"></rect><text x="582" y="127" text-anchor="middle">R</text><text x="582" y="286" text-anchor="middle">재사용</text>
+       <rect x="644" y="94" width="112" height="220"></rect><text x="700" y="127" text-anchor="middle">A</text><text x="700" y="286" text-anchor="middle">구조</text>
+       <rect x="762" y="94" width="112" height="220"></rect><text x="818" y="127" text-anchor="middle">F</text><text x="818" y="286" text-anchor="middle">형식화</text>
+       <rect x="880" y="94" width="112" height="220"></rect><text x="936" y="127" text-anchor="middle">T</text><text x="936" y="286" text-anchor="middle">테스트</text>
+     </g>
+     <g class="craft-feedback" data-build="4"><path d="M936 330 C866 382 500 382 464 330" marker-end="url(#arrow)"></path><text x="700" y="374" text-anchor="middle">운영 근거를 질문과 설계로 되돌린다</text></g>`
+  );
+
+  const ontologyElements = () => svgFigure(
+    "ontology-elements",
+    "TimeoutFailure 클래스와 failure-1042 개체가 type 관계로 연결되고, 근거 속성, 최소 개수 제약, 사람용 정의가 서로 다른 역할을 맡는다",
+    "0 0 1040 400",
+    `<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>
+     ${node(424, 40, 210, 78, "TimeoutFailure", "CLASS · 공통 경계", "is-class", 1)}
+     ${node(424, 276, 210, 78, "failure-1042", "INDIVIDUAL · 실제 사건", "is-core", 2)}
+     ${edge("M529 276 L529 118", "rdf:type", 573, 204, 2)}
+     ${node(60, 164, 214, 72, "hasEvidence", "PROPERTY · 자원 간 관계", "is-evidence", 3)}
+     ${edge("M424 315 C330 315 306 236 274 207", "근거 연결", 346, 277, 3)}
+     ${node(766, 92, 214, 72, "minCount 1", "CONSTRAINT · 입력 계약", "is-outcome", 4)}
+     ${edge("M634 78 C705 78 726 112 766 128", "검증 조건", 710, 91, 4)}
+     ${node(766, 250, 214, 72, "사람용 정의", "ANNOTATION · 합의 설명", "is-source", 5)}
+     ${edge("M634 315 C700 315 725 286 766 277", "설명", 706, 310, 5)}
+     <g class="element-legend" data-build="5"><text x="60" y="380">그래프 요소의 모양과 관계 이름이 역할을 구분한다 · 제약은 목적에 따라 OWL 또는 SHACL로 표현한다</text></g>`
+  );
+
+  const labelConvergence = () => svgFigure(
+    "label-convergence",
+    "timeout, TMO, 응답 시간 초과, legacy 17이라는 여러 표현이 검토를 거쳐 하나의 개념 IRI에 정렬되며 라벨과 식별자가 구분된다",
+    "0 0 1040 360",
+    `<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>
+     ${node(42, 38, 180, 60, "timeout", "SIM label", "is-source", 1)}
+     ${node(42, 112, 180, 60, "TMO", "log code", "is-source", 1)}
+     ${node(42, 186, 180, 60, "응답 시간 초과", "ko label", "is-source", 2)}
+     ${node(42, 260, 180, 60, "legacy:17", "local identifier", "is-source", 2)}
+     <g class="review-gate" data-build="3"><path d="M222 68 L420 154 M222 142 L420 166 M222 216 L420 178 M222 290 L420 190"></path><rect x="420" y="126" width="160" height="92" rx="46"></rect><text x="500" y="162" text-anchor="middle">정의·문맥</text><text x="500" y="188" text-anchor="middle">동일성 검토</text></g>
+     ${edge("M580 172 L732 172", "승인된 정렬", 656, 157, 4)}
+     ${node(732, 122, 250, 100, "ex:TimeoutFailure", "안정된 개념 IRI", "is-core", 4)}
+     <g class="label-rule" data-build="5"><text x="732" y="256">라벨은 바뀔 수 있다</text><text x="732" y="282">IRI는 연결 계약을 유지한다</text></g>`
+  );
+
+  const expressiveCostMap = () => svgFigure(
+    "expressive-cost",
+    "지식 구조 선택지를 표현력과 운영 비용의 두 축에 배치하고 목적을 만족하는 최소 수준을 선택하는 결정 지도",
+    "0 0 1040 390",
+    `<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>
+     <g class="decision-axis" data-build="1"><path d="M114 318 L114 54" marker-end="url(#arrow)"></path><path d="M114 318 L944 318" marker-end="url(#arrow)"></path><text x="46" y="68" transform="rotate(-90 46 68)">표현력</text><text x="932" y="354" text-anchor="end">운영 비용</text></g>
+     <g class="decision-zone" data-build="2"><path d="M130 300 C312 245 522 190 914 70"></path><text x="670" y="118">필요 이상으로 올라가지 않는다</text></g>
+     <g class="decision-point" data-build="2"><circle cx="238" cy="274" r="11"></circle><text x="238" y="248" text-anchor="middle">Glossary</text><text x="238" y="305" text-anchor="middle">용어 합의</text></g>
+     <g class="decision-point" data-build="3"><circle cx="418" cy="230" r="11"></circle><text x="418" y="204" text-anchor="middle">Taxonomy</text><text x="418" y="261" text-anchor="middle">탐색·분류</text></g>
+     <g class="decision-point" data-build="4"><circle cx="602" cy="174" r="11"></circle><text x="602" y="148" text-anchor="middle">Schema</text><text x="602" y="205" text-anchor="middle">구조·계약</text></g>
+     <g class="decision-point is-choice" data-build="5"><circle cx="818" cy="98" r="15"></circle><text x="818" y="67" text-anchor="middle">Ontology</text><text x="818" y="133" text-anchor="middle">형식 의미·추론</text></g>
+     <g class="decision-callout" data-build="6"><rect x="326" y="338" width="390" height="36"></rect><text x="521" y="362" text-anchor="middle">CQ · 검증 · 추론 요구가 선택 기준이다</text></g>`
+  );
+
+  const ontologyOverGraph = () => `
+    <figure class="visual visual-layer-map" role="img" aria-label="온톨로지 명세 레이어가 지식 그래프의 사실을 해석하고 검증하며 질의가 두 레이어를 함께 사용한다">
+      <div class="layer-query" data-build="1"><span>CQ</span><strong>같은 시그니처의 과거 실패와 근거는?</strong></div>
+      <div class="layer-band layer-ontology" data-build="2"><b>ONTOLOGY · 의미 명세</b><span>Class</span><span>Property</span><span>Axiom</span><span>Shape</span><small>그래프를 어떻게 읽고 검사할지 정의</small></div>
+      <div class="layer-link" data-build="3"><i></i><span>해석 · 추론 · 검증</span><i></i></div>
+      <div class="layer-band layer-data" data-build="4"><b>KNOWLEDGE GRAPH · 식별된 사실</b><span>failure-1042</span><span>run-88</span><span>log-77</span><span>component-DMA</span><small>실제 사건과 근거를 IRI로 연결</small></div>
+      <div class="layer-result" data-build="5"><span>RESULT</span><strong>failure-1021 → log-31 → issue-442</strong></div>
+      <figcaption class="sr-only">이 교안에서는 온톨로지를 의미 명세 레이어, 지식 그래프를 식별된 사실 레이어로 구분한다.</figcaption>
+    </figure>`;
+
+  const timeoutAssembly = () => `
+    <figure class="visual visual-assembly" role="img" aria-label="TimeoutFailure 예제에 상위 클래스, 관계, 근거 제약, 실제 개체, 정의, 역량 질문을 차례로 조립한 구조">
+      <div class="assembly-core" data-build="1"><span>CLASS</span><strong>TimeoutFailure</strong><small>⊑ TestFailure</small></div>
+      <div class="assembly-ring">
+        <div data-build="2"><b>RELATION</b><span>observedIn → TestRun</span></div>
+        <div data-build="3"><b>EVIDENCE</b><span>hasEvidence min 1</span></div>
+        <div data-build="4"><b>INSTANCE</b><span>failure-1042</span></div>
+        <div data-build="5"><b>DEFINITION</b><span>제한 시간 안에 완료되지 않은 관찰</span></div>
+      </div>
+      <div class="assembly-cq" data-build="6"><span>CQ</span><strong>같은 시그니처의 과거 실패는?</strong><i></i><b>모든 요소가 질문에 기여해야 한다</b></div>
+      <figcaption class="sr-only">구성요소가 독립적으로 존재하지 않고 하나의 역량 질문을 답하기 위해 연결된다.</figcaption>
+    </figure>`;
+
+  const standardStack = () => `
+    <figure class="visual visual-standard-stack" role="img" aria-label="RDF 표현에서 의미, 검증, 질의, 교환까지 각 표준이 서로 다른 질문을 맡는 다섯 층 구조">
+      <div class="stack-question" data-build="1"><span>질문</span><span>표준</span><span>산출물</span></div>
+      <div class="stack-row" data-build="2"><b>무엇을 연결할까?</b><strong>RDF</strong><span>트리플 · 그래프</span></div>
+      <div class="stack-row" data-build="3"><b>무엇을 뜻할까?</b><strong>RDFS · OWL · SKOS</strong><span>클래스 · 관계 · 공리 · 용어망</span></div>
+      <div class="stack-row" data-build="4"><b>계약을 지켰을까?</b><strong>SHACL</strong><span>검증 결과</span></div>
+      <div class="stack-row" data-build="5"><b>어떻게 찾을까?</b><strong>SPARQL</strong><span>그래프 패턴 · 결과 행</span></div>
+      <div class="stack-row" data-build="6"><b>어떻게 교환할까?</b><strong>Turtle · JSON-LD</strong><span>같은 그래프의 직렬화</span></div>
+      <figcaption class="sr-only">각 표준은 경쟁 관계가 아니라 표현, 의미, 검증, 질의, 교환 역할을 분담한다.</figcaption>
+    </figure>`;
+
+  const skosNetwork = () => svgFigure(
+    "skos-network",
+    "Timeout failure 선호 레이블을 중심으로 TMO 대체 레이블, Test failure 상위 개념, Hang 관련 개념, legacy 17 매핑이 구분된 SKOS 용어망",
+    "0 0 1040 390",
+    `<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>
+     ${node(405, 154, 230, 82, "Timeout failure", "skos:prefLabel", "is-core", 1)}
+     ${node(78, 52, 174, 68, "TMO", "skos:altLabel", "is-source", 2)}
+     ${edge("M252 86 C340 86 360 160 405 177", "label", 339, 116, 2)}
+     ${node(778, 42, 184, 68, "Test failure", "broader concept", "is-class", 3)}
+     ${edge("M635 176 C698 144 724 92 778 78", "skos:broader", 711, 128, 3)}
+     ${node(788, 272, 174, 68, "Hang", "related concept", "is-evidence", 4)}
+     ${edge("M635 214 C704 233 735 288 788 304", "skos:related", 716, 254, 4, "is-dashed")}
+     ${node(74, 270, 190, 68, "legacy:17", "external concept", "is-source", 5)}
+     ${edge("M264 304 C334 284 358 224 405 210", "skos:exactMatch?", 342, 259, 5, "is-dashed")}
+     <g class="skos-note" data-build="6"><text x="520" y="374" text-anchor="middle">broader는 용어 조직 관계다 · OWL subClassOf와 자동으로 같다고 해석하지 않는다</text></g>`
+  );
+
+  const serializationCompare = () => `
+    <figure class="visual visual-serialization" role="img" aria-label="하나의 RDF 그래프가 Turtle과 JSON-LD라는 서로 다른 직렬화 문법으로 표현되지만 같은 주어, 유형, 근거 관계를 보존하는 비교">
+      <div class="serialization-graph" data-build="1"><span>failure-1042</span><i>rdf:type</i><span>TimeoutFailure</span><i>hasEvidence</i><span>log-77</span></div>
+      <div class="serialization-code">
+        <pre data-build="2"><b>TURTLE</b><code><mark>ex:failure-1042</mark>
+  a ex:TimeoutFailure ;
+  ex:hasEvidence ex:log-77 .</code></pre>
+        <pre data-build="3"><b>JSON-LD</b><code>{ <mark>"@id": "ex:failure-1042"</mark>,
+  "@type": "ex:TimeoutFailure",
+  "ex:hasEvidence": {
+    "@id": "ex:log-77" } }</code></pre>
+      </div>
+      <div class="serialization-result" data-build="4"><span>같은 RDF 그래프</span><i></i><strong>문법은 달라도 식별자와 관계는 유지된다</strong></div>
+      <figcaption class="sr-only">JSON-LD context는 짧은 키를 IRI에 매핑하며 직렬화 차이가 데이터 모델 차이를 뜻하지 않는다.</figcaption>
+    </figure>`;
+
+  const visualMeta = {};
+  const assignMeta = (numbers, visualType, theme = "concept") => numbers.forEach(number => {
+    visualMeta[`slide-${String(number).padStart(2, "0")}`] = { visualType, theme, motion: "hybrid" };
+  });
+  assignMeta([1, 8, 16, 25, 37, 47, 61, 70], "section");
+  assignMeta([2, 3, 7, 9, 13, 18, 26, 28, 31, 38, 39, 41, 44, 45, 49, 50, 51, 52, 53, 54, 55, 57, 58, 59, 62, 63, 66, 68, 72], "process");
+  assignMeta([5, 6, 10, 11, 17, 22, 34, 35, 36, 40, 42, 46, 60, 74], "split");
+  assignMeta([4, 19, 20, 23, 24, 27, 30, 43, 47, 56, 64, 65, 69, 71, 73], "architecture");
+  assignMeta([12, 14, 21, 29], "matrix");
+  assignMeta([15, 48], "cycle", "governance");
+  assignMeta([32, 33, 66, 68], "code", "evidence");
+  assignMeta([56, 57, 58, 59, 60, 69, 71, 73, 74], "case", "evidence");
+  assignMeta([31, 67], "validation", "risk");
+  assignMeta([75], "workshop");
+  window.OntologyDeck.visualMeta = visualMeta;
+
   window.OntologyDeck.visuals = {
     semanticMap,
     methodMatrix,
@@ -163,6 +337,16 @@
     queryWalkthrough,
     craftLoop,
     validationPipeline,
-    workshopPrompt
+    workshopPrompt,
+    systemHub,
+    sourceRibbonCraft,
+    ontologyElements,
+    labelConvergence,
+    expressiveCostMap,
+    ontologyOverGraph,
+    timeoutAssembly,
+    standardStack,
+    skosNetwork,
+    serializationCompare
   };
 })();
