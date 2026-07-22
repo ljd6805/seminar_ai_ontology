@@ -47,6 +47,7 @@
   );
 
   const methodMatrix = () => {
+    const headers = ["방법론", "초점", "범위", "CQ", "모델", "운영", "평가", "가장 잘 쓰이는 순간"];
     const methods = [
       ["Ontology 101", "구축", "●", "", "●", "", "", "실용적인 첫 순서"],
       ["Grüninger & Fox", "질문", "", "●", "", "", "●", "질문으로 범위와 평가 연결"],
@@ -60,7 +61,7 @@
         <div class="method-matrix" data-build="1">
           <div class="matrix-row matrix-head"><span>방법론</span><span>초점</span><span>범위</span><span>CQ</span><span>모델</span><span>운영</span><span>평가</span><span>가장 잘 쓰이는 순간</span></div>
           ${methods.map((method, index) => `<div class="matrix-row" data-build="${index + 2}">
-            ${method.map((cell, cellIndex) => `<span class="${cell === "●" ? "has-strength" : ""}${cellIndex === 0 ? " method-name" : ""}">${cell || "—"}</span>`).join("")}
+            ${method.map((cell, cellIndex) => `<span data-label="${headers[cellIndex]}" class="${cell === "●" ? "has-strength" : ""}${cellIndex === 0 ? " method-name" : ""}">${cell || "—"}</span>`).join("")}
           </div>`).join("")}
         </div>
         <p class="matrix-conclusion" data-build="7"><b>선택의 결론</b> 하나를 고르는 문제가 아니라, 질문 → 구조 → 운영의 빈틈을 조합으로 메우는 문제다.</p>
@@ -317,7 +318,7 @@
   const fitPurpose = () => `
     <figure class="visual visual-fit-purpose" role="img" aria-label="우주 전체를 모델링하려는 넓은 경계에서 역량 질문에 필요한 작은 업무 경계만 잘라 내고 목적, 정합성, 운영 가능성으로 평가하는 그림">
       <div class="purpose-universe" data-build="1"><span>가능한 모든 개념</span><i>조직 · 시스템 · 로그 · 코드 · 사람 · 정책 · 원인 · 조치</i></div>
-      <div class="purpose-cut" data-build="2"><span>v0.1 업무 경계</span><strong>실패 → 실행 → 근거 → 이슈 → 책임자</strong><small>CQ가 요구하는 연결만 남긴다</small></div>
+      <div class="purpose-cut" data-build="2"><span>v0.1 업무 경계</span><strong>실패 → 실행 → 근거<br>이슈 → 책임자</strong><small>CQ가 요구하는 연결만 남긴다</small></div>
       <div class="purpose-measures">
         <div data-build="3"><b>목적</b><span>CQ에 답하는가</span></div>
         <div data-build="4"><b>정합성</b><span>모순 없이 설명되는가</span></div>
@@ -360,7 +361,7 @@
       <div class="canvas-field" data-build="2"><b>상황</b><span>새 회귀 실패의 초기 분석</span><small>언제 이 지식이 필요한가?</small></div>
       <div class="canvas-field" data-build="3"><b>결정</b><span>조사 우선순위와 담당 구성요소 후보</span><small>어떤 행동이 달라지는가?</small></div>
       <div class="canvas-field" data-build="4"><b>사용자</b><span>검증 엔지니어 · 구성요소 책임자</span><small>누가 답을 해석하고 승인하는가?</small></div>
-      <div class="canvas-field canvas-signal" data-build="5"><b>성공 신호 / 제약</b><span>근거 경로를 재현한다</span><small>사람 승인 · 보안 경계 · 과장 금지</small></div>
+      <div class="canvas-field canvas-signal" data-build="5"><b>성공 기준</b><span>근거 경로를 재현한다</span><small>사람 승인 · 보안 경계 · 과장 금지</small></div>
       <figcaption class="sr-only">컨텍스트 캔버스는 상황과 결정을 먼저 적어 기술 선택을 업무 목적에 묶는다.</figcaption>
     </figure>`;
 
