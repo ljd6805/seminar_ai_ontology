@@ -314,6 +314,236 @@
       <figcaption class="sr-only">JSON-LD context는 짧은 키를 IRI에 매핑하며 직렬화 차이가 데이터 모델 차이를 뜻하지 않는다.</figcaption>
     </figure>`;
 
+  const fitPurpose = () => `
+    <figure class="visual visual-fit-purpose" role="img" aria-label="우주 전체를 모델링하려는 넓은 경계에서 역량 질문에 필요한 작은 업무 경계만 잘라 내고 목적, 정합성, 운영 가능성으로 평가하는 그림">
+      <div class="purpose-universe" data-build="1"><span>가능한 모든 개념</span><i>조직 · 시스템 · 로그 · 코드 · 사람 · 정책 · 원인 · 조치</i></div>
+      <div class="purpose-cut" data-build="2"><span>v0.1 업무 경계</span><strong>실패 → 실행 → 근거 → 이슈 → 책임자</strong><small>CQ가 요구하는 연결만 남긴다</small></div>
+      <div class="purpose-measures">
+        <div data-build="3"><b>목적</b><span>CQ에 답하는가</span></div>
+        <div data-build="4"><b>정합성</b><span>모순 없이 설명되는가</span></div>
+        <div data-build="5"><b>운영</b><span>지속해서 돌볼 수 있는가</span></div>
+      </div>
+      <figcaption class="sr-only">좋은 온톨로지는 크기가 아니라 합의한 질문과 검증을 만족하는 최소 경계로 평가한다.</figcaption>
+    </figure>`;
+
+  const moduleArchitecture = () => svgFigure(
+    "module-architecture",
+    "공통 핵심 모듈에서 도메인 모듈, 애플리케이션 모듈로만 의존성이 흐르고 각 모듈의 변경 영향이 분리되는 구조",
+    "0 0 1040 390",
+    `<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>
+     ${node(70, 118, 236, 126, "CORE", "Entity · Event · Evidence · Agent", "is-core", 1)}
+     ${edge("M306 181 L402 181", "import", 354, 165, 2)}
+     ${node(402, 92, 260, 178, "DOMAIN", "Test · Run · Failure · Component", "is-class", 2)}
+     ${edge("M662 181 L758 181", "import", 710, 165, 3)}
+     ${node(758, 118, 236, 126, "APPLICATION", "Issue mapping · queue · UI view", "is-outcome", 3)}
+     <g class="module-contract" data-build="4"><line x1="70" y1="310" x2="994" y2="310"></line><text x="70" y="340">안정성 높음</text><text x="520" y="340" text-anchor="middle">도메인 변화</text><text x="994" y="340" text-anchor="end">사용처 변화 빠름</text></g>
+     <g class="module-rule" data-build="5"><text x="520" y="378" text-anchor="middle">의존성은 한 방향으로 · 애플리케이션 변경이 핵심 의미를 흔들지 않게 한다</text></g>`
+  );
+
+  const craftSynthesisMap = () => svgFigure(
+    "craft-synthesis",
+    "역량 질문, 생명주기, 재사용, 모듈, 운영 원칙의 다섯 근거가 CRAFT 다섯 단계에 연결되는 교육용 합성 지도",
+    "0 0 1040 400",
+    `<g class="synthesis-ring" data-build="1"><circle cx="520" cy="204" r="128"></circle><circle cx="520" cy="204" r="82"></circle><text x="520" y="193" text-anchor="middle">CRAFT</text><text x="520" y="222" text-anchor="middle">교육용 합성 프레임</text></g>
+     <g class="synthesis-stage" data-build="2"><circle cx="520" cy="52" r="29"></circle><text x="520" y="60" text-anchor="middle">C</text></g>
+     <g class="synthesis-stage" data-build="2"><circle cx="666" cy="156" r="29"></circle><text x="666" y="164" text-anchor="middle">R</text></g>
+     <g class="synthesis-stage" data-build="3"><circle cx="612" cy="326" r="29"></circle><text x="612" y="334" text-anchor="middle">A</text></g>
+     <g class="synthesis-stage" data-build="3"><circle cx="428" cy="326" r="29"></circle><text x="428" y="334" text-anchor="middle">F</text></g>
+     <g class="synthesis-stage" data-build="4"><circle cx="374" cy="156" r="29"></circle><text x="374" y="164" text-anchor="middle">T</text></g>
+     <g class="synthesis-sources" data-build="5"><text x="60" y="78">CQ METHOD</text><text x="60" y="144">METHONTOLOGY</text><text x="60" y="210">ONTOLOGY 101</text><text x="830" y="112">NeOn</text><text x="830" y="244">OBO FOUNDRY</text><path d="M164 74 L454 104 M182 140 L397 177 M172 206 L397 228 M830 108 L644 142 M830 240 L636 276"></path></g>
+     <g class="synthesis-disclaimer" data-build="6"><text x="520" y="390" text-anchor="middle">독립 학술 표준이 아니라 검증된 활동을 실무 학습 순서로 묶은 기억 장치다</text></g>`
+  );
+
+  const contextCanvas = () => `
+    <figure class="visual visual-context-canvas" role="img" aria-label="업무 상황, 결정, 사용자, 성공 신호와 제약을 한 화면에서 채우는 CRAFT Context 캔버스">
+      <div class="canvas-title" data-build="1"><span>C · CONTEXT</span><strong>기술보다 먼저 업무 결정을 고정한다</strong></div>
+      <div class="canvas-field" data-build="2"><b>상황</b><span>새 회귀 실패의 초기 분석</span><small>언제 이 지식이 필요한가?</small></div>
+      <div class="canvas-field" data-build="3"><b>결정</b><span>조사 우선순위와 담당 구성요소 후보</span><small>어떤 행동이 달라지는가?</small></div>
+      <div class="canvas-field" data-build="4"><b>사용자</b><span>검증 엔지니어 · 구성요소 책임자</span><small>누가 답을 해석하고 승인하는가?</small></div>
+      <div class="canvas-field canvas-signal" data-build="5"><b>성공 신호 / 제약</b><span>근거 경로를 재현한다</span><small>사람 승인 · 보안 경계 · 과장 금지</small></div>
+      <figcaption class="sr-only">컨텍스트 캔버스는 상황과 결정을 먼저 적어 기술 선택을 업무 목적에 묶는다.</figcaption>
+    </figure>`;
+
+  const requirementSheet = () => `
+    <figure class="visual visual-requirement-sheet" role="img" aria-label="요구사항을 범위, 품질, 비기능, 운영의 네 구역으로 정리한 시트">
+      <div class="requirement-head" data-build="1"><span>R · REQUIREMENTS</span><b>완료 조건은 기능 밖에도 있다</b></div>
+      <div class="requirement-row" data-build="2"><span>01 · 범위</span><strong>포함과 제외</strong><p>실패 유형 · 원천 · 기간 · 사용 결정</p><i>무엇을 다루지 않는지도 적는다</i></div>
+      <div class="requirement-row" data-build="3"><span>02 · 품질</span><strong>정확성·완전성</strong><p>필수 근거 · 허용 코드 · 중복 식별</p><i>검증 가능한 계약으로 바꾼다</i></div>
+      <div class="requirement-row" data-build="4"><span>03 · 비기능</span><strong>성능·권한·보안</strong><p>질의 지연 · 접근 통제 · 민감 로그</p><i>소비 환경의 제약을 포함한다</i></div>
+      <div class="requirement-row" data-build="5"><span>04 · 운영</span><strong>갱신·버전·책임</strong><p>원천 주기 · 배포 주기 · 지원 책임</p><i>지속 가능성을 완료 조건에 넣는다</i></div>
+      <figcaption class="sr-only">역량 질문만으로 빠질 수 있는 품질, 보안, 운영 요구를 별도 구역으로 명시한다.</figcaption>
+    </figure>`;
+
+  const reuseDecisionMap = () => `
+    <figure class="visual visual-reuse-decision" role="img" aria-label="기존 자원의 의미 적합성과 운영 적합성을 평가해 채택, 매핑, 확장, 제외를 결정하는 지도">
+      <div class="reuse-axis" data-build="1"><span>의미가 맞는가?</span><span>운영 정책이 맞는가?</span><strong>결정</strong></div>
+      <div class="reuse-row" data-build="2"><i>높음</i><i>높음</i><b>채택</b><p>그대로 사용하고 버전을 고정한다</p></div>
+      <div class="reuse-row" data-build="3"><i>부분</i><i>높음</i><b>매핑</b><p>로컬 개념과의 관계를 명시한다</p></div>
+      <div class="reuse-row" data-build="4"><i>핵심 일치</i><i>확장 가능</i><b>확장</b><p>외부 핵심 위에 도메인 모듈을 더한다</p></div>
+      <div class="reuse-row" data-build="5"><i>낮음</i><i>불안정</i><b>제외</b><p>권리·품질·변경 위험과 함께 기록한다</p></div>
+      <div class="reuse-note" data-build="6">복사 여부가 아니라 <strong>어떤 관계와 책임으로 연결할지</strong>를 결정한다</div>
+      <figcaption class="sr-only">재사용 결정은 기존 용어를 복사하는 작업이 아니라 의미와 운영 적합성을 평가하는 과정이다.</figcaption>
+    </figure>`;
+
+  const architectureBlueprint = () => `
+    <figure class="visual visual-blueprint" role="img" aria-label="핵심 의미 모델 위에 식별자, 모듈, 출처, 책임자 정책을 동시에 겹쳐 설계한 운영 아키텍처 청사진">
+      <div class="blueprint-core" data-build="1"><span>MEANING CORE</span><strong>Failure · Run · Evidence · Component</strong><small>논리 모델</small></div>
+      <div class="blueprint-overlay overlay-identity" data-build="2"><b>IDENTITY</b><span>namespace · local ID · deprecation</span></div>
+      <div class="blueprint-overlay overlay-module" data-build="3"><b>MODULE</b><span>core → domain → application</span></div>
+      <div class="blueprint-overlay overlay-trace" data-build="4"><b>TRACE</b><span>entity · activity · agent · time</span></div>
+      <div class="blueprint-overlay overlay-govern" data-build="5"><b>GOVERN</b><span>definition · form · data · consumer</span></div>
+      <div class="blueprint-rule" data-build="6">릴리스 직전에 붙이는 운영 문서가 아니라 <strong>처음부터 모델의 일부</strong>다</div>
+      <figcaption class="sr-only">식별자, 모듈, 출처, 책임을 논리 모델과 같은 시점에 설계해야 배포 직전의 구조 변경을 줄일 수 있다.</figcaption>
+    </figure>`;
+
+  const artifactConstellation = () => svgFigure(
+    "artifact-constellation",
+    "ex Failure 식별자를 중심으로 온톨로지, 매핑, 예제 데이터, SHACL 검증 규칙 네 산출물이 서로 연결되어 함께 개발되는 구조",
+    "0 0 1040 390",
+    `<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>
+     ${node(412, 146, 216, 96, "ex:Failure", "공유 식별자", "is-core", 1)}
+     ${node(58, 42, 216, 74, "ontology.ttl", "class · property · axiom", "is-class", 2)}
+     ${edge("M274 79 C362 79 365 157 412 178", "정의", 350, 111, 2)}
+     ${node(766, 42, 216, 74, "mapping.csv", "source field → IRI", "is-source", 3)}
+     ${edge("M766 79 C678 79 675 157 628 178", "정렬", 690, 111, 3)}
+     ${node(58, 274, 216, 74, "fixtures.ttl", "작은 실제 예제", "is-evidence", 4)}
+     ${edge("M274 311 C362 311 365 231 412 210", "연결", 350, 281, 4)}
+     ${node(766, 274, 216, 74, "shapes.ttl", "입력 데이터 계약", "is-outcome", 5)}
+     ${edge("M766 311 C678 311 675 231 628 210", "검증", 690, 281, 5)}
+     <g class="artifact-rule" data-build="6"><text x="520" y="378" text-anchor="middle">네 산출물은 같은 식별자와 예제에서 함께 깨지고 함께 고쳐진다</text></g>`
+  );
+
+  const testMatrix = () => `
+    <figure class="visual visual-test-matrix" role="img" aria-label="역량 질문 유형별로 SPARQL 질의, 추론기, SHACL 검증을 선택하고 예상 결과와 실패 피드백을 연결한 테스트 행렬">
+      <div class="test-head" data-build="1"><span>질문</span><span>SPARQL</span><span>추론기</span><span>SHACL</span><span>실패가 가리키는 곳</span></div>
+      <div class="test-row" data-build="2"><b>같은 시그니처를 찾을 수 있는가</b><i>●</i><i>—</i><i>—</i><span>매핑·식별자·예제 데이터</span></div>
+      <div class="test-row" data-build="3"><b>하위 유형이 상위 질의에 포함되는가</b><i>●</i><i>●</i><i>—</i><span>계층·공리·추론 설정</span></div>
+      <div class="test-row" data-build="4"><b>근거가 없는 분류를 막는가</b><i>—</i><i>—</i><i>●</i><span>shape·입력 데이터·범위</span></div>
+      <div class="test-result" data-build="5"><span>모든 질문에 세 도구를 쓰지 않는다</span><strong>CQ의 실패 의미에 맞는 테스트만 고른다</strong></div>
+      <figcaption class="sr-only">테스트 실패는 어떤 설계 가정을 다시 확인해야 하는지 알려 주는 피드백이다.</figcaption>
+    </figure>`;
+
+  const sourceInventory = () => `
+    <figure class="visual visual-source-inventory" role="img" aria-label="다섯 원천의 핵심 필드, 신뢰 성격, 갱신 주기와 채택 결정을 한 표에서 비교한 목록">
+      <div class="inventory-head" data-build="1"><span>원천</span><span>핵심 필드</span><span>신뢰 성격</span><span>갱신</span><span>결정</span></div>
+      <div class="inventory-row" data-build="2"><b>SIM LOG</b><span>signature · excerpt</span><i>원시 관찰</i><span>실행마다</span><strong>채택</strong></div>
+      <div class="inventory-row" data-build="3"><b>TEST DB</b><span>test · suite · owner</span><i>관리 스키마</i><span>배포마다</span><strong>매핑</strong></div>
+      <div class="inventory-row" data-build="4"><b>ISSUE</b><span>ticket · state · ref</span><i>사람 판단</i><span>사건마다</span><strong>연결</strong></div>
+      <div class="inventory-row" data-build="5"><b>REGRESSION</b><span>run · date · config</span><i>실행 메타데이터</i><span>실행마다</span><strong>채택</strong></div>
+      <div class="inventory-row" data-build="6"><b>ORG</b><span>component · owner</span><i>책임 매핑</i><span>조직 변경</span><strong>참조</strong></div>
+      <figcaption class="sr-only">원천마다 사실의 종류와 신뢰 수준이 다르므로 하나의 진실 테이블로 평평하게 합치지 않는다.</figcaption>
+    </figure>`;
+
+  const conceptModel = () => svgFigure(
+    "concept-model",
+    "TestFailure를 중심으로 TestCase, RegressionRun, Evidence, Issue, IPBlock, Engineer가 관계 이름과 방향으로 연결된 최소 개념 모델",
+    "0 0 1040 410",
+    `<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>
+     ${node(410, 160, 220, 90, "TestFailure", "분석의 중심 사건", "is-core", 1)}
+     ${node(54, 48, 190, 70, "TestCase", "무엇을 시험했나", "is-class", 2)}
+     ${edge("M244 83 C344 83 359 165 410 185", "failureOf", 342, 117, 2)}
+     ${node(54, 290, 190, 70, "RegressionRun", "언제 관찰했나", "is-source", 2)}
+     ${edge("M244 325 C344 325 359 245 410 225", "observedIn", 342, 294, 2)}
+     ${node(784, 36, 194, 70, "Evidence", "무엇이 뒷받침하나", "is-evidence", 3)}
+     ${edge("M630 183 C700 152 731 84 784 71", "hasEvidence", 716, 132, 3)}
+     ${node(784, 126, 194, 70, "Issue", "어떤 판단과 연결됐나", "is-evidence", 3)}
+     ${edge("M630 202 L784 161", "relatedIssue", 706, 173, 3)}
+     ${node(784, 216, 194, 70, "IPBlock", "어디에 영향이 있나", "is-outcome", 4)}
+     ${edge("M630 222 L784 251", "affects", 705, 226, 4)}
+     ${node(784, 306, 194, 70, "Engineer", "누가 승인하나", "is-outcome", 5)}
+     ${edge("M881 306 L881 286", "ownedBy", 930, 299, 5)}
+     <g class="concept-note" data-build="6"><text x="520" y="397" text-anchor="middle">CQ가 요구하지 않는 LogLine · Commit · Configuration은 v0.2 후보로 남긴다</text></g>`
+  );
+
+  const taxonomyRelations = () => `
+    <figure class="visual visual-taxonomy-relations" role="img" aria-label="왼쪽에는 TestFailure의 실패 종류 계층, 오른쪽에는 실패 사건이 실행, 근거, 이슈, 구성요소, 책임자와 맺는 관계를 분리한 화면">
+      <div class="taxonomy-pane" data-build="1"><span>IS-A · 종류를 묻는다</span><strong>TestFailure</strong><i></i><div><b>TimeoutFailure</b><b>AssertionFailure</b><b>BuildFailure</b><b>EnvironmentFailure</b></div></div>
+      <div class="relation-pane" data-build="2"><span>EDGE · 사건의 연결을 묻는다</span><strong>failure-1042</strong><div><b>observedIn</b><em>run-88</em></div><div><b>hasEvidence</b><em>log-77</em></div><div><b>relatedIssue</b><em>issue-431</em></div><div><b>affects / ownedBy</b><em>DMA / engineer</em></div></div>
+      <div class="taxonomy-rule" data-build="3"><span>문장 검사</span><strong>“모든 A는 B다”면 계층 후보</strong><i></i><b>관찰 위치를 원인으로 과장하지 않는다</b></div>
+      <figcaption class="sr-only">분류 계층과 사건 관계를 분리하면 질문에서 필요한 탐색 경로가 선명해진다.</figcaption>
+    </figure>`;
+
+  const turtleWalkthrough = () => `
+    <figure class="visual visual-turtle-walkthrough" role="img" aria-label="개념 다이어그램의 클래스, 상위 관계, 정의, 개체, 시그니처, 근거, 영향 관계가 각각 Turtle 코드 줄과 대응하는 워크스루">
+      <div class="ttl-map" data-build="1"><div><span>CLASS</span><b>TimeoutFailure</b></div><div><span>INSTANCE</span><b>failure_1021</b></div><div><span>EVIDENCE</span><b>evidence_1021</b></div></div>
+      <pre class="ttl-code" data-build="2"><code><mark>ex:TimeoutFailure a owl:Class</mark> ;
+  <mark>rdfs:subClassOf ex:TestFailure</mark> ;
+  rdfs:comment "시간 제한 안에 종료되지 않은 실패"@ko .
+
+<mark>ex:failure_1021 a ex:TimeoutFailure</mark> ;
+  ex:hasSignature "AXI_BURST_STALL" ;
+  <mark>ex:hasEvidence ex:evidence_1021</mark> ;
+  ex:affects ex:DMA .</code></pre>
+      <div class="ttl-sync" data-build="3"><span>다이어그램 요소</span><i></i><strong>Turtle 문장</strong><i></i><span>검토 가능한 diff</span></div>
+      <figcaption class="sr-only">Turtle 텍스트는 합의한 모델을 줄 단위 변경 이력과 코드 리뷰 대상으로 만든다.</figcaption>
+    </figure>`;
+
+  const similarFailureQuery = () => `
+    <figure class="visual visual-similar-query" role="img" aria-label="같은 시그니처의 과거 실패를 묻는 질문이 SPARQL 경로 패턴과 두 사건의 결과 표로 변환되는 예시">
+      <div class="similar-question" data-build="1"><span>CQ 1</span><strong>AXI_BURST_STALL과 같은 시그니처의 과거 실패는?</strong></div>
+      <div class="similar-main">
+        <pre data-build="2"><code><span class="code-kw">SELECT</span> ?failure ?run ?issue
+<span class="code-kw">WHERE</span> {
+  ?failure rdf:type/rdfs:subClassOf* ex:TestFailure ;
+           <mark>ex:hasSignature "AXI_BURST_STALL"</mark> ;
+           ex:observedIn ?run .
+  OPTIONAL { ?failure ex:relatedIssue ?issue }
+}</code></pre>
+        <div data-build="3"><span>2 MATCHES</span><p><b>failure_1021</b><i>nightly run</i><strong>JIRA_431</strong></p><p><b>failure_0978</b><i>prior run</i><strong>JIRA_431</strong></p></div>
+      </div>
+      <div class="similar-result" data-build="4">공통 이슈까지 이어지는 <strong>근거 경로</strong>가 답이다</div>
+      <figcaption class="sr-only">예상 결과는 실패, 실행, 이슈의 세 열이며 저장소의 실행 가능한 질의와 연결된다.</figcaption>
+    </figure>`;
+
+  const evidenceApprovalPath = () => `
+    <figure class="visual visual-approval-path" role="img" aria-label="에이전트가 질문을 개념에 연결하고 근거를 수집해 관찰, 추론, 미확인을 구분한 요약을 만들며 정책 검증 뒤 사람이 최종 승인하는 경로">
+      <div class="approval-step" data-build="1"><span>01 · 연결</span><strong>질문 → 개념</strong><small>시그니처·실패·구성요소 IRI</small></div>
+      <div class="approval-step" data-build="2"><span>02 · 수집</span><strong>근거 경로</strong><small>로그·실행·이슈·출처 이력</small></div>
+      <div class="approval-step" data-build="3"><span>03 · 요약</span><strong>가설 + 신뢰도</strong><small>관찰 · 추론 · 미확인 분리</small></div>
+      <div class="approval-step approval-gate" data-build="4"><span>04 · 관문</span><strong>규칙 + 권한</strong><small>필수 근거와 정책 검사</small></div>
+      <div class="approval-step approval-human" data-build="5"><span>05 · 승인</span><strong>사람의 결정</strong><small>책임자가 분석 상태를 변경</small></div>
+      <div class="approval-rule" data-build="6"><span>자동 효과 보장 없음</span><i></i><strong>재현 가능한 근거와 명시적인 책임 경계</strong></div>
+      <figcaption class="sr-only">온톨로지는 AI 정확도를 보장하지 않고 근거 재현성과 사람 승인 경계를 지원한다.</figcaption>
+    </figure>`;
+
+  const ontologyDecision = () => `
+    <figure class="visual visual-ontology-decision" role="img" aria-label="시스템 수, 관계 복잡도, 추론과 검증 요구, 의미 변화율의 네 축을 보고 단순 코드표와 온톨로지 사이를 선택하는 결정 화면">
+      <div class="decision-title" data-build="1"><span>비용보다 의미 복잡도가 큰가?</span><strong>네 축을 함께 본다</strong></div>
+      <div class="decision-scale" data-build="2"><b>시스템 수</b><i style="--score:.78"></i><span>여러 시스템</span></div>
+      <div class="decision-scale" data-build="3"><b>관계 복잡도</b><i style="--score:.86"></i><span>다중 경로</span></div>
+      <div class="decision-scale" data-build="4"><b>추론·검증</b><i style="--score:.72"></i><span>둘 다 필요</span></div>
+      <div class="decision-scale" data-build="5"><b>변화율</b><i style="--score:.65"></i><span>장기 진화</span></div>
+      <div class="decision-options" data-build="6"><span>코드표·스키마</span><i></i><strong>온톨로지 검토</strong><small>합의 · 모델링 · 도구 · 거버넌스 비용을 함께 지불한다</small></div>
+      <figcaption class="sr-only">단순한 문제에는 코드표나 스키마가 더 좋은 선택일 수 있으며 온톨로지를 사용하지 않는 결정도 정당하다.</figcaption>
+    </figure>`;
+
+  const geneOntologyLayers = () => `
+    <figure class="visual visual-go-layers" role="img" aria-label="Gene Ontology의 개념 명세 레이어와 유전자 산물 annotation 레이어가 GO ID와 근거 코드를 통해 연결되고 운영 과정이 두 레이어를 갱신하는 구조">
+      <div class="go-layer go-ontology" data-build="1"><span>ONTOLOGY LAYER</span><strong>GO: ID · 정의 · 관계</strong><small>개념 명세와 지속적 유지</small></div>
+      <div class="go-link" data-build="2"><i></i><span>GO ID + relation + reference + evidence code</span><i></i></div>
+      <div class="go-layer go-annotation" data-build="3"><span>ANNOTATION LAYER</span><strong>Gene product → GO concept</strong><small>관찰 주석과 근거</small></div>
+      <div class="go-operation" data-build="4"><b>정의 검토</b><b>annotation 품질</b><b>버전 배포</b><b>공동체 운영</b></div>
+      <div class="go-conclusion" data-build="5">개념과 관찰은 분리하되 <strong>식별자와 근거로 연결</strong>한다</div>
+      <figcaption class="sr-only">공식 GO 문서에서 장기 식별, 정의, annotation evidence, 공동체 운영 패턴을 학습한다.</figcaption>
+    </figure>`;
+
+  const fiboIntegration = () => svgFigure(
+    "fibo-integration",
+    "스프레드시트, 관계형 데이터베이스, XML 메시지의 서로 다른 금융 표현이 FIBO 공통 개념 레이어에 정렬되고 업무 규칙이 그 의미를 사용한다",
+    "0 0 1040 390",
+    `<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>
+     ${node(54, 38, 210, 70, "Spreadsheet", "local columns", "is-source", 1)}
+     ${node(54, 158, 210, 70, "Relational DB", "tables · keys", "is-source", 1)}
+     ${node(54, 278, 210, 70, "XML message", "exchange fields", "is-source", 1)}
+     ${edge("M264 73 C370 73 380 148 428 171", "map", 358, 104, 2)}
+     ${edge("M264 193 L428 193", "map", 346, 177, 2)}
+     ${edge("M264 313 C370 313 380 238 428 215", "map", 358, 286, 2)}
+     ${node(428, 132, 252, 122, "FIBO concept layer", "공통 정의 · 관계 · 공리", "is-core", 3)}
+     ${edge("M680 193 L782 193", "shared meaning", 731, 177, 4)}
+     ${node(782, 132, 210, 122, "Business rules", "규제 · 보고 · 분석", "is-outcome", 4)}
+     <g class="fibo-rule" data-build="5"><text x="520" y="374" text-anchor="middle">형식 통합보다 먼저 복잡한 금융 개념의 해석 기준을 공유한다</text></g>`
+  );
+
   const visualMeta = {};
   const assignMeta = (numbers, visualType, theme = "concept") => numbers.forEach(number => {
     visualMeta[`slide-${String(number).padStart(2, "0")}`] = { visualType, theme, motion: "hybrid" };
@@ -325,7 +555,7 @@
   assignMeta([12, 14, 21, 29], "matrix");
   assignMeta([15, 48], "cycle", "governance");
   assignMeta([32, 33, 66, 68], "code", "evidence");
-  assignMeta([56, 57, 58, 59, 60, 69, 71, 73, 74], "case", "evidence");
+  assignMeta([71], "case", "evidence");
   assignMeta([31, 67], "validation", "risk");
   assignMeta([75], "workshop");
   window.OntologyDeck.visualMeta = visualMeta;
@@ -347,6 +577,24 @@
     timeoutAssembly,
     standardStack,
     skosNetwork,
-    serializationCompare
+    serializationCompare,
+    fitPurpose,
+    moduleArchitecture,
+    craftSynthesisMap,
+    contextCanvas,
+    requirementSheet,
+    reuseDecisionMap,
+    architectureBlueprint,
+    artifactConstellation,
+    testMatrix,
+    sourceInventory,
+    conceptModel,
+    taxonomyRelations,
+    turtleWalkthrough,
+    similarFailureQuery,
+    evidenceApprovalPath,
+    ontologyDecision,
+    geneOntologyLayers,
+    fiboIntegration
   };
 })();

@@ -102,6 +102,44 @@ class DesignV3Test(unittest.TestCase):
         self.assertIn('.step:not([data-build])', script)
         self.assertIn("item.dataset.build", script)
 
+    def test_visual_registry_covers_all_75_slides(self):
+        visuals = (V2 / "visuals.js").read_text(encoding="utf-8")
+        assigned = set()
+        for group in re.findall(r"assignMeta\(\[([^\]]+)\]", visuals):
+            assigned.update(int(value) for value in re.findall(r"\d+", group))
+        self.assertEqual(assigned, set(range(1, 76)))
+
+    def test_final_deck_limits_card_grids_and_removes_decorative_graphs(self):
+        modules = [path.read_text(encoding="utf-8") for path in sorted(CONTENT.glob("slides-*.js"))]
+        text = "\n".join(modules)
+        self.assertLessEqual(len(re.findall(r'class="grid-[23]"', text)), 10)
+        self.assertNotIn('class="graph"', text)
+        self.assertNotIn('class="panel step"', text)
+
+    def test_late_modules_use_case_specific_visuals(self):
+        text = "\n".join(
+            path.read_text(encoding="utf-8")
+            for path in (CONTENT / "slides-38-59.js", CONTENT / "slides-60-75.js")
+        )
+        for token in (
+            "moduleArchitecture",
+            "craftSynthesisMap",
+            "architectureBlueprint",
+            "artifactConstellation",
+            "testMatrix",
+            "sourceInventory",
+            "conceptModel",
+            "taxonomyRelations",
+            "turtleWalkthrough",
+            "similarFailureQuery",
+            "evidenceApprovalPath",
+            "ontologyDecision",
+            "geneOntologyLayers",
+            "fiboIntegration",
+        ):
+            with self.subTest(token=token):
+                self.assertIn(token, text)
+
 
 if __name__ == "__main__":
     unittest.main()
