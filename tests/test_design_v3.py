@@ -44,6 +44,8 @@ class DesignV3Test(unittest.TestCase):
         styles = (V2 / "deck.css").read_text(encoding="utf-8")
         mobile = styles.split("@media (max-width: 760px)", 1)[1]
         self.assertIn(".deck { width: 100%;", mobile)
+        self.assertIn("min-width: 0; max-width: 100vw", mobile)
+        self.assertIn(".slide-head, .slide-body, .visual { min-width: 0; max-width: 100%; }", mobile)
         self.assertIn(".method-matrix { display: grid;", mobile)
         self.assertNotIn(".matrix-row { min-width: 760px;", mobile)
 
@@ -106,7 +108,7 @@ class DesignV3Test(unittest.TestCase):
         html = (V2 / "index.html").read_text(encoding="utf-8")
         versioned_assets = re.findall(r'(?:href|src)="(?:deck\.css|visuals\.js|content/slides-[^"]+\.js|deck\.js)\?v=(\d+)"', html)
         self.assertEqual(len(versioned_assets), 6)
-        self.assertEqual(set(versioned_assets), {"4"})
+        self.assertEqual(set(versioned_assets), {"5"})
 
     def test_foundation_module_uses_editorial_builds_and_unique_visuals(self):
         foundation = (CONTENT / "slides-01-37.js").read_text(encoding="utf-8")
