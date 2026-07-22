@@ -14,9 +14,13 @@ window.OntologyDeck.register([
     plainTitle: "온톨로지 기반 지식관리 방법론",
     section: "01 · 문제와 학습 계약",
     eyebrow: "FROM TERMS TO TRUSTED KNOWLEDGE",
+    visualType: "hero",
+    theme: "concept",
+    motion: "hybrid",
+    ariaSummary: "흩어진 용어와 데이터, 규칙, 근거를 공유 의미로 연결해 검증 가능한 지식으로 만드는 과정의 표지",
     title: "온톨로지 기반<br><span class=\"accent\">지식관리 방법론</span>",
     lead: "의미를 어떻게 코드처럼 설계하고, 테스트하고, 버전 관리할까?",
-    body: `<div class="graph step" style="--step:1" aria-label="흩어진 지식이 의미 그래프로 연결되는 모습"><span class="node core">공유 의미</span><span class="node">용어</span><span class="node">데이터</span><span class="node">규칙</span><span class="node">근거</span></div>`,
+    body: window.OntologyDeck.visuals.semanticMap(),
     sources: ["P01 · 과정 시놉시스"],
     note: "이 과정은 철학사 강의가 아니라 기술 실무자가 작은 온톨로지를 운영 가능한 산출물로 만드는 방법을 다룹니다."
   },
@@ -169,16 +173,13 @@ window.OntologyDeck.register([
     id: "slide-14",
     plainTitle: "주요 방법론은 서로 다른 과제를 보완한다",
     section: "02 · 방법론의 탄생",
+    visualType: "matrix",
+    theme: "governance",
+    motion: "hybrid",
+    ariaSummary: "다섯 온톨로지 방법론의 주된 강점을 범위, 역량 질문, 모델링, 운영, 평가 관점으로 비교한 행렬",
     title: "주요 방법론은<br><span class=\"accent\">서로 다른 과제</span>를 보완한다",
     lead: "하나를 승자로 고르기보다 각 전통의 강점을 구분해 사용한다.",
-    body: `<div class="grid-3">
-      ${card("ONTOLOGY 101", "실용적 구축 순서", "범위·재사용·용어·클래스·속성·개체", 1)}
-      ${card("GRÜNINGER & FOX", "역량 질문", "동기 시나리오를 요구사항과 평가로 연결", 2)}
-      ${card("METHONTOLOGY", "생명주기", "활동·산출물·평가·문서화", 3)}
-      ${card("NeOn", "재사용 시나리오", "온톨로지·비온톨로지 자원·패턴·네트워크", 4)}
-      ${card("OBO FOUNDRY", "운영 원칙", "IRI·정의·관계·버전·책임·변경", 5)}
-      ${card("SYNTHESIS", "상호 보완", "질문에서 운영까지 하나의 반복 순환", 6)}
-    </div>`,
+    body: window.OntologyDeck.visuals.methodMatrix(),
     sources: ["M03", "M04", "M05", "M06", "M07"],
     note: "비교는 강점 중심의 교육적 요약입니다. 각 방법론의 전체 범위를 순위화하거나 동일한 것으로 취급하지 않습니다."
   },
@@ -325,9 +326,13 @@ window.OntologyDeck.register([
     id: "slide-27",
     plainTitle: "공유 식별자가 트리플을 그래프로 연결한다",
     section: "04 · 표준 스택",
+    visualType: "architecture",
+    theme: "concept",
+    motion: "hybrid",
+    ariaSummary: "하나의 실패 IRI가 유형, 테스트 실행, 로그 근거, 영향받은 구성요소를 방향과 관계 이름이 있는 RDF 그래프로 연결하는 예시",
     title: "공유 식별자가 트리플을<br><span class=\"violet\">그래프로 연결</span>한다",
     lead: "같은 식별자가 여러 사실의 접점이 되면서 질의로 연결할 수 있는 지식 구조가 생긴다.",
-    body: `<div class="graph" aria-label="세 RDF triple이 공유 노드로 연결"><span class="node core step" style="--step:1">failure-1042</span><span class="node step" style="--step:2">TimeoutFailure</span><span class="node step" style="--step:3">run-88</span><span class="node step" style="--step:4">log-77</span><span class="node step" style="--step:5">component-DMA</span></div>`,
+    body: window.OntologyDeck.visuals.identityGraph(),
     sources: ["S01 · RDF 1.1 Concepts"],
     note: "연결성은 단순 시각화가 아니라 동일 IRI를 통해 graph pattern을 매칭하는 계산 기반입니다."
   },
@@ -377,18 +382,13 @@ window.OntologyDeck.register([
     id: "slide-32",
     plainTitle: "SPARQL은 그래프 패턴으로 질문한다",
     section: "04 · 표준 스택",
+    visualType: "code",
+    theme: "evidence",
+    motion: "hybrid",
+    ariaSummary: "역량 질문의 명사와 관계가 SPARQL 그래프 패턴으로 바뀌고 두 개의 결과 행으로 반환되는 코드 워크스루",
     title: "SPARQL은<br><span class=\"accent\">그래프 패턴</span>으로 질문한다",
     lead: "CQ: ‘같은 시그니처의 과거 타임아웃 실패와 담당 구성요소는?’",
-    body: `<div class="comparison">
-      <pre class="panel step" style="--step:1;white-space:pre-wrap;color:var(--muted)"><code>SELECT ?failure ?component
-WHERE {
-  ?failure a ex:TimeoutFailure ;
-           ex:hasSignature ?sig ;
-           ex:affects ?component .
-  FILTER(?sig = "TMO-DMA-42")
-}</code></pre>
-      ${card("EXPECTED BINDINGS", "질문의 답 형태", "failure-1021 → DMA · failure-0978 → DMA", 2)}
-    </div>`,
+    body: window.OntologyDeck.visuals.queryWalkthrough(),
     sources: ["S07 · SPARQL 1.1 Query"],
     note: "SELECT 외에도 CONSTRUCT, ASK, DESCRIBE 형식이 있습니다. 이 교안은 CQ의 예상 답 형태를 먼저 정합니다."
   },

@@ -94,8 +94,12 @@ window.OntologyDeck.register([
     id: "slide-67",
     plainTitle: "SHACL 검증은 근거 없는 분류를 차단한다",
     section: "07 · 반도체 관통 예제",
+    visualType: "validation",
+    theme: "risk",
+    motion: "hybrid",
+    ariaSummary: "근거가 누락되고 점수 범위를 벗어난 실패 데이터가 SHACL에서 두 위반을 낸 뒤 수정되어 적합 판정을 받는 검증 파이프라인",
     title: "SHACL 검증은 근거 없는<br><span class=\"danger\">분류를 차단한다</span>",
-    body: lane([["INVALID", "invalid_failure", "hasEvidence 없음 · 점수 1.4"], ["VALIDATE", "FailureShape", "최소 개수·클래스·자료형·범위"], ["RESULT", "위반 2건", "누락 경로와 허용 범위 메시지"], ["FIX", "근거·점수 보완", "적합 판정 뒤 적재"]], 4),
+    body: window.OntologyDeck.visuals.validationPipeline(),
     sources: ["S06 · SHACL", "P03 · SHACL shapes"],
     note: "invalid fixture는 학습을 위해 의도적으로 실패하도록 만들었습니다. 자동 분류라고 이름 붙인 data의 최소 계약을 검사합니다."
   },
@@ -184,13 +188,13 @@ WHERE {
     id: "slide-75",
     plainTitle: "첫 CQ에서 온톨로지 v0.1이 시작된다",
     section: "08 · 사례·선택·행동",
+    visualType: "workshop",
+    theme: "concept",
+    motion: "hybrid",
+    ariaSummary: "첫 온톨로지 버전을 시작하기 위해 답해야 할 질문, 제외 범위, 정의와 배포의 책임자를 한 문장씩 작성하는 워크시트",
     title: "첫 CQ에서<br><span class=\"accent\">온톨로지 v0.1</span>이 시작된다",
     lead: "세 문장을 적으면 오늘 바로 작은 설계를 시작할 수 있다.",
-    body: `<div class="grid-3">
-      ${card("1 · 질문", "우리가 답해야 할 질문", "________________________________", 1)}
-      ${card("2 · 제외 범위", "이번 버전에서 하지 않을 것", "________________________________", 2)}
-      ${card("3 · 책임자", "정의와 배포를 승인할 사람", "________________________________", 3)}
-    </div><p class="quote step" style="--step:4;margin:24px auto 0">의미를 코드처럼 관리하라.</p>`,
+    body: window.OntologyDeck.visuals.workshopPrompt(),
     sources: ["M05 · Grüninger & Fox", "P01 · 교육 설계"],
     note: "마지막 화면을 worksheet로 사용합니다. 한 use case, CQ 2–4개, 명확한 제외 범위, owner 한 명으로 시작합니다."
   }
