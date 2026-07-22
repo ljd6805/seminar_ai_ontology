@@ -9,6 +9,19 @@ CONTENT = V2 / "content"
 
 
 class DesignV3Test(unittest.TestCase):
+    @staticmethod
+    def contrast_ratio(foreground, background):
+        def luminance(value):
+            channels = [int(value[index:index + 2], 16) / 255 for index in (1, 3, 5)]
+            linear = [
+                channel / 12.92 if channel <= 0.04045 else ((channel + 0.055) / 1.055) ** 2.4
+                for channel in channels
+            ]
+            return 0.2126 * linear[0] + 0.7152 * linear[1] + 0.0722 * linear[2]
+
+        lighter, darker = sorted((luminance(foreground), luminance(background)), reverse=True)
+        return (lighter + 0.05) / (darker + 0.05)
+
     def test_design_system_uses_widescreen_editorial_tokens(self):
         styles = (V2 / "deck.css").read_text(encoding="utf-8")
         for token in (
@@ -26,6 +39,20 @@ class DesignV3Test(unittest.TestCase):
             with self.subTest(token=token):
                 self.assertIn(token, styles)
         self.assertNotIn("backdrop-filter: blur(16px)", styles)
+
+    def test_mobile_layout_has_no_forced_horizontal_canvas(self):
+        styles = (V2 / "deck.css").read_text(encoding="utf-8")
+        mobile = styles.split("@media (max-width: 760px)", 1)[1]
+        self.assertIn(".deck { width: 100%;", mobile)
+        self.assertIn(".method-matrix { display: grid;", mobile)
+        self.assertNotIn(".matrix-row { min-width: 760px;", mobile)
+
+    def test_text_and_semantic_colors_meet_wcag_contrast(self):
+        styles = (V2 / "deck.css").read_text(encoding="utf-8")
+        colors = dict(re.findall(r"--([\w-]+):\s*(#[0-9a-fA-F]{6})", styles))
+        for token in ("ink", "muted", "dim", "concept", "evidence", "constraint", "risk", "governance"):
+            with self.subTest(token=token):
+                self.assertGreaterEqual(self.contrast_ratio(colors[token], colors["surface"]), 4.5)
 
     def test_engine_supports_hybrid_build_navigation(self):
         script = (V2 / "deck.js").read_text(encoding="utf-8")

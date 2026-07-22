@@ -4,6 +4,7 @@
 
 ## 바로 보기
 
+- [GitHub Pages에서 바로 보기](https://ljd6805.github.io/seminar_ai_ontology/slides/)
 - [슬라이드 보기](slides/)
 - [발표 모드](slides/?mode=presentation) — 본편 중심, READ/APPENDIX 제외
 - [인쇄/전체 펼침](slides/?print=1)
@@ -19,6 +20,7 @@
 |---|---|
 | [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 세미나 목표, 청자, 핵심 메시지, 구성 |
 | [docs/course-design.md](docs/course-design.md) | 75장 학습 설계, CRAFT 통합 근거, 학습 확인 |
+| [docs/design-system.md](docs/design-system.md) | v3 엔지니어링 에디토리얼 디자인·모션·접근성 규칙 |
 | [docs/seminar-page-list.md](docs/seminar-page-list.md) | 75장 슬라이드별 목표·근거·시각 계획 |
 | [docs/source-matrix.md](docs/source-matrix.md) | 주장 상태, 적용 슬라이드, 출처와 사용 경계 |
 | [docs/speaker-notes.md](docs/speaker-notes.md) | 발표자 노트와 진행 팁 |
@@ -36,7 +38,7 @@
 - **학습 방식**: 자율학습 중심, 발표 시 약 90~120분
 - **핵심 메시지**: *Ontology는 의미를 코드처럼 관리하는 방법이다.*
 - **관통 시나리오**: Regression failure triage 지식관리 — timeout/assertion/build/environment 실패를 ontology로 구조화하고 SHACL/SPARQL/RAG에 연결
-- **자료 형태**: 외부 의존 없는 정적 HTML, 키보드 네비게이션, 최초 1회 자동 스태거와 다시 재생, 오버뷰, 발표자 노트, `?mode=presentation`, `?print=1` 지원; PDF는 필요할 때 브라우저에서 직접 저장
+- **자료 형태**: 정적 HTML, 키보드 단계 공개, 오버뷰, 발표자 노트, `?mode=presentation`, `?motion=off` 지원; PDF 산출은 이번 작업에서 제외
 
 ## 전체 흐름
 

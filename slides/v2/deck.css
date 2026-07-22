@@ -19,7 +19,7 @@
   --canvas-ratio: 16 / 9;
   --ink: #f5f7fb;
   --muted: #aeb7c4;
-  --dim: #758090;
+  --dim: #8490a0;
   --night: #080b10;
   --night-2: #0d1118;
   --surface: #111720;
@@ -666,8 +666,8 @@ dialog::backdrop { background: rgba(2, 4, 7, .82); }
 }
 
 @media (max-width: 760px) {
-  body { overflow: auto; }
-  .deck { height: auto; min-height: 100vh; grid-template-rows: 48px 1fr; }
+  body { overflow-x: hidden; overflow-y: auto; }
+  .deck { width: 100%; height: auto; min-height: 100vh; grid-template-rows: 48px 1fr; }
   .deck-chrome { position: sticky; top: 0; padding: 0 14px; }
   .brand { max-width: 48vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .deck-meta { gap: 10px; font-size: 9px; }
@@ -702,8 +702,15 @@ dialog::backdrop { background: rgba(2, 4, 7, .82); }
   .process-step { min-height: 112px; border-right: 0; border-bottom: 1px solid var(--line); }
   .process-step::after { display: none; }
   .visual-semantic-map, .visual-identity-graph, .visual-craft-loop, .visual-system-hub, .visual-source-ribbon, .visual-ontology-elements, .visual-label-convergence, .visual-expressive-cost, .visual-skos-network, .visual-module-architecture, .visual-craft-synthesis, .visual-artifact-constellation, .visual-concept-model, .visual-fibo-integration { width: 100%; height: auto; min-height: 220px; overflow: hidden; }
-  .method-matrix { overflow-x: auto; }
-  .matrix-row { min-width: 760px; }
+  .method-matrix { display: grid; gap: 12px; border: 0; overflow: visible; }
+  .matrix-row { grid-template-columns: repeat(5, minmax(0, 1fr)); min-width: 0; padding: 12px; border: 1px solid var(--line-strong); }
+  .matrix-row.matrix-head { display: none; }
+  .matrix-row > span { min-width: 0; padding: 6px 3px; border: 0; }
+  .matrix-row > span::before { display: block; margin-bottom: 4px; color: var(--dim); content: attr(data-label); font: 700 7px/1.2 var(--font-code); letter-spacing: .04em; }
+  .matrix-row .method-name { grid-column: 1 / 4; justify-content: flex-start; font-size: 12px; }
+  .matrix-row > span:nth-child(2) { grid-column: 4 / 6; justify-content: flex-end; color: var(--accent); font-weight: 700; text-align: right; }
+  .matrix-row > span:nth-child(n+3):nth-child(-n+7) { flex-direction: column; border-top: 1px solid var(--line); }
+  .matrix-row > span:last-child { grid-column: 1 / -1; justify-content: flex-start; border-top: 1px solid var(--line); text-align: left; }
   .query-grid { display: block; }
   .code-window { border-right: 0; border-bottom: 1px solid var(--line-strong); font-size: 10px; }
   .validation-rail { grid-template-columns: 1fr; }

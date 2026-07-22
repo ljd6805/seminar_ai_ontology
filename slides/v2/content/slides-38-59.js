@@ -16,8 +16,8 @@ window.OntologyDeck.register([
     title: "v0.1은 무엇을 넣을지보다<br><span class=\"amber\">무엇을 뺄지</span>가 중요하다",
     lead: "작은 업무 경계 밖의 질문을 명시하면 모델이 우주 전체로 팽창하는 것을 막는다.",
     body: `<div class="comparison">
-      ${card("IN · v0.1", "포함", "실패 시그니처, 테스트 실행, 근거, 관련 이슈, 구성요소 책임자", 1)}
-      ${card("OUT · LATER", "제외", "근본 원인 자동 확정, 수정 코드 추천, 조직 성과 평가, 모든 로그 유형", 2)}
+      ${card("이번 범위 · v0.1", "포함", "실패 시그니처, 테스트 실행, 근거, 관련 이슈, 구성요소 책임자", 1)}
+      ${card("다음 범위", "제외", "근본 원인 자동 확정, 수정 코드 추천, 조직 성과 평가, 모든 로그 유형", 2)}
     </div><p class="lead step" style="--step:3;margin-top:24px">제외는 포기가 아니라 <strong class="accent">다음 버전의 작업 목록</strong>이다.</p>`,
     sources: ["M03 · Ontology 101", "M04 · METHONTOLOGY", "M07 · OBO Foundry"],
     note: "범위는 도메인 명사 목록보다 CQ와 사용 결정을 기준으로 자릅니다."
@@ -39,8 +39,8 @@ window.OntologyDeck.register([
     section: "05 · 구성 원리",
     title: "IRI는 이름표가 아니라<br><span class=\"accent\">장기 식별 계약</span>이다",
     body: `<div class="comparison">
-      ${card("STABLE", "보존하는 것", "네임스페이스와 로컬 ID: https://example.org/onto/Failure_00042", 1)}
-      ${card("EVOLVING", "바꿀 수 있는 것", "선호 라벨: timeout → 시간 제한 초과 / 정의와 주석의 개선", 2)}
+      ${card("보존", "식별자는 유지한다", "네임스페이스와 로컬 ID: https://example.org/onto/Failure_00042", 1)}
+      ${card("변경 가능", "표현은 다듬는다", "선호 라벨: timeout → 시간 제한 초과 / 정의와 주석의 개선", 2)}
     </div><div class="conclusion-strip" data-build="3"><span>식별자가 지켜야 할 약속</span><strong>라벨이 바뀌어도 연결은 유지하고, 폐기할 개념에는 대체 개념과 변경 이유를 남긴다.</strong></div>`,
     sources: ["M07 · OBO Foundry", "S01 · RDF", "S10 · Data on the Web"],
     note: "HTTP IRI 설계와 해석 가능성 정책은 조직 환경에 맞게 결정하되 한 번 공개한 식별자를 함부로 재사용하지 않습니다."
@@ -52,10 +52,10 @@ window.OntologyDeck.register([
     title: "정의에는<br><span class=\"accent\">경계·예·반례·출처</span>가 필요하다",
     lead: "‘타임아웃 실패는 타임아웃이 난 실패’ 같은 순환 정의를 업무에서 판단할 수 있는 정의로 바꾼다.",
     body: `<div class="grid-2">
-      ${card("BOUNDARY", "상위 개념 + 구별 조건", "TestFailure 중 실행 제한 시간 안에 종료 조건을 충족하지 못한 사건", 1)}
-      ${card("EXAMPLE", "포함 예", "감시 제한 300초를 넘겨 실행이 중단됨", 2)}
-      ${card("COUNTEREXAMPLE", "제외 예", "라이선스 대기 중 CI 작업 자체가 취소됨", 3)}
-      ${card("SOURCE", "근거와 책임", "정책 문서·로그 필드·도메인 책임자·변경 날짜", 4)}
+      ${card("경계", "상위 개념 + 구별 조건", "TestFailure 중 실행 제한 시간 안에 종료 조건을 충족하지 못한 사건", 1)}
+      ${card("포함 예", "정의에 들어오는 사건", "감시 제한 300초를 넘겨 실행이 중단됨", 2)}
+      ${card("제외 예", "정의에서 벗어나는 사건", "라이선스 대기 중 CI 작업 자체가 취소됨", 3)}
+      ${card("근거", "출처와 책임", "정책 문서·로그 필드·도메인 책임자·변경 날짜", 4)}
     </div>`,
     sources: ["M02 · Gruber 1995", "M07 · OBO Foundry", "C01 · Gene Ontology"],
     note: "텍스트 정의는 사람 합의의 핵심 인터페이스입니다. 형식 공리와 모순되지 않는지 함께 검토합니다."
@@ -97,10 +97,10 @@ window.OntologyDeck.register([
     section: "05 · 구성 원리",
     title: "책임자와 변경 절차가 없으면<br>모델은 곧 <span class=\"danger\">낡는다</span>",
     body: `<div class="grid-2">
-      ${card("DOMAIN OWNER", "의미 승인", "정의·경계·업무 영향에 최종 책임", 1)}
-      ${card("ONTOLOGY ENGINEER", "형식 설계", "IRI·공리·모듈·추론 품질", 2)}
-      ${card("DATA STEWARD", "연결·품질", "매핑·개체·SHACL·갱신 주기", 3)}
-      ${card("CONSUMER", "사용 검증", "질의·API·에이전트 관점의 CQ와 회귀 테스트", 4)}
+      ${card("도메인 책임자", "의미 승인", "정의·경계·업무 영향에 최종 책임", 1)}
+      ${card("온톨로지 엔지니어", "형식 설계", "IRI·공리·모듈·추론 품질", 2)}
+      ${card("데이터 관리자", "연결·품질", "매핑·개체·SHACL·갱신 주기", 3)}
+      ${card("사용자", "사용 검증", "질의·API·에이전트 관점의 CQ와 회귀 테스트", 4)}
     </div>`,
     sources: ["M07 · OBO Foundry", "C01 · Gene Ontology", "C04 · Schema.org governance"],
     note: "한 사람이 여러 역할을 맡아도 역할별 결정 책임은 명시합니다. 변경 요청→영향 분석→검증→승인→배포 흐름을 둡니다."

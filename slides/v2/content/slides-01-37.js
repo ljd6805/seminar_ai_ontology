@@ -61,9 +61,9 @@ window.OntologyDeck.register([
     title: "같은 <code>timeout</code>도 팀마다<br><span class=\"amber\">뜻이 다르다</span>",
     lead: "라벨을 통일하는 것만으로는 개념이 같아지지 않는다.",
     body: `<div class="grid-3">
-      ${card("SIM", "응답 없음", "테스트가 제한 시간 안에 완료되지 않은 관찰 사건", 1)}
-      ${card("BUILD", "작업 중단", "CI 작업이 실행 한도를 초과해 종료된 상태", 2)}
-      ${card("ENV", "자원 대기", "라이선스·장비·큐 대기가 임계치를 넘은 상황", 3)}
+      ${card("시뮬레이션", "응답 없음", "테스트가 제한 시간 안에 완료되지 않은 관찰 사건", 1)}
+      ${card("빌드", "작업 중단", "CI 작업이 실행 한도를 초과해 종료된 상태", 2)}
+      ${card("환경", "자원 대기", "라이선스·장비·큐 대기가 임계치를 넘은 상황", 3)}
     </div><p class="lead step" style="--step:4;margin-top:26px">해결 순서: <strong>표기 통합</strong>이 아니라 <strong class="accent">경계·조건·관계 합의</strong></p>`,
     sources: ["M03 · Ontology 101", "P04 · 교육용 시나리오"],
     note: "동의어와 동음이의어를 구분합니다. 문자열 정규화 전에 개념 경계를 합의해야 합니다."
@@ -205,8 +205,8 @@ window.OntologyDeck.register([
     title: "온톨로지는 합의한 개념 체계를<br><span class=\"violet\">명시적으로 적은 것</span>이다",
     lead: "Gruber의 고전적 정의를 실무 언어로 번역하면 ‘업무 세계를 보는 합의된 관점을 명시적으로 적은 것’이다.",
     body: `<div class="comparison">
-      ${card("CONCEPTUALIZATION", "머릿속 관점", "어떤 대상과 관계를 중요하게 보는가", 1)}
-      ${card("EXPLICIT SPECIFICATION", "공유 가능한 명세", "식별자·정의·관계·공리·주석으로 밖에 드러낸다", 2)}
+      ${card("개념화", "머릿속 관점", "어떤 대상과 관계를 중요하게 보는가", 1)}
+      ${card("명시적 명세", "공유 가능한 표현", "식별자·정의·관계·공리·주석으로 밖에 드러낸다", 2)}
     </div>`,
     sources: ["M01 · Gruber 1993"],
     note: "짧게 의역했으며 원문의 전체 문맥은 참고 링크에서 확인할 수 있습니다."
