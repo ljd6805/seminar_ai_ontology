@@ -61,7 +61,7 @@ class DeckEngineTest(unittest.TestCase):
 
     def test_engine_loads_a_registered_dataset(self):
         html = (V2 / "index.html").read_text(encoding="utf-8")
-        modules = re.findall(r'<script defer src="(content/[^"]+\.js)">', html)
+        modules = re.findall(r'<script defer src="(content/[^"]+\.js)(?:\?v=\d+)?">', html)
         self.assertTrue(modules)
         for module in modules:
             with self.subTest(module=module):
@@ -70,7 +70,7 @@ class DeckEngineTest(unittest.TestCase):
 
     def test_design_system_documents_reference_deck_traits(self):
         design = (ROOT / "docs" / "design-system.md").read_text(encoding="utf-8")
-        for trait in ("16:10", "시스템 폰트 대체 체계", "자동 스태거", "오버뷰", "발표 모드"):
+        for trait in ("16:9", "시스템 폰트 대체 체계", "하이브리드 단계 공개", "오버뷰", "발표 모드"):
             with self.subTest(trait=trait):
                 self.assertIn(trait, design)
 

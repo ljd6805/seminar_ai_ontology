@@ -27,7 +27,7 @@ class LifecycleContentTest(unittest.TestCase):
         html = (ROOT / "slides" / "v2" / "index.html").read_text(encoding="utf-8")
         first = html.index('content/slides-01-37.js')
         second = html.index('content/slides-38-59.js')
-        engine = html.index('src="deck.js"')
+        engine = html.index('src="deck.js')
         self.assertLess(first, second)
         self.assertLess(second, engine)
 
