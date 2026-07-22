@@ -102,6 +102,12 @@ class DesignV3Test(unittest.TestCase):
             with self.subTest(token=token):
                 self.assertIn(token, visuals)
 
+    def test_v3_assets_share_the_latest_cache_key(self):
+        html = (V2 / "index.html").read_text(encoding="utf-8")
+        versioned_assets = re.findall(r'(?:href|src)="(?:deck\.css|visuals\.js|content/slides-[^"]+\.js|deck\.js)\?v=(\d+)"', html)
+        self.assertEqual(len(versioned_assets), 6)
+        self.assertEqual(set(versioned_assets), {"4"})
+
     def test_foundation_module_uses_editorial_builds_and_unique_visuals(self):
         foundation = (CONTENT / "slides-01-37.js").read_text(encoding="utf-8")
         visuals = (V2 / "visuals.js").read_text(encoding="utf-8")
