@@ -7,12 +7,16 @@
   const motionOff = params.get("motion") === "off";
   const reduceMotion = motionOff || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const allSlides = window.OntologyDeck.slides;
-  const slides = (presentationMode ? allSlides.filter(slide => slide.mode !== "appendix") : allSlides).map(slide => ({
-    ...slide,
-    visualType: slide.visualType || "statement",
-    motion: slide.motion || "hybrid",
-    ariaSummary: slide.ariaSummary || slide.plainTitle || slide.title.replace(/<[^>]+>/g, "")
-  }));
+  const slides = (presentationMode ? allSlides.filter(slide => slide.mode !== "appendix") : allSlides).map(slide => {
+    const meta = window.OntologyDeck.visualMeta?.[slide.id] || {};
+    return {
+      ...meta,
+      ...slide,
+      visualType: slide.visualType || meta.visualType || "statement",
+      motion: slide.motion || meta.motion || "hybrid",
+      ariaSummary: slide.ariaSummary || meta.ariaSummary || slide.plainTitle || slide.title.replace(/<[^>]+>/g, "")
+    };
+  });
 
   const stage = document.querySelector("#slide-stage");
   const overview = document.querySelector("#overview-dialog");
@@ -76,6 +80,11 @@
           ${sourceMarkup(slide)}
         </section>`;
     }).join("");
+    stage.querySelectorAll(".slide").forEach(slideElement => {
+      [...slideElement.querySelectorAll(".step:not([data-build])")].forEach((item, itemIndex) => {
+        item.dataset.build = item.style.getPropertyValue("--step") || String(itemIndex + 1);
+      });
+    });
     overviewList.innerHTML = slides.map((slide, index) => `
       <li><button type="button" data-slide-target="${index}"><small>${String(index + 1).padStart(2, "0")} · ${escapeHtml(slide.section)}</small>${escapeHtml(slide.plainTitle || slide.title.replace(/<[^>]+>/g, ""))}</button></li>`).join("");
     totalNumber.textContent = String(slides.length);

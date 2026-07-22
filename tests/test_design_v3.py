@@ -75,6 +75,33 @@ class DesignV3Test(unittest.TestCase):
             with self.subTest(token=token):
                 self.assertIn(token, visuals)
 
+    def test_foundation_module_uses_editorial_builds_and_unique_visuals(self):
+        foundation = (CONTENT / "slides-01-37.js").read_text(encoding="utf-8")
+        visuals = (V2 / "visuals.js").read_text(encoding="utf-8")
+        self.assertIn('class="editorial-item" data-build=', foundation)
+        self.assertIn('class="process-step" data-build=', foundation)
+        self.assertNotIn('class="graph"', foundation)
+        for token in (
+            "systemHub",
+            "sourceRibbonCraft",
+            "ontologyElements",
+            "labelConvergence",
+            "expressiveCostMap",
+            "ontologyOverGraph",
+            "timeoutAssembly",
+            "standardStack",
+            "skosNetwork",
+            "serializationCompare",
+        ):
+            with self.subTest(token=token):
+                self.assertIn(token, foundation)
+                self.assertIn(token, visuals)
+
+    def test_engine_promotes_legacy_steps_to_manual_builds(self):
+        script = (V2 / "deck.js").read_text(encoding="utf-8")
+        self.assertIn('.step:not([data-build])', script)
+        self.assertIn("item.dataset.build", script)
+
 
 if __name__ == "__main__":
     unittest.main()
