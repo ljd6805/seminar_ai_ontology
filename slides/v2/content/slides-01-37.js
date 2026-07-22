@@ -77,7 +77,7 @@ window.OntologyDeck.register([
     body: `<div class="comparison">
       ${card("데이터에 보임", "CSV에 저장된 값", "failure_type=TMO · owner=DV · severity=2", 1)}
       ${card("판단에 필요", "값 밖의 의미", "TMO의 정의, 분류 근거, 책임자의 담당 범위, 심각도 산정 규칙", 2)}
-    </div><div class="panel step" style="--step:3;margin-top:22px"><h3>의미 레이어의 질문</h3><p>이 값은 <strong>무엇을 뜻하고</strong>, 무엇과 <strong>어떻게 연결되며</strong>, 어느 근거로 <strong>유효한가</strong>?</p></div>`,
+    </div><div class="conclusion-strip" data-build="3"><span>의미 레이어가 답해야 할 질문</span><strong>이 값은 무엇을 뜻하고, 무엇과 어떻게 연결되며, 어떤 근거로 유효한가?</strong></div>`,
     sources: ["M03 · Ontology 101", "P04 · 교육용 시나리오"],
     note: "데이터베이스 스키마가 나쁘다는 뜻이 아닙니다. 숨은 업무 의미를 공유하고 이식해야 할 때 보완 레이어가 필요하다는 뜻입니다."
   },
@@ -429,7 +429,7 @@ window.OntologyDeck.register([
     eyebrow: "FIT FOR PURPOSE",
     title: "좋은 온톨로지는 크기가 아니라<br><span class=\"accent\">목적 적합성</span>으로 판단한다",
     lead: "세계를 다 담으려 하지 말고, 합의한 질문과 검증을 만족하는 최소 경계를 만든다.",
-    body: `<div class="panel step" style="--step:1;text-align:center;padding:42px"><p class="quote">필요한 구분은 명확하게, 불필요한 약속은 최소로.</p></div><div class="grid-3" style="margin-top:22px">${card("PURPOSE", "CQ에 답하는가", "사용 결정과 연결", 2)}${card("COHERENCE", "모순 없이 설명되는가", "정의와 공리 검토", 3)}${card("OPERABILITY", "지속해서 돌볼 수 있는가", "책임자·버전·테스트", 4)}</div>`,
+    body: window.OntologyDeck.visuals.fitPurpose(),
     sources: ["M02 · Gruber 1995", "M03 · Ontology 101"],
     note: "다음 장부터 이 원칙을 CQ, 범위, 재사용, 식별자, 정의, 모듈, provenance, 공리, governance로 구체화합니다."
   }
